@@ -1,0 +1,22 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+}
+
+.gradient-border {
+  background: linear-gradient(to right, #aba9bf, #3924f5, #aba9bf, #dc0cc8);
+  padding: 4px;
+  display: inline-block;
+}
+
+.bg-image {
+  background-image: url('./assets/HomeImages/hero1.png'),
+    url('./assets/HomeImages/hero2.png');
+  background-position: 180px 0px, 105px 55px;
+  background-repeat: no-repeat, no-repeat;
+}
