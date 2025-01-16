@@ -20,3 +20,27 @@ body {
   background-position: 180px 0px, 105px 55px;
   background-repeat: no-repeat, no-repeat;
 }
+
+.bg-person2 {
+  background-image: url('./assets/HomeImages/TwoPerson.png');
+  background-position: 45px 50px;
+  background-repeat: no-repeat;
+}
+
+.bg-person3 {
+  background-image: url('./assets/HomeImages/ThreePerson.png');
+  background-position: 20px 50px;
+  background-repeat: no-repeat;
+}
+
+.gradient-circle {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: conic-gradient(white, black);
+  box-sizing: border-box;
+}
+
+.hexagon {
+  clip-path: polygon(50% 0, 100% 20%, 100% 80%, 50% 100%, 0 80%, 0 20%);
+}
