@@ -5,6 +5,8 @@ import { IoCopy, IoPersonCircleSharp, IoSettingsSharp } from 'react-icons/io5';
 import Cards from '../Components/Home/Cards';
 import Cup from '../Components/Home/Cup';
 import Program from '../Components/Home/Program';
+import ComingSoon from '../Components/Home/ComingSoon';
+import Members from '../Components/Home/Members';
 
 const Home = () => {
   const [showDetails, setShowDetails] = useState(false);
@@ -95,6 +97,8 @@ const Home = () => {
         <Cards />
         <Cup />
         <Program />
+        <ComingSoon />
+        <Members />
       </div>
     </>
   );

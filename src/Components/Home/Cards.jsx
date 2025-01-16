@@ -29,7 +29,7 @@ const Cards = () => {
         </div>
       </div>
 
-      <div className='w-full h-full mt-4 pb-3 flex justify-between gap-4'>
+      <div className='w-full h-full mt-4 pb-3 flex justify-between gap-2'>
         <div className='bg-Background px-2 py-3 w-1/2 rounded-lg bg-person2'>
           <p className='text-textColor2 font-sans text-base flex gap-2 items-center'>
             Partners
