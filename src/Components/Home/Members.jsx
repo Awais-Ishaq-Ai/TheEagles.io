@@ -19,7 +19,7 @@ const Members = () => {
           </p>
         </div>
         <div className='bg-Background w-1/2 rounded-lg'>
-          <div className='border-b px-2 py-3'>
+          <div className='border-b border-textColor2 px-2 py-3'>
             <h5 className='text-textColor2 flex items-center text-sm gap-1'>
               Members Recieved
               <span>

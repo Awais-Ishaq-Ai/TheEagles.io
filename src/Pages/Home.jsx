@@ -7,9 +7,11 @@ import Cup from '../Components/Home/Cup';
 import Program from '../Components/Home/Program';
 import ComingSoon from '../Components/Home/ComingSoon';
 import Members from '../Components/Home/Members';
+import Contract from '../Components/Home/Contract';
+import History from '../Components/Home/History';
 
 const Home = () => {
-  const [showDetails, setShowDetails] = useState(false);
+  const [showDetails, setShowDetails] = useState(true);
 
   const handleCopy = (textToCopy) => {
     navigator.clipboard
@@ -99,6 +101,8 @@ const Home = () => {
         <Program />
         <ComingSoon />
         <Members />
+        <Contract />
+        <History />
       </div>
     </>
   );
