@@ -8,6 +8,7 @@ export default {
         textColor: '#503ef3',
         textColor2: '#a1a1a1',
         textColor3: 'white',
+        landingtext: '#da4922',
       },
     },
   },

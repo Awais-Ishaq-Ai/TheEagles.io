@@ -9,9 +9,11 @@ import ComingSoon from '../Components/Home/ComingSoon';
 import Members from '../Components/Home/Members';
 import Contract from '../Components/Home/Contract';
 import History from '../Components/Home/History';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const [showDetails, setShowDetails] = useState(true);
+  const navigate = useNavigate();
 
   const handleCopy = (textToCopy) => {
     navigator.clipboard
@@ -55,7 +57,10 @@ const Home = () => {
               </div>
             </div>
             <div>
-              <IoSettingsSharp className='text-textColor3 text-3xl mt-1' />
+              <IoSettingsSharp
+                className='text-textColor3 text-3xl mt-1'
+                onClick={() => navigate('/profile')}
+              />
             </div>
           </div>
           {showDetails && (
