@@ -20,6 +20,8 @@ body {
   background-position: 180px 0px, 105px 55px;
   background-repeat: no-repeat, no-repeat;
 }
+<<<<<<< HEAD
+=======
 
 .bg-person2 {
   background-image: url('./assets/HomeImages/TwoPerson.png');
@@ -44,3 +46,4 @@ body {
 .hexagon {
   clip-path: polygon(50% 0, 100% 20%, 100% 80%, 50% 100%, 0 80%, 0 20%);
 }
+>>>>>>> 9f682a0730b8fcaac9723c7293e0bd785a0d62c4

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { GoArrowUpRight } from 'react-icons/go';
 import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io';
 import { IoCopy, IoPersonCircleSharp, IoSettingsSharp } from 'react-icons/io5';
@@ -101,6 +100,32 @@ const Home = () => {
           </div>
         </div>
 
+        <div className='bg-Background w-full h-full bg-image rounded-lg px-2 mt-4 pb-3'>
+          <div className='h-full w-full py-3'>
+            <p className='text-textColor2 font-sans text-xs flex gap-2 items-center'>
+              Profits{' '}
+              <span className='bg-[#5c5c5c] rounded-full p-1'>
+                <BsShare className='text-textColor3' />
+              </span>
+            </p>
+          </div>
+          <div className='flex justify-between'>
+            <div className='text-textColor3'>
+              <p>0 BUSD</p>
+              <p>0 BNB</p>
+            </div>
+            <div className='text-textColor3'>
+              <p className='flex items-center gap-1'>
+                <GoArrowUp />0
+              </p>
+              <p className='flex items-center gap-1'>
+                <GoArrowUp />0
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className='bg-Background w-full h-full bg-image rounded-lg px-2 mt-4 pb-3'></div>
         <Cards />
         <Cup />
         <Program />
