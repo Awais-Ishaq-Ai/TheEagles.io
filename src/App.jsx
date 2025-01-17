@@ -5,6 +5,7 @@ import Footer from './Components/Footer/Footer';
 import Home from './Pages/Home';
 import Profile from './Pages/Profile';
 import Landingpage from './Pages/Landingpage';
+import Levelx3 from './Pages/Levelx3';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/landingpage' element={<Landingpage />} />
+        <Route path='/lvlx3' element={<Levelx3 />} />
       </Routes>
       <Footer />
     </Router>
