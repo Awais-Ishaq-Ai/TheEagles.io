@@ -1,4 +1,5 @@
 import { useState } from 'react';
+<<<<<<< HEAD
 import { BsShare } from 'react-icons/bs';
 import { GoArrowUp, GoArrowUpRight } from 'react-icons/go';
 import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io';
@@ -8,6 +9,21 @@ import { useNavigate } from 'react-router-dom';
 const Home = () => {
   const [showDetails, setShowDetails] = useState(false);
   const navigate = useNavigate();
+=======
+import { GoArrowUpRight } from 'react-icons/go';
+import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io';
+import { IoCopy, IoPersonCircleSharp, IoSettingsSharp } from 'react-icons/io5';
+import Cards from '../Components/Home/Cards';
+import Cup from '../Components/Home/Cup';
+import Program from '../Components/Home/Program';
+import ComingSoon from '../Components/Home/ComingSoon';
+import Members from '../Components/Home/Members';
+import Contract from '../Components/Home/Contract';
+import History from '../Components/Home/History';
+
+const Home = () => {
+  const [showDetails, setShowDetails] = useState(true);
+>>>>>>> 9f682a0730b8fcaac9723c7293e0bd785a0d62c4
 
   const handleCopy = (textToCopy) => {
     navigator.clipboard
@@ -51,7 +67,11 @@ const Home = () => {
               </div>
             </div>
             <div>
+<<<<<<< HEAD
               <IoSettingsSharp className='text-textColor3 text-3xl mt-1' onClick={() => navigate('/profile')}/>
+=======
+              <IoSettingsSharp className='text-textColor3 text-3xl mt-1' />
+>>>>>>> 9f682a0730b8fcaac9723c7293e0bd785a0d62c4
             </div>
           </div>
           {showDetails && (
@@ -92,6 +112,7 @@ const Home = () => {
           </div>
         </div>
 
+<<<<<<< HEAD
         <div className='bg-Background w-full h-full bg-image rounded-lg px-2 mt-4 pb-3'>
           <div className='h-full w-full py-3'>
             <p className='text-textColor2 font-sans text-xs flex gap-2 items-center'>
@@ -118,6 +139,15 @@ const Home = () => {
         </div>
 
         <div className='bg-Background w-full h-full bg-image rounded-lg px-2 mt-4 pb-3'></div>
+=======
+        <Cards />
+        <Cup />
+        <Program />
+        <ComingSoon />
+        <Members />
+        <Contract />
+        <History />
+>>>>>>> 9f682a0730b8fcaac9723c7293e0bd785a0d62c4
       </div>
     </>
   );
