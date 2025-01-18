@@ -1,4 +1,5 @@
-import BUSD from '../../assets/Login/Busd.png';
+import { Link } from 'react-router-dom';
+import BUSD from '../../assets/LoginImages/Busd.png';
 
 const BUSDlogin = () => {
   return (
@@ -22,9 +23,11 @@ const BUSDlogin = () => {
             Due to the stable price, it is different to make money on growth{' '}
           </p>
         </div>
-        <div className='bg-gradient-to-r from-[#5b4fc6] to-[#170e61] w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-12 text-textColor3 font-medium rounded-lg'>
-          <button>Login BUSD</button>
-        </div>
+        <Link to='/auth'>
+          <div className='bg-gradient-to-r from-[#5b4fc6] to-[#170e61] w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-12 text-textColor3 font-medium rounded-lg'>
+            <button>Login BUSD</button>
+          </div>
+        </Link>
       </div>
     </>
   );

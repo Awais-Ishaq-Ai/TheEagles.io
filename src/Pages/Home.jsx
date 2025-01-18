@@ -36,7 +36,7 @@ const Home = () => {
               <div className='gradient-border h-20 w-20 rounded-full'>
                 <div className='flex items-center justify-center text-white h-full w-full rounded-full bg-Background'>
                   <p className='text-[#bcbcbc]'>
-                    <IoPersonCircleSharp className='text-7xl' />
+                    <IoPersonCircleSharp className='text-7xl text-textColor3' />
                   </p>
                 </div>
               </div>

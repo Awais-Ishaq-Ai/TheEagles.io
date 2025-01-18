@@ -184,7 +184,7 @@ function Profile() {
 
         <button
           className='text-white bg-gradient-to-r from-[#5b4fc6] to-[#170e61] w-[80%] py-2 rounded-lg mx-auto block'
-          onClick={() => navigate('/')}
+          onClick={() => navigate('/home')}
         >
           Save Changes
         </button>

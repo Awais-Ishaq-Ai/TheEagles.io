@@ -1,4 +1,4 @@
-import Tron from '../../assets/Login/Tron.png';
+import Tron from '../../assets/LoginImages/Tron.png';
 
 const TronLogin = () => {
   return (

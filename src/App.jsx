@@ -15,11 +15,19 @@ import Levelx4 from './Pages/Levelx4';
 import UpgradeLvl3 from './Pages/UpgradeLvl3';
 import UpgradeLvl4 from './Pages/UpgradeLvl4';
 import Login from './Pages/Login';
+import Authenticate from './Pages/Authenticate';
+import Passid from './Pages/Passid';
 
 function App() {
   const location = useLocation();
 
-  const hideNavbarFooterRoutes = ['/Upgradex3', '/Upgradex4', '/login'];
+  const hideNavbarFooterRoutes = [
+    '/Upgradex3',
+    '/Upgradex4',
+    '/login',
+    '/auth',
+    '/passId',
+  ];
 
   return (
     <>
@@ -33,6 +41,8 @@ function App() {
         <Route path='/lvlx4' element={<Levelx4 />} />
         <Route path='/Upgradex3' element={<UpgradeLvl3 />} />
         <Route path='/Upgradex4' element={<UpgradeLvl4 />} />
+        <Route path='/auth' element={<Authenticate />} />
+        <Route path='/passId' element={<Passid />} />
       </Routes>
       {!hideNavbarFooterRoutes.includes(location.pathname) && <Footer />}
     </>
