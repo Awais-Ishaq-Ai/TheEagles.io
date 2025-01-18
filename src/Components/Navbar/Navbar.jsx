@@ -7,7 +7,7 @@ const Navbar = () => {
         <img src='' alt='logo' className='bg-Background rounded-full' />
         <div className='flex gap-2'>
           <p className='text-textColor2 text-xs px-3 py-2 rounded-full bg-Background'>
-            0x78...so
+            Connect Wallet
           </p>
           <div className='bg-[#ae28a1] text-sm p-2 rounded-full'>
             <FaRegBell />

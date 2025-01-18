@@ -10,12 +10,8 @@ const UpgradeLvl4 = () => {
     <>
       <div className='pt-4 pb-8'>
         <div className='h-1/2 w-1/4 mx-auto bg-[rgba(21,15,77,0.9)] rounded-full shadow-[0_0_200px_50px_rgba(21,15,77,1),0_0_300px_100px_rgba(21,15,77,1)]'></div>
-        <div className='px-3 flex justify-end mt-4'>
-          <div className='inline-block bg-[#3b3951] p-2 rounded-full shadow-2xl'>
-            <HiMiniXMark className='text-white text-3xl' />
-          </div>
-        </div>
-        <div className='px-3 flex justify-between mt-4'>
+
+        <div className='px-3 flex justify-between mt-7'>
           <h1 className='w-1/4 text-2xl text-textColor3 font-semibold'>
             Upgrade x4
           </h1>

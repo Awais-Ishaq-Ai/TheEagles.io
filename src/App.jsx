@@ -14,19 +14,21 @@ import Levelx3 from './Pages/Levelx3';
 import Levelx4 from './Pages/Levelx4';
 import UpgradeLvl3 from './Pages/UpgradeLvl3';
 import UpgradeLvl4 from './Pages/UpgradeLvl4';
+import Login from './Pages/Login';
 
 function App() {
   const location = useLocation();
 
-  const hideNavbarFooterRoutes = ['/Upgradex3', '/Upgradex4'];
+  const hideNavbarFooterRoutes = ['/Upgradex3', '/Upgradex4', '/login'];
 
   return (
     <>
       {!hideNavbarFooterRoutes.includes(location.pathname) && <Navbar />}
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Landingpage />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/profile' element={<Profile />} />
-        <Route path='/landingpage' element={<Landingpage />} />
         <Route path='/lvlx3' element={<Levelx3 />} />
         <Route path='/lvlx4' element={<Levelx4 />} />
         <Route path='/Upgradex3' element={<UpgradeLvl3 />} />
