@@ -4,6 +4,7 @@ import { GoPeople } from 'react-icons/go';
 import { HiOutlineArrowPath } from 'react-icons/hi2';
 import Notify from '../Components/Lvl3/Notify';
 import UserTable from '../Components/Lvl3/UserTable';
+import { Link } from 'react-router-dom';
 
 const Levelx3 = () => {
   const levels = [
@@ -43,9 +44,9 @@ const Levelx3 = () => {
       </div>
       <div className='bg-gradient-to-r from-[#170e61] to-[#5b4fc6] w-full h-auto px-2 py-6 mt-3'>
         <div className='grid grid-cols-2 gap-3'>
-          {levels.map((item) => (
+          {levels.map((item, index) => (
             <div
-              key={item.level}
+              key={index}
               className={`px-2 py-3 rounded-md h-[150px] ${
                 activeLevels.includes(item.level)
                   ? 'bg-textColor'
@@ -78,8 +79,13 @@ const Levelx3 = () => {
                 )}
 
               {activeLevels.includes(item.level) && (
-                <div>
-                  <div className='flex justify-center gap-4 my-6'>
+                <div className='flex flex-col gap-2'>
+                  <div className='flex justify-center gap-x-4'>
+                    <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
+                    <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
+                    <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
+                  </div>
+                  <div className='flex justify-center gap-x-4'>
                     <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
                     <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
                     <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
@@ -122,7 +128,7 @@ const Levelx3 = () => {
             </div>
           </div>
           <button className='bg-[#172b7d] text-textColor3 px-8 mt-5 py-3 rounded-full font-medium flex gap-2'>
-            Marketing legend
+            <Link to='/Upgradex4'>Marketing legend</Link>
           </button>
         </div>
       </div>

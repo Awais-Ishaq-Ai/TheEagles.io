@@ -1,4 +1,4 @@
-import { BsFillQuestionCircleFill, BsShare } from 'react-icons/bs';
+import { BsFillQuestionCircleFill } from 'react-icons/bs';
 import { GoArrowUp } from 'react-icons/go';
 
 const Members = () => {
