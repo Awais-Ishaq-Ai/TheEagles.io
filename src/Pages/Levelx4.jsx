@@ -5,7 +5,7 @@ import { HiOutlineArrowPath } from 'react-icons/hi2';
 import Notify from '../Components/Lvl3/Notify';
 import UserTable from '../Components/Lvl3/UserTable';
 
-const Levelx3 = () => {
+const Levelx4 = () => {
   const levels = [
     { level: 1, cost: 5, peopleCount: 28, timer: '00' },
     { level: 2, cost: 10, peopleCount: 2, timer: '00' },
@@ -33,11 +33,11 @@ const Levelx3 = () => {
         <h4 className='text-[#7b7b7b] text-sm'>
           ID 1848323 /{' '}
           <span className='text-textColor2 text-base font-medium'>
-            The Eagles.io x3 (1/10)
+            The Eagles.io x4 (1/10)
           </span>
         </h4>
         <div className='text-textColor3 text-lg mt-4 flex justify-between'>
-          <h1>The Eagles.io x3</h1>
+          <h1>The Eagles.io x4</h1>
           <h1>0 BUSD</h1>
         </div>
       </div>
@@ -79,11 +79,19 @@ const Levelx3 = () => {
 
               {activeLevels.includes(item.level) && (
                 <div>
-                  <div className='flex justify-center gap-4 my-6'>
-                    <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
-                    <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
-                    <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
+                  <div className='flex flex-col items-center gap-x-4 my-3 leading-4'>
+                    <div className='flex gap-x-11'>
+                      <div className='h-9 w-9 rounded-full bg-[#597aff]'></div>
+                      <div className='h-9 w-9 rounded-full bg-[#597aff]'></div>
+                    </div>
+                    <div className='flex gap-x-4'>
+                      <div className='h-6 w-6 rounded-full bg-[#597aff]'></div>
+                      <div className='h-6 w-6 rounded-full bg-[#597aff]'></div>
+                      <div className='h-6 w-6 rounded-full bg-[#597aff]'></div>
+                      <div className='h-6 w-6 rounded-full bg-[#597aff]'></div>
+                    </div>
                   </div>
+
                   <div className='flex justify-between'>
                     <p className='flex gap-1 items-center text-textColor3'>
                       <GoPeople className='text-textColor2' />
@@ -133,4 +141,4 @@ const Levelx3 = () => {
   );
 };
 
-export default Levelx3;
+export default Levelx4;

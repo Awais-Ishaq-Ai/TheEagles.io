@@ -6,6 +6,7 @@ import Home from './Pages/Home';
 import Profile from './Pages/Profile';
 import Landingpage from './Pages/Landingpage';
 import Levelx3 from './Pages/Levelx3';
+import Levelx4 from './Pages/Levelx4';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/profile' element={<Profile />} />
         <Route path='/landingpage' element={<Landingpage />} />
         <Route path='/lvlx3' element={<Levelx3 />} />
+        <Route path='/lvlx4' element={<Levelx4 />} />
       </Routes>
       <Footer />
     </Router>

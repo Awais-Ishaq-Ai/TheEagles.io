@@ -12,7 +12,7 @@ const Program = () => {
             <div className='flex justify-between text-textColor3'>
               <h1 className='text-2xl'>x3</h1>
               <p className='flex items-center gap-1'>
-                0 BUSD{' '}
+                0 BUSD
                 <span>
                   <GoArrowUpRight className='mb-4' />
                 </span>
@@ -35,7 +35,7 @@ const Program = () => {
             </div>
           </div>
         </Link>
-        <Link to='#' className='w-1/2 rounded-lg'>
+        <Link to='/lvlx4' className='w-1/2 rounded-lg'>
           <div className='bg-Background px-2 py-2'>
             <div className='flex justify-between text-textColor3'>
               <h1 className='text-2xl'>x4</h1>
