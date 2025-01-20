@@ -8,6 +8,7 @@ import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import book from '../assets/LandingImages/book.png';
 import { Link } from 'react-router-dom';
+import Footer from '../Components/Footer/Footer';
 
 function Landingpage() {
   const slides = [
@@ -89,6 +90,7 @@ function Landingpage() {
           </Swiper>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

@@ -38,7 +38,10 @@ const Cards = () => {
             </span>
           </p>
           <p className='text-3xl text-textColor3'>0</p>
-          <div className='w-[90%] mx-auto mt-4 flex justify-end p-1 rounded-full bg-[#5c5c5c]'>
+          <div className='w-[90%] mx-auto mt-4 flex justify-between p-1 rounded-full bg-[#5c5c5c]'>
+            <div className='flex items-center text-textColor3 text-xl'>
+              <GoArrowUp /> 0
+            </div>
             <div className='gradient-circle'></div>
           </div>
         </div>
@@ -50,7 +53,10 @@ const Cards = () => {
             </span>
           </p>
           <p className='text-3xl text-textColor3'>0</p>
-          <div className='w-[90%] mx-auto mt-4 flex justify-end p-1 rounded-full bg-[#5c5c5c]'>
+          <div className='w-[90%] mx-auto mt-4 flex justify-between p-1 rounded-full bg-[#5c5c5c]'>
+            <div className='flex items-center text-textColor3 text-xl'>
+              <GoArrowUp /> 0
+            </div>
             <div className='gradient-circle'></div>
           </div>
         </div>

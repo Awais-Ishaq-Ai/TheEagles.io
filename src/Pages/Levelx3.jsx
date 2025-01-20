@@ -5,6 +5,7 @@ import { HiOutlineArrowPath } from 'react-icons/hi2';
 import Notify from '../Components/Lvl3/Notify';
 import UserTable from '../Components/Lvl3/UserTable';
 import { Link } from 'react-router-dom';
+import { BsFillQuestionCircleFill } from 'react-icons/bs';
 
 const Levelx3 = () => {
   const levels = [
@@ -128,7 +129,10 @@ const Levelx3 = () => {
             </div>
           </div>
           <button className='bg-[#172b7d] text-textColor3 px-8 mt-5 py-3 rounded-full font-medium flex gap-2'>
-            <Link to='/Upgradex4'>Marketing legend</Link>
+            <Link to='/Upgradex3' className='flex gap-2 items-center'>
+              <BsFillQuestionCircleFill className=' text-textColor3' />
+              Marketing legend
+            </Link>
           </button>
         </div>
       </div>

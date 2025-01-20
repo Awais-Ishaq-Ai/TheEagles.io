@@ -66,7 +66,11 @@ const Menu = ({ menu, home }) => {
           )}`}
         >
           <CiGrid41 className='text-xl' />
-          <span onClick={() => handleActiveSpan('Dashboard')}>Dashboard</span>
+          <span onClick={() => handleActiveSpan('Dashboard')}>
+            <Link to='/home' onClick={handleRendering}>
+              Dashboard
+            </Link>
+          </span>
         </div>
 
         <div
@@ -96,7 +100,11 @@ const Menu = ({ menu, home }) => {
               )}`}
             >
               <GoPeople />
-              <span onClick={() => handleActiveSpan('Partners')}>Partners</span>
+              <span onClick={() => handleActiveSpan('Partners')}>
+                <Link to='/partner' onClick={handleRendering}>
+                  Partners
+                </Link>
+              </span>
             </div>
             <div
               className={`pl-10 flex items-center gap-2 py-4 px-3 border-b border-textColor2 cursor-pointer ${getSpanClass(
@@ -104,7 +112,11 @@ const Menu = ({ menu, home }) => {
               )}`}
             >
               <HiOutlineLink />
-              <span onClick={() => handleActiveSpan('Links')}>Links</span>
+              <span onClick={() => handleActiveSpan('Links')}>
+                <Link to='/links' onClick={handleRendering}>
+                  Links
+                </Link>
+              </span>
             </div>
             <div
               className={`pl-10 flex items-center gap-2 py-4 px-3 border-b border-textColor2 cursor-pointer ${getSpanClass(
@@ -112,7 +124,11 @@ const Menu = ({ menu, home }) => {
               )}`}
             >
               <HiOutlineChartBar />
-              <span onClick={() => handleActiveSpan('Stats')}>Stats</span>
+              <span onClick={() => handleActiveSpan('Stats')}>
+                <Link to='/stats' onClick={handleRendering}>
+                  Stats
+                </Link>
+              </span>
             </div>
             <div
               className={`pl-10 flex items-center gap-2 py-4 px-3 border-b border-textColor2 cursor-pointer ${getSpanClass(
@@ -120,7 +136,11 @@ const Menu = ({ menu, home }) => {
               )}`}
             >
               <HiOutlineChat />
-              <span onClick={() => handleActiveSpan('Massage')}>Massage</span>
+              <span onClick={() => handleActiveSpan('Massage')}>
+                <Link to='/message' onClick={handleRendering}>
+                  Massage
+                </Link>
+              </span>
             </div>
           </div>
         )}
@@ -162,7 +182,9 @@ const Menu = ({ menu, home }) => {
             >
               <HiOutlineCalculator />
               <span onClick={() => handleActiveSpan('Calculator')}>
-                Calculator
+                <Link to='/calculator' onClick={handleRendering}>
+                  Calculator
+                </Link>
               </span>
             </div>
           </div>

@@ -4,6 +4,8 @@ import { GoPeople } from 'react-icons/go';
 import { HiOutlineArrowPath } from 'react-icons/hi2';
 import Notify from '../Components/Lvl3/Notify';
 import UserTable from '../Components/Lvl3/UserTable';
+import { BsFillQuestionCircleFill } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 const Levelx4 = () => {
   const levels = [
@@ -130,7 +132,10 @@ const Levelx4 = () => {
             </div>
           </div>
           <button className='bg-[#172b7d] text-textColor3 px-8 mt-5 py-3 rounded-full font-medium flex gap-2'>
-            Marketing legend
+            <Link to='/Upgradex4' className='flex gap-2 items-center'>
+              <BsFillQuestionCircleFill className=' text-textColor3' />
+              Marketing legend
+            </Link>
           </button>
         </div>
       </div>
