@@ -44,7 +44,7 @@ body {
 .hexagon {
   clip-path: polygon(50% 0, 100% 20%, 100% 80%, 50% 100%, 0 80%, 0 20%);
 }
-.backgroundimg{
+.backgroundimg {
   background-image: url(./assets//LandingImages//world.png);
   height: 40vh;
   width: 100%;

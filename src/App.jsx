@@ -17,6 +17,17 @@ import UpgradeLvl4 from './Pages/UpgradeLvl4';
 import Login from './Pages/Login';
 import Authenticate from './Pages/Authenticate';
 import Passid from './Pages/Passid';
+import { useState, useEffect } from 'react';
+
+const ScrollToTop = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
+  return null;
+};
 
 function App() {
   const location = useLocation();
@@ -29,16 +40,21 @@ function App() {
     '/passId',
   ];
 
+  const [showHome, setShowHome] = useState(true);
+
   return (
     <>
-      {!hideNavbarFooterRoutes.includes(location.pathname) && <Navbar />}
+      <ScrollToTop />
+      {!hideNavbarFooterRoutes.includes(location.pathname) && (
+        <Navbar home={setShowHome} />
+      )}
       <Routes>
         <Route path='/' element={<Landingpage />} />
-        <Route path='/home' element={<Home />} />
+        {showHome && <Route path='/home' element={<Home />} />}
         <Route path='/login' element={<Login />} />
         <Route path='/profile' element={<Profile />} />
-        <Route path='/lvlx3' element={<Levelx3 />} />
-        <Route path='/lvlx4' element={<Levelx4 />} />
+        {showHome && <Route path='/lvlx3' element={<Levelx3 />} />}
+        {showHome && <Route path='/lvlx4' element={<Levelx4 />} />}
         <Route path='/Upgradex3' element={<UpgradeLvl3 />} />
         <Route path='/Upgradex4' element={<UpgradeLvl4 />} />
         <Route path='/auth' element={<Authenticate />} />

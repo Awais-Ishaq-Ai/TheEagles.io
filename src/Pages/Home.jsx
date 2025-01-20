@@ -10,7 +10,6 @@ import Contract from '../Components/Home/Contract';
 import History from '../Components/Home/History';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { BsShare } from 'react-icons/bs';
 
 const Home = () => {
   const [showDetails, setShowDetails] = useState(true);
