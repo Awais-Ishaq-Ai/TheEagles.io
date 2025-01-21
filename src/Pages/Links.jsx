@@ -14,7 +14,7 @@ const Links = () => {
   };
 
   return (
-    <div className='h-screen'>
+    <div className='h-auto'>
       <div className='bg-Background h-96 p-3'>
         <div>
           <div className='flex items-start gap-10'>

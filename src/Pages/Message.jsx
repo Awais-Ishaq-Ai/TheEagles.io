@@ -3,7 +3,7 @@ import { AiOutlineMessage } from 'react-icons/ai';
 
 const Message = () => {
   return (
-    <div className='h-screen'>
+    <div className='min-h-screen'>
       <div className='bg-Background h-96'>
         <div className='text-textColor3 bg-black p-4 flex justify-between items-center'>
           <h3 className='text-lg'>

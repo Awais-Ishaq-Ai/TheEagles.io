@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { IoCopy } from 'react-icons/io5';
-import { RiShare2Line } from 'react-icons/ri';
 
 const Partner = () => {
   const data = [
@@ -62,7 +60,7 @@ const Partner = () => {
   };
 
   return (
-    <div className='h-screen'>
+    <div className='min-h-screen'>
       <div className='bg-Background pb-6 overflow-hidden'>
         <div className='overflow-auto h-48'>
           <table className='min-w-[500px] table-auto'>

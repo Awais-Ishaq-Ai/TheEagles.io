@@ -7,8 +7,8 @@ const Program = () => {
   return (
     <>
       <div className='w-full h-full mt-4 pb-3 flex justify-between gap-2'>
-        <Link to='/lvlx3' className='w-1/2 rounded-lg'>
-          <div className='bg-Background px-2 py-2'>
+        <Link to='/lvlx3' className='w-1/2'>
+          <div className='bg-Background px-2 py-2 rounded-lg'>
             <div className='flex justify-between text-textColor3'>
               <h1 className='text-2xl'>x3</h1>
               <p className='flex items-center gap-1'>
@@ -35,8 +35,8 @@ const Program = () => {
             </div>
           </div>
         </Link>
-        <Link to='/lvlx4' className='w-1/2 rounded-lg'>
-          <div className='bg-Background px-2 py-2'>
+        <Link to='/lvlx4' className='w-1/2'>
+          <div className='bg-Background px-2 py-2 rounded-lg'>
             <div className='flex justify-between text-textColor3'>
               <h1 className='text-2xl'>x4</h1>
               <p className='flex items-center gap-1'>
