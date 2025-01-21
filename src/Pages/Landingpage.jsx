@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import back from '../assets/LandingImages/back.jpg';
 import { GrLinkNext } from 'react-icons/gr';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -9,13 +9,15 @@ import { Pagination } from 'swiper/modules';
 import book from '../assets/LandingImages/book.png';
 import { Link } from 'react-router-dom';
 import Footer from '../Components/Footer/Footer';
-import { IoEarth } from 'react-icons/io5';
+import { IoCopy, IoEarth } from 'react-icons/io5';
 import { GiBookmarklet } from 'react-icons/gi';
 import { HiOutlineLightBulb } from 'react-icons/hi';
 import { PiGraduationCapThin } from 'react-icons/pi';
 import History from '../Components/Home/History';
 
 function Landingpage() {
+  const [activeTab, setActiveTab] = useState('Total');
+
   const slides = [
     {
       title: 'Documentation',
@@ -135,6 +137,121 @@ function Landingpage() {
         </div>
 
         <History />
+        <div className='bg-gradient-to-b from-[#990091] via-[#7a00aa] to-[#3600e5] h-auto px-2 py-5'>
+          <h1 className='text-textColor3 font-semibold text-3xl'>
+            Partner result
+          </h1>
+          <p className='text-textColor2 text-sm w-11/12 mt-3'>
+            All data is stored in the blockchain in the public domain and can be
+            verified?
+          </p>
+          <div className='mt-8 text-sm space-y-5'>
+            <p className='text-textColor2'>
+              Contract address <span className='text-textColor3'>eth:</span>
+            </p>
+            <h5 className='text-textColor3 text-sm flex gap-2'>
+              ox5acc77e655....doo5f00FB87:
+              <span className='text-xl'>
+                <IoCopy />
+              </span>
+            </h5>
+            <p className='text-textColor2'>
+              Contract address <span className='text-textColor3'>tron:</span>
+            </p>
+            <h5 className='text-textColor3 text-sm flex gap-2'>
+              TREbha3J6trpt...mMug:
+              <span className='text-xl'>
+                <IoCopy />
+              </span>
+            </h5>
+
+            <p className='text-textColor2'>
+              Contract address <span className='text-textColor3'>BUSD:</span>
+            </p>
+            <h5 className='text-textColor3 text-sm flex gap-2'>
+              ox5acc77e655....doo5f00FB87:
+              <span className='text-xl'>
+                <IoCopy />
+              </span>
+            </h5>
+          </div>
+
+          <div className='mt-8 w-11/12 mx-auto'>
+            <div className='flex justify-around bg-textColor2 bg-opacity-30 rounded-full px-2 py-2'>
+              <div
+                onClick={() => setActiveTab('Total')}
+                className={`cursor-pointer px-4 py-2 font-bold ${
+                  activeTab === 'Total'
+                    ? 'bg-textColor3 rounded-full text-black'
+                    : 'text-gray-300'
+                }`}
+              >
+                Total
+              </div>
+              <div
+                onClick={() => setActiveTab('ETH')}
+                className={`cursor-pointer px-4 py-2 font-bold ${
+                  activeTab === 'ETH'
+                    ? 'bg-textColor3 rounded-full text-black'
+                    : 'text-gray-300'
+                }`}
+              >
+                ETH
+              </div>
+              <div
+                onClick={() => setActiveTab('Tron')}
+                className={`cursor-pointer px-4 py-2 font-bold ${
+                  activeTab === 'Tron'
+                    ? 'bg-textColor3 rounded-full text-black'
+                    : 'text-gray-300'
+                }`}
+              >
+                Tron
+              </div>
+              <div
+                onClick={() => setActiveTab('BUSD')}
+                className={`cursor-pointer px-4 py-2 font-bold ${
+                  activeTab === 'BUSD'
+                    ? 'bg-textColor3 rounded-full text-black'
+                    : 'text-gray-300'
+                }`}
+              >
+                BUSD
+              </div>
+            </div>
+
+            <div className='mt-5 text-center'>
+              {activeTab === 'Total' && (
+                <>
+                  <div className='text-4xl font-bold text-white'>
+                    3 395 780{' '}
+                    <sup className='text-green-700 text-base'>+422</sup>
+                  </div>
+                  <div className='text-2xl font-bold text-white mt-2'>
+                    1 469 653 628{' '}
+                    <sup className='text-green-700 text-base'>+8 284</sup>
+                  </div>
+                  <div className='mt-2 text-sm text-textColor2'>
+                    Total result, USD
+                  </div>
+                </>
+              )}
+              {activeTab === 'ETH' && (
+                <div className='text-white text-2xl'>ETH Data goes here...</div>
+              )}
+              {activeTab === 'Tron' && (
+                <div className='text-white text-2xl'>
+                  Tron Data goes here...
+                </div>
+              )}
+              {activeTab === 'BUSD' && (
+                <div className='text-white text-2xl'>
+                  BUSD Data goes here...
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
         <Footer />
       </div>
     </>
