@@ -15,6 +15,8 @@ import { HiOutlineLightBulb } from 'react-icons/hi';
 import { PiGraduationCapThin } from 'react-icons/pi';
 import History from '../Components/Home/History';
 import DocumentationSlider from '../Components/LandingPage/DocumentationSlider';
+import FAQ from '../Components/LandingPage/FAQ';
+import Social from '../Components/LandingPage/Social';
 
 function Landingpage() {
   const [activeTab, setActiveTab] = useState('Total');
@@ -80,7 +82,7 @@ function Landingpage() {
             <Swiper
               pagination={{ clickable: true }}
               modules={[Pagination]}
-              className='mySwiper'
+              className='mySwiper h-full'
             >
               {slides.map((slide, index) => (
                 <SwiperSlide key={index}>
@@ -254,6 +256,8 @@ function Landingpage() {
           </div>
         </div>
         <DocumentationSlider />
+        <FAQ />
+        <Social />
         <Footer />
       </div>
     </>

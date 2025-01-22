@@ -42,22 +42,6 @@ const Menu = ({ menu, home }) => {
   return (
     <>
       <div className='h-auto text-white'>
-        <div className='px-3 py-4 flex justify-between border-b border-textColor2'>
-          <img
-            src=''
-            alt='logo'
-            className='bg-gray-800 rounded-full w-10 h-10'
-          />
-          <div className='flex justify-end'>
-            <div className='inline-block bg-gray-800 p-2 rounded-full shadow-2xl'>
-              <HiMiniXMark
-                className='text-white text-3xl cursor-pointer'
-                onClick={handleRendering}
-              />
-            </div>
-          </div>
-        </div>
-
         <div
           className={`py-4 px-3 border-b border-textColor2 flex items-center gap-2 cursor-pointer ${getSpanClass(
             'Dashboard'
@@ -174,7 +158,9 @@ const Menu = ({ menu, home }) => {
         >
           <HiOutlineSearch className='text-xl' />
           <span onClick={() => handleActiveSpan('Account Search')}>
-            The Eagles.io Account Search
+            <Link to='/accountSearch' onClick={handleRendering}>
+              The Eagles.io Account Search
+            </Link>
           </span>
         </div>
 
