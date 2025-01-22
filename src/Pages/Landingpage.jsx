@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import back from '../assets/LandingImages/back.jpg';
+import back from '../../public/assets/LandingImages/back.jpg';
 import { GrLinkNext } from 'react-icons/gr';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
-import book from '../assets/LandingImages/book.png';
+import book from '../../public/assets/LandingImages/book.png';
 import { Link } from 'react-router-dom';
 import Footer from '../Components/Footer/Footer';
 import { IoCopy, IoEarth } from 'react-icons/io5';

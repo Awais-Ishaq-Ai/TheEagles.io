@@ -1,5 +1,5 @@
 import { GoArrowUpRight } from 'react-icons/go';
-import bgImage from '../../assets/lvl3Images/Group 2.png';
+import bgImage from '../../../public/assets/lvl3Images/Group 2.png';
 
 const Notify = () => {
   return (

@@ -3,8 +3,6 @@ import {
   HiOutlineUserGroup,
   HiOutlineLink,
   HiOutlineChartBar,
-  HiOutlineChat,
-  HiOutlineGlobe,
   HiOutlineInformationCircle,
   HiOutlineCalculator,
   HiOutlineSearch,
@@ -12,7 +10,7 @@ import {
 } from 'react-icons/hi';
 import { CiGrid41 } from 'react-icons/ci';
 import { GoPeople } from 'react-icons/go';
-import { RiArrowDownSLine, RiHandCoinFill } from 'react-icons/ri';
+import { RiArrowDownSLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -130,29 +128,8 @@ const Menu = ({ menu, home }) => {
                 </Link>
               </span>
             </div>
-            <div
-              className={`pl-10 flex items-center gap-2 py-4 px-3 border-b border-textColor2 cursor-pointer ${getSpanClass(
-                'Massage'
-              )}`}
-            >
-              <HiOutlineChat />
-              <span onClick={() => handleActiveSpan('Massage')}>
-                <Link to='/message' onClick={handleRendering}>
-                  Massage
-                </Link>
-              </span>
-            </div>
           </div>
         )}
-
-        <div
-          className={`flex items-center gap-2 py-4 px-3 border-b border-textColor2 cursor-pointer ${getSpanClass(
-            'Social'
-          )}`}
-        >
-          <HiOutlineGlobe className='text-xl' />
-          <span onClick={() => handleActiveSpan('Social')}>Social</span>
-        </div>
 
         <div
           className='flex items-center justify-between py-4 px-3 border-b border-textColor2'
@@ -189,17 +166,6 @@ const Menu = ({ menu, home }) => {
             </div>
           </div>
         )}
-
-        <div
-          className={`flex items-center gap-2 py-4 px-3 border-b border-textColor2 cursor-pointer ${getSpanClass(
-            'Mystery Luck'
-          )}`}
-        >
-          <RiHandCoinFill className='text-xl' />
-          <span onClick={() => handleActiveSpan('Mystery Luck')}>
-            Mystery Luck
-          </span>
-        </div>
 
         <div
           className={`flex items-center gap-2 py-4 px-3 border-b border-textColor2 cursor-pointer ${getSpanClass(

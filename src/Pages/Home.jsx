@@ -1,4 +1,4 @@
-import { GoArrowUp, GoArrowUpRight } from 'react-icons/go';
+import { GoArrowUpRight } from 'react-icons/go';
 import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io';
 import { IoCopy, IoPersonCircleSharp, IoSettingsSharp } from 'react-icons/io5';
 import Cards from '../Components/Home/Cards';

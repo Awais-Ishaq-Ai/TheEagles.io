@@ -1,11 +1,10 @@
 import { HiMiniXMark } from 'react-icons/hi2';
 import { Link, useNavigate } from 'react-router-dom';
-import flag from '../assets/AuthImages/raceFlag.png';
+import flag from '../../public/assets/AuthImages/raceFlag.png';
 import Members from '../Components/Home/Members';
 import Contract from '../Components/Home/Contract';
 import History from '../Components/Home/History';
 import Footer from '../Components/Footer/Footer';
-import { LuShield } from 'react-icons/lu';
 import { IoPersonCircleSharp } from 'react-icons/io5';
 
 const Passid = () => {
