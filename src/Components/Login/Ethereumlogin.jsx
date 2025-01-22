@@ -1,4 +1,4 @@
-import Ethereum from '../../../public/assets/LoginImages/Ethereum.png';
+import Ethereum from '/assets/LoginImages/Ethereum.png';
 
 const Ethereumlogin = () => {
   return (

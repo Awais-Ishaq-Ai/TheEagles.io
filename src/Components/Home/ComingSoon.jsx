@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import program from '../../../public/assets/HomeImages/Coming.png';
+import program from '/assets/HomeImages/Coming.png';
 
 const ComingSoon = () => {
   return (

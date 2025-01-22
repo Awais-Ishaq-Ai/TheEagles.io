@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import BUSD from '../../../public/assets/LoginImages/Busd.png';
+import BUSD from '/assets/LoginImages/Busd.png';
 
 const BUSDlogin = () => {
   return (

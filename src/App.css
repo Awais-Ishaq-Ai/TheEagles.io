@@ -15,20 +15,20 @@ body {
 }
 
 .bg-image {
-  background-image: url('/public/assets/HomeImages/hero1.png'),
-    url('/public/assets/HomeImages/hero2.png');
+  background-image: url('/assets/HomeImages/hero1.png'),
+    url('/assets/HomeImages/hero2.png');
   background-position: 180px 0px, 105px 55px;
   background-repeat: no-repeat, no-repeat;
 }
 
 .bg-person2 {
-  background-image: url('/public/assets/HomeImages/TwoPerson.png');
+  background-image: url('/assets/HomeImages/TwoPerson.png');
   background-position: 45px 50px;
   background-repeat: no-repeat;
 }
 
 .bg-person3 {
-  background-image: url('/public/assets/HomeImages/ThreePerson.png');
+  background-image: url('/assets/HomeImages/ThreePerson.png');
   background-position: 20px 50px;
   background-repeat: no-repeat;
 }
@@ -45,7 +45,7 @@ body {
   clip-path: polygon(50% 0, 100% 20%, 100% 80%, 50% 100%, 0 80%, 0 20%);
 }
 .backgroundimg {
-  background-image: url('/public/assets/HomeImages/world.png');
+  background-image: url('/assets/HomeImages/world.png');
   height: 45vh;
   width: 100%;
   background-size: 75%;

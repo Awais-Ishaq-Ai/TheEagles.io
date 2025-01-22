@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import back from '../../public/assets/LandingImages/back.jpg';
+import back from '/assets/LandingImages/back.jpg';
 import { GrLinkNext } from 'react-icons/gr';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
-import book from '../../public/assets/LandingImages/book.png';
+import book from '/assets/LandingImages/book.png';
 import { Link } from 'react-router-dom';
 import Footer from '../Components/Footer/Footer';
 import { IoCopy, IoEarth } from 'react-icons/io5';
@@ -14,6 +14,7 @@ import { GiBookmarklet } from 'react-icons/gi';
 import { HiOutlineLightBulb } from 'react-icons/hi';
 import { PiGraduationCapThin } from 'react-icons/pi';
 import History from '../Components/Home/History';
+import DocumentationSlider from '../Components/LandingPage/DocumentationSlider';
 
 function Landingpage() {
   const [activeTab, setActiveTab] = useState('Total');
@@ -83,12 +84,12 @@ function Landingpage() {
             >
               {slides.map((slide, index) => (
                 <SwiperSlide key={index}>
-                  <p className='text-lg font-medium text-gray-200'>
+                  <p className='text-lg font-medium text-textColor3'>
                     {slide.title}
                   </p>
-                  <p className='text-xl text-gray-400'>{slide.subtitle}</p>
+                  <p className='text-xl text-textColor2'>{slide.subtitle}</p>
                   <div className='flex items-center my-3 justify-between'>
-                    <p className='flex items-end gap-2 text-gray-200 text-lg mt-7'>
+                    <p className='flex items-end gap-2 text-textColor3 text-lg mt-7'>
                       {slide.buttonText} <GrLinkNext />
                     </p>
                     <img src={slide.img} alt='Slide Image' />
@@ -252,6 +253,7 @@ function Landingpage() {
             </div>
           </div>
         </div>
+        <DocumentationSlider />
         <Footer />
       </div>
     </>
