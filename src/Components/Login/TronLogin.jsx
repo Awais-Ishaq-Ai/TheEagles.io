@@ -1,12 +1,10 @@
-import Tron from '../../../public/assets/LoginImages/Tron.png';
-
 const TronLogin = () => {
   return (
     <>
       <div className='bg-Background h-auto w-full px-3 py-5 mt-6 rounded-lg'>
         <div className='flex justify-between text-textColor3 font-bold text-3xl'>
           <h1>Tron</h1>
-          <img src={Tron} alt='' className='h-10 w-10' />
+          <img src='assets/LoginImages/tron.png' alt='' className='h-10 w-10' />
         </div>
         <div className='text-textColor2 text-sm font-medium mt-5 space-y-5'>
           <p>Entry fee 200 TRX</p>
