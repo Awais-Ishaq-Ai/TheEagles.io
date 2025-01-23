@@ -21,7 +21,7 @@ const FAQ = () => {
         'Yes, The Eagles.io implements advanced security measures to ensure your data and transactions are secure.',
     },
     {
-      question: 'How much does it cost to participate in The Eagles.io BUSD?',
+      question: 'How much does it cost to participate in The Eagles.io USDT?',
       answer:
         'Participation in The Eagles.io is free; however, trading fees may apply.',
     },

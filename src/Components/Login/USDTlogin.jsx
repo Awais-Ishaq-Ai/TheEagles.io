@@ -1,21 +1,21 @@
 import { Link } from 'react-router-dom';
-import BUSD from '/assets/LoginImages/Busd.png';
+import USDT from '/assets/LoginImages/tether.png';
 
-const BUSDlogin = () => {
+const USDTlogin = () => {
   return (
     <>
       <div className='bg-Background h-auto w-full px-3 py-5 mt-6 rounded-lg'>
         <div className='flex justify-between text-textColor3 font-bold text-3xl'>
-          <h1>BUSD</h1>
-          <img src={BUSD} alt='' className='h-10 w-10' />
+          <h1>USDT</h1>
+          <img src={USDT} alt='' className='h-10 w-10' />
         </div>
         <div className='text-textColor2 text-sm font-medium mt-5 space-y-5'>
           <div className='leading-4'>
             <p>Advantages:</p>
             <p>Stablecoin is pegged to the value of the dollar</p>
           </div>
-          <p>Approved by the New York State Financial Services Authority</p>
-          <p>CNYDDFS,</p>
+          {/* <p>Approved by the New York State Financial Services Authority</p> */}
+          {/* <p>CNYDDFS,</p> */}
           <p>Fixed profit and fall protection</p>
           <p>Instant transaction</p>
           <p>Limitation:</p>
@@ -25,11 +25,11 @@ const BUSDlogin = () => {
         </div>
         <Link to='/auth'>
           <div className='bg-gradient-to-r from-[#5b4fc6] to-[#170e61] w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-12 text-textColor3 font-medium rounded-lg'>
-            <button>Login BUSD</button>
+            <button>Login USDT</button>
           </div>
         </Link>
       </div>
     </>
   );
 };
-export default BUSDlogin;
+export default USDTlogin;

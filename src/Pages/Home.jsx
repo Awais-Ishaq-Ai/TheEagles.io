@@ -40,7 +40,8 @@ const Home = () => {
                 </div>
               </div>
               <div className='text-textColor3'>
-                <p className='text-lg'>ID 000000</p>
+                <h1 className='text-lg'>UserName</h1>
+                <p className='text-sm'>ID 000000</p>
                 <button
                   className='ms-4 mt-3 text-sm flex gap-1 items-center justify-center bg-Background text-textColor2 w-28 py-1 rounded-full'
                   onClick={() => setShowDetails(!showDetails)}
@@ -102,9 +103,7 @@ const Home = () => {
         </div>
 
         <Cards />
-        <Cup />
         <Program />
-        <ComingSoon />
         <Members />
         <Contract />
         <History />

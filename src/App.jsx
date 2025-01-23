@@ -10,10 +10,10 @@ import Footer from './Components/Footer/Footer';
 import Home from './Pages/Home';
 import Profile from './Pages/Profile';
 import Landingpage from './Pages/Landingpage';
-import Levelx3 from './Pages/Levelx3';
-import Levelx4 from './Pages/Levelx4';
-import UpgradeLvl3 from './Pages/UpgradeLvl3';
-import UpgradeLvl4 from './Pages/UpgradeLvl4';
+import Levelx1 from './Pages/Levelx1';
+import Levelx2 from './Pages/Levelx2';
+import UpgradeLvl1 from './Pages/UpgradeLvl1';
+import UpgradeLvl2 from './Pages/UpgradeLvl2';
 import Login from './Pages/Login';
 import Authenticate from './Pages/Authenticate';
 import Passid from './Pages/Passid';
@@ -38,8 +38,8 @@ function App() {
   const location = useLocation();
 
   const hideNavbarFooterRoutes = [
-    '/Upgradex3',
-    '/Upgradex4',
+    '/Upgradex1',
+    '/Upgradex2',
     '/login',
     '/auth',
     '/passId',
@@ -60,10 +60,10 @@ function App() {
         {showHome && <Route path='/home' element={<Home />} />}
         <Route path='/login' element={<Login />} />
         <Route path='/profile' element={<Profile />} />
-        {showHome && <Route path='/lvlx3' element={<Levelx3 />} />}
-        {showHome && <Route path='/lvlx4' element={<Levelx4 />} />}
-        <Route path='/Upgradex3' element={<UpgradeLvl3 />} />
-        <Route path='/Upgradex4' element={<UpgradeLvl4 />} />
+        {showHome && <Route path='/lvlx1' element={<Levelx1 />} />}
+        {showHome && <Route path='/lvlx2' element={<Levelx2 />} />}
+        <Route path='/Upgradex1' element={<UpgradeLvl1 />} />
+        <Route path='/Upgradex2' element={<UpgradeLvl2 />} />
         <Route path='/auth' element={<Authenticate />} />
         <Route path='/passId' element={<Passid />} />
         {showHome && <Route path='/partner' element={<Partner />} />}

@@ -1,8 +1,6 @@
 import React from 'react';
 import {
-  FaTelegram,
   FaTwitter,
-  FaFacebook,
   FaYoutube,
   FaFacebookF,
   FaRegFileAlt,
@@ -55,38 +53,18 @@ const Social = () => {
           <p className='text-sm mt-2'>Youtube</p>
         </div>
       </div>
-      <div className='flex flex-wrap items-center w-11/12 mx-6 space-y-6 text-textColor3 font-medium'>
-        <div className='flex flex-wrap items-center w-full'>
-          <div className='flex items-center gap-2 w-1/2 h-full'>
-            <img
-              src='/assets/LandingImages/BUSD.png'
-              alt=''
-              className='h-[18px] w-[18px]'
-            />
-            <p className='text-sm'>The Eagles.io BUSD</p>
-          </div>
-          <div className='flex items-center gap-2 w-1/2 h-full'>
-            <img
-              src='/assets/LandingImages/Tron.png'
-              alt=''
-              className='h-[18px] w-[18px]'
-            />
-            <p className='text-sm'>The Eagles.io TRX</p>
-          </div>
+      <div className='flex flex-wrap items-center w-full px-2 text-textColor3 font-medium'>
+        <div className='flex items-center gap-2 w-1/2 h-full'>
+          <img
+            src='/assets/LandingImages/tether.png'
+            alt=''
+            className='h-[18px] w-[18px]'
+          />
+          <p className='text-sm'>The Eagles.io USDT</p>
         </div>
-        <div className='flex flex-wrap items-center w-full'>
-          <div className='flex items-center gap-2 w-1/2 h-full'>
-            <img
-              src='/assets/LandingImages/Ethereum.png'
-              alt=''
-              className='h-[18px] w-[18px]'
-            />
-            <p className='text-sm'>The Eagles.io ETH</p>
-          </div>
-          <div className='flex items-center gap-2 w-1/2 h-full'>
-            <FaRegFileAlt className='text-lg' />
-            <p className='text-sm'>The Eagles.io Support</p>
-          </div>
+        <div className='flex items-center gap-2 w-1/2 h-full'>
+          <FaRegFileAlt className='text-lg' />
+          <p className='text-sm'>The Eagles.io Support</p>
         </div>
       </div>
     </div>

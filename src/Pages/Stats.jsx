@@ -1,4 +1,4 @@
-import UserTable from '../Components/Lvl3/UserTable';
+import UserTable from '../Components/Lvl1/UserTable';
 
 const Stats = () => {
   return (

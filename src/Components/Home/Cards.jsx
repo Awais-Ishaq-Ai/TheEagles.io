@@ -15,13 +15,9 @@ const Cards = () => {
         </div>
         <div className='flex justify-between'>
           <div className='text-textColor3'>
-            <p>0 BUSD</p>
-            <p>0 BNB</p>
+            <p>0 USDT</p>
           </div>
           <div className='text-textColor3'>
-            <p className='flex items-center gap-1'>
-              <GoArrowUp />0
-            </p>
             <p className='flex items-center gap-1'>
               <GoArrowUp />0
             </p>

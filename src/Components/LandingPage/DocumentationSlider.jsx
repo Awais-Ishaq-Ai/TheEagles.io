@@ -3,22 +3,49 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
-import { HiOutlineArrowPath } from 'react-icons/hi2';
+import { HiArrowPathRoundedSquare, HiOutlineArrowPath } from 'react-icons/hi2';
+import { BsEmojiSmile } from 'react-icons/bs';
+import { GoFileSymlinkFile } from 'react-icons/go';
+import { TbEyeCheck } from 'react-icons/tb';
+import { FaWallet } from 'react-icons/fa';
 
 const DocumentationSlider = () => {
   const slides = [
     {
+      icon: <HiOutlineArrowPath />,
       title: 'Documentation',
       subtitle:
         'No one,not even the creation of the code, can make changes to the work of The Eagles.io smart contracts',
     },
     {
-      title: 'Documentation',
-      subtitle: 'Slide 2 Subtitle',
+      icon: <BsEmojiSmile />,
+      title: 'Autonomy',
+      subtitle:
+        'The smart contract and NFT technologies, which are fully autonomous and do not rely on human intervention, are the foundation of the The Eagles ecosystem.',
     },
     {
-      title: 'Documentation',
-      subtitle: 'Slide 3 Subtitle',
+      icon: <GoFileSymlinkFile />,
+      title: 'Unchanging conditions',
+      subtitle:
+        'Since the algorithm is stored on the blockchain, nobody can alter, cancel, or interfere with your transactions—not even the original creators of the concept.',
+    },
+    {
+      icon: <TbEyeCheck />,
+      title: 'Transparency',
+      subtitle:
+        'Anybody can see the complete transaction history at any moment, and the smart contract code is kept in the public domain. This guarantees equitable circumstances and trustworthy data that you can trust.',
+    },
+    {
+      icon: <FaWallet />,
+      title: 'Full automation',
+      subtitle:
+        'Every transaction between members of the community happens straight from one wallet to another. Because The Eagles does not hold your assets, participants do not have accounts within the system from which they can withdraw money.',
+    },
+    {
+      icon: <HiArrowPathRoundedSquare />,
+      title: 'Decentralization',
+      subtitle:
+        'The functionality of The Eagles smart contracts cannot be altered by anybody, not even the coders.',
     },
   ];
   return (
@@ -43,7 +70,7 @@ const DocumentationSlider = () => {
             {slides.map((slide, index) => (
               <SwiperSlide key={index} className='px-5 py-3 text-center'>
                 <div className='text-textColor3 text-4xl bg-gradient-to-b mt-3 from-[#990091] via-[#7a00aa] to-[#3600e5] inline-block p-3 rounded-full'>
-                  <HiOutlineArrowPath />
+                  {slide.icon}
                 </div>
                 <p className='text-lg font-medium mt-8 text-textColor3'>
                   {slide.title}

@@ -1,11 +1,10 @@
 import { GiGreekTemple } from 'react-icons/gi';
 import { GoPeople } from 'react-icons/go';
-import { HiMiniXMark, HiOutlineArrowPath } from 'react-icons/hi2';
+import { HiOutlineArrowPath } from 'react-icons/hi2';
 import { BsFillQuestionCircleFill } from 'react-icons/bs';
 import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
-import { PiWarningCircleLight } from 'react-icons/pi';
 
-const UpgradeLvl4 = () => {
+const UpgradeLvl3 = () => {
   return (
     <>
       <div className='pt-4 pb-8'>
@@ -13,9 +12,9 @@ const UpgradeLvl4 = () => {
 
         <div className='px-3 flex justify-between mt-7'>
           <h1 className='w-1/4 text-2xl text-textColor3 font-semibold'>
-            Upgrade x4
+            Upgrade x1
           </h1>
-          <div className='px-2 py-3 rounded-lg h-[150px] w-1/2 me-4 bg-textColor'>
+          <div className='px-2 py-3 rounded-lg h-[160px] w-1/2 me-4 bg-textColor'>
             <div className='flex justify-between'>
               <h3 className='text-base text-textColor2'>Lvl 1</h3>
               <p className='flex gap-1 items-center text-textColor3'>
@@ -25,23 +24,19 @@ const UpgradeLvl4 = () => {
                 5
               </p>
             </div>
-            <div className='flex flex-col gap-2'>
-              <div className='flex flex-col items-center gap-x-4 my-2 leading-4'>
-                <div className='flex gap-x-11'>
-                  <div className='h-9 w-9 rounded-full bg-[#597aff]'></div>
-                  <div className='h-9 w-9 rounded-full bg-[#597aff]'></div>
-                </div>
-                <div className='flex gap-x-4'>
-                  <div className='h-6 w-6 rounded-full bg-[#597aff]'></div>
-                  <div className='h-6 w-6 rounded-full bg-[#597aff]'></div>
-                  <div className='h-6 w-6 rounded-full bg-[#597aff]'></div>
-                  <div className='h-6 w-6 rounded-full bg-[#597aff]'></div>
-                </div>
+            <div className='flex flex-col gap-2 my-3'>
+              <div className='flex justify-center gap-x-4'>
+                <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
+                <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
+              </div>
+              <div className='flex justify-center gap-x-4'>
+                <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
+                <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
               </div>
               <div className='flex justify-between'>
                 <p className='flex gap-1 items-center text-textColor3'>
                   <GoPeople className='text-textColor2' />
-                  22
+                  28
                 </p>
                 <p className='flex gap-1 items-center text-textColor3'>
                   <HiOutlineArrowPath className='text-textColor2' />
@@ -63,12 +58,12 @@ const UpgradeLvl4 = () => {
           </div>
           <div className='flex justify-between text-xs'>
             <h3 className='text-textColor2'>Net reward for every cycle</h3>
-            <p className='text-textColor3'>40.00000 BUSD</p>
+            <p className='text-textColor3'>30.00000 USDT</p>
           </div>
           <div className='flex justify-between text-xs'>
             <h3 className='text-textColor2'>Level cycle profit</h3>
             <p className='text-textColor3 flex gap-1 items-center'>
-              400 %
+              300 %
               <span className='text-green-700'>
                 <HiOutlineArrowPath />
               </span>
@@ -82,27 +77,29 @@ const UpgradeLvl4 = () => {
         <div className='py-7 px-3 space-y-2 border-b border-textColor2'>
           <div className='text-textColor text-sm font-medium flex justify-between'>
             <h1>Upgrade Amount</h1>
-            <p>10 BUSD</p>
+            <p>
+              10 USDT (<span className='text-landingtext'>0.015 BNB</span>)
+            </p>
           </div>
           <div className='text-textColor text-xs font-medium flex justify-between'>
             <h1 className='flex gap-2 items-center'>
               Services fee{' '}
               <BsFillQuestionCircleFill className=' text-textColor3 text-sm' />
             </h1>
-            <p>3 BUSD</p>
+            <p>3 USDT</p>
           </div>
         </div>
         <div className='py-7 px-3 space-y-4'>
-          <div className='text-sm text-textColor2 flex justify-between items-center'>
+          <div className='text-sm text-green-700 flex justify-between items-center'>
             <p>Network check (Smart chain)</p>
-            <PiWarningCircleLight className='text-[16px] text-red-700' />
+            <IoIosCheckmarkCircleOutline className='text-[16px]' />
           </div>
           <div className='text-sm text-textColor2 flex justify-between items-center'>
-            <p>Balance check 13 BUSD or 0.019 BNB</p>
+            <p>Balance check 13 USDT</p>
             <div className='h-[13px] w-[13px] me-[2px] rounded-full border border-textColor2'></div>
           </div>
           <div className='text-sm text-textColor2 flex justify-between items-center'>
-            <p>Approved BUSD acivate with BNB</p>
+            <p>Approved USDT</p>
             <div className='h-[13px] w-[13px] me-[2px] rounded-full border border-textColor2'></div>
           </div>
         </div>
@@ -115,4 +112,4 @@ const UpgradeLvl4 = () => {
   );
 };
 
-export default UpgradeLvl4;
+export default UpgradeLvl3;

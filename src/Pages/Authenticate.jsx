@@ -5,7 +5,6 @@ import Members from '../Components/Home/Members';
 import Contract from '../Components/Home/Contract';
 import History from '../Components/Home/History';
 import Footer from '../Components/Footer/Footer';
-import { LuShield } from 'react-icons/lu';
 import { useState } from 'react';
 
 const Authenticate = () => {
@@ -51,7 +50,7 @@ const Authenticate = () => {
 
   return (
     <>
-      <div className='relative'>
+      <div className='relative overflow-hidden'>
         <div className='py-4'>
           <div className='flex justify-end px-3'>
             <div className='inline-block bg-Background p-2 rounded-full shadow-2xl'>
@@ -88,15 +87,15 @@ const Authenticate = () => {
               Account Preview
             </h1>
             <p className='text-xs text-textColor2 w-[85%] mt-3'>
-              Look up any The Eagles.io BUSD member account in preview mode.
-              Enter ID or BUSD address to Preview pr click Demo to view a random
+              Look up any The Eagles.io USDT member account in preview mode.
+              Enter ID or USDT address to Preview pr click Demo to view a random
               account
             </p>
           </div>
 
           <div className='bg-textColor px-3 mx-3 py-6 mt-5 rounded-lg'>
             <h1 className='text-textColor3 text-xl font-medium'>
-              Ender ID or BUSD wallet
+              Ender ID or USDT wallet
             </h1>
             <div>
               <Link to='#'>
@@ -123,7 +122,7 @@ const Authenticate = () => {
             </Link>
           </div>
 
-          <div className='px-3 mt-5 mx-3'>
+          {/* <div className='px-3 mt-5 mx-3'>
             <h1 className='text-textColor3 text-xl font-medium'>
               Weekly Races
             </h1>
@@ -157,7 +156,7 @@ const Authenticate = () => {
                 );
               })}
             </div>
-          </div>
+          </div> */}
 
           <div className='px-3 mt-5'>
             <h1 className='text-textColor3 text-xl font-medium'>
@@ -201,10 +200,50 @@ const Authenticate = () => {
           <Link to='/passId'>
             <div className='mt-5 bg-Background text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'>
               <div className='h-16 w-16 bg-textColor3 rounded-full flex justify-center items-center'>
-                <LuShield className='text-black text-5xl' />
+                <img
+                  src='/assets/AuthImages/trust.png'
+                  alt=''
+                  className='h-[48px] w-[48px]'
+                />
               </div>
               <div>
-                <h1 className='text-2xl font-bold'>Trust wallet</h1>
+                <h1 className='text-2xl font-medium text-textColor3'>
+                  Trust wallet
+                </h1>
+                <p className='text-xs'>DApp in App</p>
+              </div>
+            </div>
+          </Link>
+          <Link to='#'>
+            <div className='mt-3 bg-Background text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'>
+              <div className='h-16 w-16 bg-textColor3 rounded-full flex justify-center items-center'>
+                <img
+                  src='/assets/AuthImages/pocket.png'
+                  alt=''
+                  className='h-[48px] w-[48px]'
+                />
+              </div>
+              <div>
+                <h1 className='text-2xl font-medium text-textColor3'>
+                  TokenPocket
+                </h1>
+                <p className='text-xs'>DApp in App</p>
+              </div>
+            </div>
+          </Link>
+          <Link to='#'>
+            <div className='mt-3 bg-Background text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'>
+              <div className='h-16 w-16 bg-textColor3 rounded-full flex justify-center items-center'>
+                <img
+                  src='/assets/AuthImages/Mask.png'
+                  alt=''
+                  className='h-[48px] w-[48px]'
+                />
+              </div>
+              <div>
+                <h1 className='text-2xl font-medium text-textColor3'>
+                  MetaMask
+                </h1>
                 <p className='text-xs'>DApp in App</p>
               </div>
             </div>

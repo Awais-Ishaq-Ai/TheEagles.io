@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { GiGreekTemple } from 'react-icons/gi';
 import { GoPeople } from 'react-icons/go';
 import { HiOutlineArrowPath } from 'react-icons/hi2';
-import Notify from '../Components/Lvl3/Notify';
-import UserTable from '../Components/Lvl3/UserTable';
+import Notify from '../Components/Lvl1/Notify';
 import { Link } from 'react-router-dom';
 import { BsFillQuestionCircleFill } from 'react-icons/bs';
+import UserTable from '../Components/Lvl1/UserTable';
 
 const Levelx3 = () => {
   const levels = [
@@ -19,6 +19,8 @@ const Levelx3 = () => {
     { level: 8, cost: 640, peopleCount: 1, timer: '00' },
     { level: 9, cost: 1280, peopleCount: 765, timer: '00' },
     { level: 10, cost: 2560, peopleCount: 53, timer: '00' },
+    { level: 11, cost: 5120, peopleCount: 5, timer: '00' },
+    { level: 12, cost: 10240, peopleCount: 86, timer: '00' },
   ];
 
   const [activeLevels, setActiveLevels] = useState([1]);
@@ -35,12 +37,12 @@ const Levelx3 = () => {
         <h4 className='text-[#7b7b7b] text-sm'>
           ID 1848323 /{' '}
           <span className='text-textColor2 text-base font-medium'>
-            The Eagles.io x3 (1/10)
+            The Eagles.io x1 (1/12)
           </span>
         </h4>
         <div className='text-textColor3 text-lg mt-4 flex justify-between'>
-          <h1>The Eagles.io x3</h1>
-          <h1>0 BUSD</h1>
+          <h1>The Eagles.io x1</h1>
+          <h1>0 USDT</h1>
         </div>
       </div>
       <div className='bg-gradient-to-r from-[#170e61] to-[#5b4fc6] w-full h-auto px-2 py-6 mt-3'>
@@ -84,10 +86,8 @@ const Levelx3 = () => {
                   <div className='flex justify-center gap-x-4'>
                     <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
                     <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
-                    <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
                   </div>
                   <div className='flex justify-center gap-x-4'>
-                    <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
                     <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
                     <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
                   </div>
@@ -129,7 +129,7 @@ const Levelx3 = () => {
             </div>
           </div>
           <button className='bg-[#172b7d] text-textColor3 px-8 mt-5 py-3 rounded-full font-medium flex gap-2'>
-            <Link to='/Upgradex3' className='flex gap-2 items-center'>
+            <Link to='/Upgradex1' className='flex gap-2 items-center'>
               <BsFillQuestionCircleFill className=' text-textColor3' />
               Marketing legend
             </Link>

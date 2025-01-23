@@ -4,6 +4,9 @@ const Calculator = () => {
   const [selected, setSelected] = useState(null);
   const [value, setValue] = useState(0.5);
   const [active, setActive] = useState('X3');
+  const [activepara, setActivepara] = useState(
+    'Basic matrix program,which is best for those who are self-reliant and prefer independent development'
+  );
   const number = [
     { num: 1 },
     { num: 2 },
@@ -29,10 +32,16 @@ const Calculator = () => {
   const handleValueX3 = () => {
     setActive('X3');
     setValue(0.5);
+    setActivepara(
+      'Basic matrix program,which is best for those who are self-reliant and prefer independent development'
+    );
   };
   const handleValueX4 = () => {
     setActive('X4');
     setValue(0.9);
+    setActivepara(
+      'More advanced program, designed for team work. Results are achieved here through direct partners, as well as through spillovers from other participate.'
+    );
   };
   return (
     <div className='bg-black text-textColor3 p-2 pt-5'>
@@ -73,10 +82,7 @@ const Calculator = () => {
           <h3 className='p-2 bg-[#4531FB] rounded-full px-3'>{active}</h3>
           <h3 className='ml-5'>The Eagles.io</h3>
         </div>
-        <p className='text-[13px] text-textColor2 mt-3 px-3'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora aut
-          nam neque aliquam, blanditiis similique!
-        </p>
+        <p className='text-[13px] text-textColor2 mt-3 px-3'>{activepara}</p>
         <div className='mt-4 w-[85%] flex gap-6 flex-wrap px-3'>
           {number.map((num, i) => {
             return (
@@ -95,13 +101,13 @@ const Calculator = () => {
         <p className='text-[13px] text-textColor2 mt-3 mb-2 px-3'>
           Cost of all selected slots
         </p>
-        <h2 className='text-textColor3 font-semibold px-3'>{value} BUSD</h2>
+        <h2 className='text-textColor3 font-semibold px-3'>{value} USDT</h2>
         <hr />
         <p className='text-[13px] text-textColor2 mt-3 px-3'>
           Result of all selected
         </p>
         <h2 className='text-textColor3 text-2xl font-semibold px-3'>
-          {value} BUSD
+          {value} USDT
         </h2>
       </div>
     </div>

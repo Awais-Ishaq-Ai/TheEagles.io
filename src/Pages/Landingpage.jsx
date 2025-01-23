@@ -6,10 +6,9 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
-import book from '/assets/LandingImages/book.png';
 import { Link } from 'react-router-dom';
 import Footer from '../Components/Footer/Footer';
-import { IoCopy, IoEarth } from 'react-icons/io5';
+import { IoBookOutline, IoCopy, IoEarth } from 'react-icons/io5';
 import { GiBookmarklet } from 'react-icons/gi';
 import { HiOutlineLightBulb } from 'react-icons/hi';
 import { PiGraduationCapThin } from 'react-icons/pi';
@@ -17,28 +16,26 @@ import History from '../Components/Home/History';
 import DocumentationSlider from '../Components/LandingPage/DocumentationSlider';
 import FAQ from '../Components/LandingPage/FAQ';
 import Social from '../Components/LandingPage/Social';
+import { IoIosChatbubbles } from 'react-icons/io';
 
 function Landingpage() {
-  const [activeTab, setActiveTab] = useState('Total');
+  const [activeTab, setActiveTab] = useState('USDT');
 
   const slides = [
     {
       title: 'Documentation',
       subtitle: 'Practical Learning Platform',
       buttonText: 'Start Learning',
-      img: book,
+      icon: <IoBookOutline className='text-textColor2 opacity-45 text-7xl' />,
     },
     {
-      title: 'Slide 2 Title',
-      subtitle: 'Slide 2 Subtitle',
-      buttonText: 'Explore More',
-      img: book,
-    },
-    {
-      title: 'Slide 3 Title',
-      subtitle: 'Slide 3 Subtitle',
-      buttonText: 'Learn More',
-      img: book,
+      title: 'Live chat',
+      subtitle:
+        'Platform where you can ask a question to experienced participants',
+      buttonText: 'Find a mentor',
+      icon: (
+        <IoIosChatbubbles className='text-textColor2 opacity-45 text-6xl' />
+      ),
     },
   ];
 
@@ -67,18 +64,20 @@ function Landingpage() {
           </div>
         </div>
 
-        <div className='w-[80%] mx-auto'>
+        <div className='w-[80%] mx-auto mt-8'>
           <p className='text-white font-medium text-center my-3'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste ipsa
-            molestias deserunt, nam qui pariatur?{' '}
+            A decentralized networking platform based on smart contracts,
+            together with NFT technology, which{' '}
+            <span className='text-landingtext'>brings people together</span>{' '}
+            from all over the world and{' '}
             <span className='text-landingtext'>
-              Aspernatur repellat reprehenderit
+              opens up endless possibilities
             </span>{' '}
-            assumenda minus aperiam!
+            new economic financial systems
           </p>
         </div>
         <div className='backgroundimg flex justify-center items-end'>
-          <div className='h-[27vh] w-[85%] bg-Background rounded-lg px-3 py-2'>
+          <div className='h-auto w-[85%] bg-Background rounded-lg px-5 pt-4'>
             <Swiper
               pagination={{ clickable: true }}
               modules={[Pagination]}
@@ -89,12 +88,12 @@ function Landingpage() {
                   <p className='text-lg font-medium text-textColor3'>
                     {slide.title}
                   </p>
-                  <p className='text-xl text-textColor2'>{slide.subtitle}</p>
-                  <div className='flex items-center my-3 justify-between'>
-                    <p className='flex items-end gap-2 text-textColor3 text-lg mt-7'>
+                  <p className='text-xs text-textColor2'>{slide.subtitle}</p>
+                  <div className='flex items-center justify-between my-7'>
+                    <p className='flex items-end gap-2 text-textColor3 text-lg'>
                       {slide.buttonText} <GrLinkNext />
                     </p>
-                    <img src={slide.img} alt='Slide Image' />
+                    {slide.icon}
                   </div>
                 </SwiperSlide>
               ))}
@@ -105,7 +104,9 @@ function Landingpage() {
         <div className='relative mt-20 h-64'>
           <PiGraduationCapThin className='text-landingtext absolute text-6xl -z-10 -top-8 -rotate-45 left-2' />
           <p className='text-textColor3 text-xs w-4/5 text-center mx-auto font-medium'>
-            <span className='text-landingtext font-bold'>Forsage School</span>{' '}
+            <span className='text-landingtext font-bold'>
+              The Eagles School
+            </span>{' '}
             is an exclusive training course designed specifically for the who
             want to unlock thier full potential with The Eagles.io!
           </p>
@@ -150,26 +151,7 @@ function Landingpage() {
           </p>
           <div className='mt-8 text-sm space-y-5'>
             <p className='text-textColor2'>
-              Contract address <span className='text-textColor3'>eth:</span>
-            </p>
-            <h5 className='text-textColor3 text-sm flex gap-2'>
-              ox5acc77e655....doo5f00FB87:
-              <span className='text-xl'>
-                <IoCopy />
-              </span>
-            </h5>
-            <p className='text-textColor2'>
-              Contract address <span className='text-textColor3'>tron:</span>
-            </p>
-            <h5 className='text-textColor3 text-sm flex gap-2'>
-              TREbha3J6trpt...mMug:
-              <span className='text-xl'>
-                <IoCopy />
-              </span>
-            </h5>
-
-            <p className='text-textColor2'>
-              Contract address <span className='text-textColor3'>BUSD:</span>
+              Contract address <span className='text-textColor3'>USDT:</span>
             </p>
             <h5 className='text-textColor3 text-sm flex gap-2'>
               ox5acc77e655....doo5f00FB87:
@@ -179,79 +161,30 @@ function Landingpage() {
             </h5>
           </div>
 
-          <div className='mt-8 w-11/12 mx-auto'>
-            <div className='flex justify-around bg-textColor2 bg-opacity-30 rounded-full px-2 py-2'>
+          <div className='mt-8 flex flex-col items-center'>
+            <div className='inline-block bg-textColor2 bg-opacity-30 rounded-full px-2 py-2'>
               <div
-                onClick={() => setActiveTab('Total')}
-                className={`cursor-pointer px-4 py-2 font-bold ${
-                  activeTab === 'Total'
+                className={`cursor-pointer px-4 py-2  font-bold ${
+                  activeTab === 'USDT'
                     ? 'bg-textColor3 rounded-full text-black'
                     : 'text-gray-300'
                 }`}
               >
-                Total
-              </div>
-              <div
-                onClick={() => setActiveTab('ETH')}
-                className={`cursor-pointer px-4 py-2 font-bold ${
-                  activeTab === 'ETH'
-                    ? 'bg-textColor3 rounded-full text-black'
-                    : 'text-gray-300'
-                }`}
-              >
-                ETH
-              </div>
-              <div
-                onClick={() => setActiveTab('Tron')}
-                className={`cursor-pointer px-4 py-2 font-bold ${
-                  activeTab === 'Tron'
-                    ? 'bg-textColor3 rounded-full text-black'
-                    : 'text-gray-300'
-                }`}
-              >
-                Tron
-              </div>
-              <div
-                onClick={() => setActiveTab('BUSD')}
-                className={`cursor-pointer px-4 py-2 font-bold ${
-                  activeTab === 'BUSD'
-                    ? 'bg-textColor3 rounded-full text-black'
-                    : 'text-gray-300'
-                }`}
-              >
-                BUSD
+                USDT
               </div>
             </div>
 
             <div className='mt-5 text-center'>
-              {activeTab === 'Total' && (
-                <>
-                  <div className='text-4xl font-bold text-white'>
-                    3 395 780{' '}
-                    <sup className='text-green-700 text-base'>+422</sup>
-                  </div>
-                  <div className='text-2xl font-bold text-white mt-2'>
-                    1 469 653 628{' '}
-                    <sup className='text-green-700 text-base'>+8 284</sup>
-                  </div>
-                  <div className='mt-2 text-sm text-textColor2'>
-                    Total result, USD
-                  </div>
-                </>
-              )}
-              {activeTab === 'ETH' && (
-                <div className='text-white text-2xl'>ETH Data goes here...</div>
-              )}
-              {activeTab === 'Tron' && (
-                <div className='text-white text-2xl'>
-                  Tron Data goes here...
-                </div>
-              )}
-              {activeTab === 'BUSD' && (
-                <div className='text-white text-2xl'>
-                  BUSD Data goes here...
-                </div>
-              )}
+              <div className='text-4xl font-bold text-white'>
+                3 395 780 <sup className='text-green-700 text-base'>+422</sup>
+              </div>
+              <div className='text-2xl font-bold text-white mt-2'>
+                1 469 653 628{' '}
+                <sup className='text-green-700 text-base'>+8 284</sup>
+              </div>
+              <div className='mt-2 text-sm text-textColor2'>
+                Total result, USDT
+              </div>
             </div>
           </div>
         </div>

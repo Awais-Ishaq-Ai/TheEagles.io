@@ -4,13 +4,13 @@ import { RiShare2Line } from 'react-icons/ri';
 
 const UserTable = () => {
   const data = [
-    { id: 1, date: '2025-01-01', level: 1, wallet: '100 BUSD' },
-    { id: 2, date: '2025-01-02', level: 2, wallet: '200 BUSD' },
-    { id: 3, date: '2025-01-03', level: 3, wallet: '300 BUSD' },
-    { id: 4, date: '2025-01-04', level: 4, wallet: '400 BUSD' },
-    { id: 5, date: '2025-01-05', level: 5, wallet: '500 BUSD' },
-    { id: 6, date: '2025-01-06', level: 6, wallet: '600 BUSD' },
-    { id: 7, date: '2025-01-07', level: 7, wallet: '700 BUSD' },
+    { id: 1, date: '2025-01-01', level: 1, wallet: '100 USDT' },
+    { id: 2, date: '2025-01-02', level: 2, wallet: '200 USDT' },
+    { id: 3, date: '2025-01-03', level: 3, wallet: '300 USDT' },
+    { id: 4, date: '2025-01-04', level: 4, wallet: '400 USDT' },
+    { id: 5, date: '2025-01-05', level: 5, wallet: '500 USDT' },
+    { id: 6, date: '2025-01-06', level: 6, wallet: '600 USDT' },
+    { id: 7, date: '2025-01-07', level: 7, wallet: '700 USDT' },
   ];
 
   const [visibleRows, setVisibleRows] = useState(2);

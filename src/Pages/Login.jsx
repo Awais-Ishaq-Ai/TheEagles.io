@@ -1,6 +1,6 @@
 import { HiMiniXMark } from 'react-icons/hi2';
 import { useNavigate } from 'react-router-dom';
-import BUSDlogin from '../Components/Login/BUSDlogin';
+import USDTlogin from '../Components/Login/USDTlogin';
 import Ethereumlogin from '../Components/Login/Ethereumlogin';
 import TronLogin from '../Components/Login/TronLogin';
 
@@ -18,9 +18,9 @@ const Login = () => {
           </div>
         </div>
 
-        <BUSDlogin />
-        <Ethereumlogin />
-        <TronLogin />
+        <USDTlogin />
+        {/* <Ethereumlogin />
+        <TronLogin /> */}
       </div>
     </>
   );

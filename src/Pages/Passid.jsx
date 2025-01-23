@@ -63,7 +63,7 @@ const Passid = () => {
             <h1 className='text-2xl text-textColor3'>ID 1842424</h1>
           </div>
           <p className='text-xs text-textColor2 mt-7'>
-            0x783c...2ssois a number of The Eagles.io BUSD
+            0x783c...2ssois a number of The Eagles.io USDT
           </p>
           <Link to='/home'>
             <div className='bg-gradient-to-r from-[#000000] to-[#747474] w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-12 text-textColor3 font-medium rounded-lg'>
@@ -77,14 +77,14 @@ const Passid = () => {
             Account Preview
           </h1>
           <p className='text-xs text-textColor2 w-[85%] mt-3'>
-            Look up any The Eagles.io BUSD member account in preview mode. Enter
-            ID or BUSD address to Preview pr click Demo to view a random account
+            Look up any The Eagles.io USDT member account in preview mode. Enter
+            ID or USDT address to Preview pr click Demo to view a random account
           </p>
         </div>
 
         <div className='bg-textColor px-3 mx-3 py-6 mt-5 rounded-lg'>
           <h1 className='text-textColor3 text-xl font-medium'>
-            Ender ID or BUSD wallet
+            Ender ID or USDT wallet
           </h1>
           <div>
             <Link to='#'>
@@ -111,7 +111,7 @@ const Passid = () => {
           </Link>
         </div>
 
-        <div className='px-3 mt-5 mx-3'>
+        {/* <div className='px-3 mt-5 mx-3'>
           <h1 className='text-textColor3 text-xl font-medium'>Weekly Races</h1>
           <div className='bg-[#FFCE3A] w-full h-auto flex justify-center items-end mt-3 rounded-lg'>
             <img src={flag} alt='' />
@@ -143,7 +143,7 @@ const Passid = () => {
               );
             })}
           </div>
-        </div>
+        </div> */}
 
         <div className='px-3 mt-5'>
           <h1 className='text-textColor3 text-xl font-medium'>

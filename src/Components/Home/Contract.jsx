@@ -14,7 +14,7 @@ const Contract = () => {
     <>
       <div className='bg-Background w-full h-full rounded-lg mt-1 pb-4'>
         <h1 className='text-textColor2 border-b border-textColor2 flex justify-between items-center px-3 py-4'>
-          Forsage BUSD contract
+          The Eagles USDT contract
           <span
             className='bg-textColor h-8 w-8 flex justify-center items-center rounded-full cursor-pointer'
             onClick={toggleVisibility}
@@ -30,7 +30,7 @@ const Contract = () => {
         {isVisible && (
           <div>
             <div className='flex justify-between py-4 px-3 border-b border-textColor2'>
-              <p className='text-textColor2'>x3/x4</p>
+              <p className='text-textColor2'>x1/x2</p>
               <p className='flex gap-2 text-textColor3 items-center'>
                 0x55...a32{' '}
                 <span>
@@ -49,7 +49,7 @@ const Contract = () => {
               </p>
             </div>
             <div className='space-y-1 pt-4 px-3'>
-              <h1 className='text-textColor2'>Turnover, BUSD</h1>
+              <h1 className='text-textColor2'>Turnover, USDT</h1>
               <p className='text-textColor3'>123 546 448.0</p>
               <p className='text-green-700 flex'>
                 <span>+00000</span>
