@@ -44,6 +44,7 @@ body {
 .hexagon {
   clip-path: polygon(50% 0, 100% 20%, 100% 80%, 50% 100%, 0 80%, 0 20%);
 }
+
 .backgroundimg {
   background-image: url('/assets/HomeImages/world.png');
   height: 45vh;
@@ -51,4 +52,28 @@ body {
   background-size: 75%;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.homebg {
+  position: relative;
+  background-image: url('/assets/HomeImages/BlockChain.png');
+  background-repeat: repeat;
+  background-position: top center;
+  background-size: contain;
+}
+
+.homebg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.homebg > * {
+  position: relative;
+  z-index: 2;
 }

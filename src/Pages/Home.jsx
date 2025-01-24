@@ -28,7 +28,7 @@ const Home = () => {
 
   return (
     <>
-      <div className='w-full px-4 mt-8'>
+      <div className='w-full px-4 pt-8 homebg'>
         <div>
           <div className='h-auto flex justify-between'>
             <div className='flex gap-3'>
