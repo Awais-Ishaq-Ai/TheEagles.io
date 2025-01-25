@@ -21,7 +21,7 @@ const DocumentationSlider = () => {
       icon: <BsEmojiSmile />,
       title: 'Autonomy',
       subtitle:
-        'The smart contract and NFT technologies, which are fully autonomous and do not rely on human intervention, are the foundation of the The Eagles ecosystem.',
+        'The smart contract technologies, which are fully autonomous and do not rely on human intervention, are the foundation of the The Eagles ecosystem.',
     },
     {
       icon: <GoFileSymlinkFile />,
@@ -56,9 +56,8 @@ const DocumentationSlider = () => {
         </h1>
         <p className='text-textColor2 text-xs mt-4 w-4/5 mx-auto'>
           Decentralized marketing is proved by the revolutionary technology of
-          smart contract amd NFT. The Eagles.io smart contract code is
-          completely open. You can be sure of its safely and long-term
-          performance.
+          smart contract. The Eagles.io smart contract code is completely open.
+          You can be sure of its safely and long-term performance.
         </p>
 
         <div className='h-auto w-4/5 mx-auto mt-7 bg-Background rounded-lg'>

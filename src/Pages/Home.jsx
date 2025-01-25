@@ -40,15 +40,15 @@ const Home = () => {
                   <img
                     src='/assets/HomeImages/logo.png'
                     alt='logo'
-                    className='h-9 w-9 absolute bottom-1 -right-4 rounded-full'
+                    className='h-7 w-7 ms-2 object-cover absolute bottom-1 -right-4 rounded-full'
                   />
                 </div>
               </div>
               <div className='text-textColor3'>
                 <h1 className='text-lg'>UserName</h1>
-                <p className='text-sm'>ID 000000</p>
+                <p className='text-base text-[#f032dd]'>ID 000000</p>
                 <button
-                  className='ms-4 mt-3 text-sm flex gap-1 items-center justify-center bg-Background text-textColor2 w-28 py-1 rounded-full'
+                  className='ms-4 mt-3 text-base flex gap-2 items-center justify-center bg-Background text-textColor2 w-36 py-1 rounded-full'
                   onClick={() => setShowDetails(!showDetails)}
                 >
                   {showDetails ? 'Show less' : 'Show more'}
@@ -77,7 +77,7 @@ const Home = () => {
               </div>
               <div className='flex gap-2 items-center text-textColor3 text-sm'>
                 <p>invited 24.11.2024 by</p>
-                <p className='px-3 py-2 text-textColor font-medium text-base bg-Background rounded-full font-mono'>
+                <p className='px-3 py-2 text-[#f032dd] font-medium text-base bg-Background rounded-full font-mono'>
                   ID 000000
                 </p>
               </div>
@@ -85,9 +85,9 @@ const Home = () => {
           )}
         </div>
         <div className='bg-Background w-full px-2 py-3 rounded-lg mt-4'>
-          <div className='flex justify-between text-xs mb-5'>
-            <h5 className='text-textColor2'>My Personal link</h5>
-            <p className='text-textColor text-sm font-medium flex gap-2 items-center'>
+          <div className='flex items-center justify-between text-xs mb-5'>
+            <h5 className='text-textColor2'>Personal link</h5>
+            <p className='text-[#f032dd] text-base font-medium flex gap-2 items-center'>
               theeagles.io/**********
               <span>
                 <GoArrowUpRight className='text-textColor3 text-lg' />

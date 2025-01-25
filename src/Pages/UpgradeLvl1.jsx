@@ -18,8 +18,12 @@ const UpgradeLvl3 = () => {
             <div className='flex justify-between'>
               <h3 className='text-base text-textColor2'>Lvl 1</h3>
               <p className='flex gap-1 items-center text-textColor3'>
-                <div className='bg-[#ffac33] h-3 w-3 rounded-full flex justify-center items-center text-[8px] text-[#ffd983]'>
-                  <GiGreekTemple />
+                <div className='bg-[#ffac33] h-3 w-3 rounded-full flex justify-center items-center'>
+                  <img
+                    src='/assets/lvl1Images/tether.png'
+                    alt=''
+                    className='h-[8px] w-auto'
+                  />
                 </div>
                 5
               </p>

@@ -66,8 +66,7 @@ function Landingpage() {
 
         <div className='w-[80%] mx-auto mt-8'>
           <p className='text-white font-medium text-center my-3'>
-            A decentralized networking platform based on smart contracts,
-            together with NFT technology, which{' '}
+            A decentralized networking platform based on smart contracts, which{' '}
             <span className='text-landingtext'>brings people together</span>{' '}
             from all over the world and{' '}
             <span className='text-landingtext'>

@@ -30,7 +30,7 @@ const Program = () => {
             </div>
             <div className='bg-gradient-to-r from-[#5b4fc6] to-[#170e61] rounded-md flex justify-center items-center px-3 py-2 mt-6 font-medium'>
               <button className='text-xs text-white '>
-                Upgrade for 10 USDT
+                Upgrade for 5 USDT
               </button>
             </div>
           </div>
@@ -58,7 +58,7 @@ const Program = () => {
             </div>
             <div className='bg-gradient-to-r from-[#5b4fc6] to-[#170e61] rounded-md flex justify-center items-center px-3 py-2 mt-6 font-medium'>
               <button className='text-xs text-white '>
-                Upgrade for 10 USDT
+                Upgrade for 5 USDT
               </button>
             </div>
           </div>

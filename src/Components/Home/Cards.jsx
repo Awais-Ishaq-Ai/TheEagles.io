@@ -18,8 +18,8 @@ const Cards = () => {
             <p>0 USDT</p>
           </div>
           <div className='text-textColor3'>
-            <p className='flex items-center gap-1'>
-              <GoArrowUp className='text-green-700' />0
+            <p className='flex items-center gap-1 text-green-700'>
+              <GoArrowUp />0
             </p>
           </div>
         </div>
@@ -34,8 +34,8 @@ const Cards = () => {
             </span>
           </p>
           <p className='text-3xl text-textColor3'>0</p>
-          <div className='w-[90%] mx-auto mt-4 flex justify-between p-1 rounded-full bg-[#5b4fc6]'>
-            <div className='flex items-center text-textColor3 text-xl'>
+          <div className='w-[90%] mx-auto mt-4 flex justify-between p-1 rounded-full bg-[#5b4fc686]'>
+            <div className='flex items-center text-green-700 font-medium text-xl'>
               <GoArrowUp /> 0
             </div>
             <div className='gradient-circle'></div>
@@ -49,8 +49,8 @@ const Cards = () => {
             </span>
           </p>
           <p className='text-3xl text-textColor3'>0</p>
-          <div className='w-[90%] mx-auto mt-4 flex justify-between p-1 rounded-full bg-[#5b4fc6]'>
-            <div className='flex items-center text-textColor3 text-xl'>
+          <div className='w-[90%] mx-auto mt-4 flex justify-between p-1 rounded-full bg-[#5b4fc686]'>
+            <div className='flex items-center text-green-700 font-medium text-xl'>
               <GoArrowUp /> 0
             </div>
             <div className='gradient-circle'></div>

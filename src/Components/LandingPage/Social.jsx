@@ -5,6 +5,7 @@ import {
   FaFacebookF,
   FaRegFileAlt,
   FaTiktok,
+  FaInstagram,
 } from 'react-icons/fa';
 import { RiTelegram2Fill } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
@@ -14,14 +15,17 @@ const Social = () => {
     <div className='text-textColor3 pb-10'>
       <h2 className='text-2xl font-bold mb-8 ms-6'>Official Channels</h2>
       <div className='flex flex-wrap gap-x-28 gap-y-9 justify-center mb-12'>
-        <div className='flex flex-col items-center'>
+        <Link
+          to='https://www.instagram.com/theeagles786'
+          className='flex flex-col items-center'
+        >
           <div className='p-[2px] bg-gradient-to-b from-[#990091] via-[#7a00aa] to-[#3600e5] rounded-full'>
             <div className='bg-black h-20 w-20 flex justify-center items-center rounded-full'>
-              <RiTelegram2Fill className='text-textColor3 text-4xl' />
+              <FaInstagram className='text-textColor3 text-4xl' />
             </div>
           </div>
-          <p className='text-sm mt-2'>Telegram Channel</p>
-        </div>
+          <p className='text-sm mt-2'>Instagram</p>
+        </Link>
         <Link
           to='https://www.tiktok.com/@theeapzlwm4?_t=ZS-8tMNEoaEiv4&_r=1'
           className='flex flex-col items-center'
@@ -33,22 +37,28 @@ const Social = () => {
           </div>
           <p className='text-sm mt-2'>Tiktok</p>
         </Link>
-        <div className='flex flex-col items-center'>
+        <Link
+          to='https://x.com/theeagles727493?t=5LOE9H8FwdDMF2wUtfYy7w&s=09'
+          className='flex flex-col items-center'
+        >
           <div className='p-[2px] bg-gradient-to-b from-[#990091] via-[#7a00aa] to-[#3600e5] rounded-full'>
             <div className='bg-black h-20 w-20 flex justify-center items-center rounded-full'>
               <FaTwitter className='text-textColor3 text-4xl' />
             </div>
           </div>
           <p className='text-sm mt-2'>Twitter</p>
-        </div>
-        <div className='flex flex-col items-center'>
+        </Link>
+        <Link
+          to='https://www.facebook.com/share/18FkUDzNLf/'
+          className='flex flex-col items-center'
+        >
           <div className='p-[2px] bg-gradient-to-b from-[#990091] via-[#7a00aa] to-[#3600e5] rounded-full'>
             <div className='bg-black h-20 w-20 flex justify-center items-center rounded-full'>
               <FaFacebookF className='text-textColor3 text-4xl' />
             </div>
           </div>
           <p className='text-sm mt-2'>Facebook</p>
-        </div>
+        </Link>
         <Link
           to='https://www.youtube.com/@MrAmtazKallu'
           className='flex flex-col items-center'

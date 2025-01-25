@@ -49,7 +49,7 @@ const Levelx2 = () => {
           <h1>{totalCost} USDT</h1>
         </div>
       </div>
-      <div className='bg-gradient-to-r from-[#170e61] to-[#5b4fc6] w-full h-auto px-2 py-6 mt-3'>
+      <div className='bg-gradient-to-r from-[#dc0cc8] to-[#3924f5] w-full h-auto px-2 py-6 mt-3'>
         <div className='grid grid-cols-2 gap-3'>
           {levels.map((item) => (
             <div
@@ -63,8 +63,12 @@ const Levelx2 = () => {
               <div className='flex justify-between'>
                 <h3 className='text-base text-textColor2'>Lvl {item.level}</h3>
                 <p className='flex gap-1 items-center text-textColor3'>
-                  <div className='bg-[#ffac33] h-3 w-3 rounded-full flex justify-center items-center text-[8px] text-[#ffd983]'>
-                    <GiGreekTemple />
+                  <div className='bg-[#ffac33] h-3 w-3 rounded-full flex justify-center items-center'>
+                    <img
+                      src='/assets/lvl1Images/tether.png'
+                      alt=''
+                      className='h-[8px] w-auto'
+                    />
                   </div>
                   {item.cost}
                 </p>

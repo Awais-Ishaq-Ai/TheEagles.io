@@ -36,7 +36,7 @@ const Navbar = ({ home }) => {
           <img
             src='/assets/HomeImages/logo.png'
             alt='logo'
-            className='h-14 w-14 ms-2 rounded-full'
+            className='h-12 w-12 ms-2 rounded-full object-cover'
           />
         </Link>
         <div className='flex gap-2 p-4'>
@@ -55,11 +55,14 @@ const Navbar = ({ home }) => {
       {menu && (
         <div className='absolute top-0 h-[135vh] w-full text-textColor3 bg-black transition-all duration-500'>
           <div className='px-3 flex items-center justify-between border-b border-textColor2'>
-            <img
-              src='/assets/HomeImages/logo.png'
-              alt='logo'
-              className='h-14 w-14 ms-2 rounded-full'
-            />
+            <div className='w-[70px]'>
+              <img
+                src='/assets/HomeImages/logo.png'
+                alt='logo'
+                className='h-9 w-9 ms-2 rounded-full object-cover'
+              />
+            </div>
+
             <div className='flex justify-end py-4'>
               <div className='inline-block bg-gray-800 p-2 rounded-full shadow-2xl'>
                 <HiMiniXMark
