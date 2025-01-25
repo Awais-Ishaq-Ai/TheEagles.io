@@ -8,13 +8,13 @@ const AccountSearch = () => {
   return (
     <>
       <div className='w-full min-h-screen text-textColor3 bg-textColor'>
-        <div className='px-3 py-4 flex justify-between'>
+        <div className='px-3 flex items-center justify-between'>
           <img
-            src=''
+            src='/assets/HomeImages/logo.png'
             alt='logo'
-            className='bg-Background bg-opacity-20 rounded-full w-10 h-10'
+            className='h-14 w-14 ms-2 rounded-full'
           />
-          <div className='flex justify-end'>
+          <div className='flex justify-end py-4'>
             <div className='inline-block bg-Background bg-opacity-20 p-2 rounded-full shadow-2xl'>
               <HiMiniXMark
                 className='text-white text-3xl cursor-pointer'

@@ -171,7 +171,7 @@ const History = () => {
         <div className='flex justify-center mt-6'>
           <button
             onClick={handleSeeMore}
-            className='text-textColor3 w-3/4 rounded-lg py-3 font-medium border border-textColor2'
+            className='text-textColor3 w-3/4 bg-gradient-to-r from-[#5b4fc6] to-[#170e61] rounded-lg py-3 font-medium'
           >
             See More
           </button>

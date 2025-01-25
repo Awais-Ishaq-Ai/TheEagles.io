@@ -33,10 +33,15 @@ const Home = () => {
           <div className='h-auto flex justify-between'>
             <div className='flex gap-3'>
               <div className='gradient-border h-20 w-20 rounded-full'>
-                <div className='flex items-center justify-center text-white h-full w-full rounded-full bg-Background'>
+                <div className='relative flex items-center justify-center text-white h-full w-full rounded-full bg-Background'>
                   <p className='text-[#bcbcbc]'>
                     <IoPersonCircleSharp className='text-7xl text-textColor3' />
                   </p>
+                  <img
+                    src='/assets/HomeImages/logo.png'
+                    alt='logo'
+                    className='h-9 w-9 absolute bottom-1 -right-4 rounded-full'
+                  />
                 </div>
               </div>
               <div className='text-textColor3'>
@@ -66,13 +71,13 @@ const Home = () => {
           </div>
           {showDetails && (
             <div className='mt-3'>
-              <div className='flex gap-x-2 items-center text-xs text-textColor3'>
+              <div className='flex gap-x-2 items-center text-sm text-textColor3'>
                 <p>0x783c...2sso</p>
                 <IoCopy />
               </div>
-              <div className='flex gap-2 items-center text-textColor3 text-xs'>
+              <div className='flex gap-2 items-center text-textColor3 text-sm'>
                 <p>invited 24.11.2024 by</p>
-                <p className='px-3 py-2 text-textColor text-base bg-Background rounded-full'>
+                <p className='px-3 py-2 text-textColor font-medium text-base bg-Background rounded-full font-mono'>
                   ID 000000
                 </p>
               </div>
@@ -82,21 +87,21 @@ const Home = () => {
         <div className='bg-Background w-full px-2 py-3 rounded-lg mt-4'>
           <div className='flex justify-between text-xs mb-5'>
             <h5 className='text-textColor2'>My Personal link</h5>
-            <p className='text-textColor flex gap-2 items-center'>
+            <p className='text-textColor text-sm font-medium flex gap-2 items-center'>
               theeagles.io/**********
               <span>
                 <GoArrowUpRight className='text-textColor3 text-lg' />
               </span>
             </p>
           </div>
-          <div className='text-xs flex gap-4'>
+          <div className='text-lg space-y-4'>
             <button
-              className='bg-textColor text-textColor3 font-medium px-6 py-1 rounded-full'
+              className='bg-textColor w-full text-textColor3 font-medium px-6 py-1 rounded-full'
               onClick={() => handleCopy('Text from Button 1')}
             >
               Copy
             </button>
-            <button className='bg-textColor3 text-textColor font-medium px-6 py-1 rounded-full'>
+            <button className='w-full bg-textColor3 text-textColor font-medium px-6 py-1 rounded-full'>
               Share
             </button>
           </div>

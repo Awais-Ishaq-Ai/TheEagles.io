@@ -14,8 +14,11 @@ const USDTlogin = () => {
             <p>Advantages:</p>
             <p>Stablecoin is pegged to the value of the dollar</p>
           </div>
-          {/* <p>Approved by the New York State Financial Services Authority</p> */}
-          {/* <p>CNYDDFS,</p> */}
+          <p>Operates in compliance with U.S. Treasury standards</p>
+          <p>
+            USDT – Fully backed by audited USD reserves for transparency and
+            trust
+          </p>
           <p>Fixed profit and fall protection</p>
           <p>Instant transaction</p>
           <p>Limitation:</p>

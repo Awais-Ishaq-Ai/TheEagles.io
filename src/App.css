@@ -15,10 +15,22 @@ body {
 }
 
 .bg-image {
-  background-image: url('/assets/HomeImages/hero1.png'),
-    url('/assets/HomeImages/hero2.png');
-  background-position: 180px 0px, 105px 55px;
+  position: relative;
+}
+
+.bg-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/assets/LandingImages/tether.png'),
+    url('/assets/LandingImages/tether.png');
+  background-position: 180px -52px, 60px 30px;
   background-repeat: no-repeat, no-repeat;
+  opacity: 0.05;
+  z-index: -1;
 }
 
 .bg-person2 {
@@ -37,7 +49,7 @@ body {
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  background: conic-gradient(white, black);
+  background: conic-gradient(white, #170e61 60%);
   box-sizing: border-box;
 }
 
@@ -46,7 +58,7 @@ body {
 }
 
 .backgroundimg {
-  background-image: url('/assets/HomeImages/world.png');
+  background-image: url('/assets/LandingImages/world.png');
   height: 45vh;
   width: 100%;
   background-size: 75%;

@@ -19,7 +19,7 @@ const Cards = () => {
           </div>
           <div className='text-textColor3'>
             <p className='flex items-center gap-1'>
-              <GoArrowUp />0
+              <GoArrowUp className='text-green-700' />0
             </p>
           </div>
         </div>
@@ -34,7 +34,7 @@ const Cards = () => {
             </span>
           </p>
           <p className='text-3xl text-textColor3'>0</p>
-          <div className='w-[90%] mx-auto mt-4 flex justify-between p-1 rounded-full bg-[#5c5c5c]'>
+          <div className='w-[90%] mx-auto mt-4 flex justify-between p-1 rounded-full bg-[#5b4fc6]'>
             <div className='flex items-center text-textColor3 text-xl'>
               <GoArrowUp /> 0
             </div>
@@ -49,7 +49,7 @@ const Cards = () => {
             </span>
           </p>
           <p className='text-3xl text-textColor3'>0</p>
-          <div className='w-[90%] mx-auto mt-4 flex justify-between p-1 rounded-full bg-[#5c5c5c]'>
+          <div className='w-[90%] mx-auto mt-4 flex justify-between p-1 rounded-full bg-[#5b4fc6]'>
             <div className='flex items-center text-textColor3 text-xl'>
               <GoArrowUp /> 0
             </div>

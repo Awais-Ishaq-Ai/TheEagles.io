@@ -30,16 +30,20 @@ const Navbar = ({ home }) => {
   }, [menu]);
 
   return (
-    <div className='relative'>
-      <div className='p-4 text-white flex justify-between border-b'>
+    <div className='relative bg-[#ae28a1]'>
+      <div className='text-white flex items-center justify-between border-b'>
         <Link to='/home'>
-          <img src='' alt='logo' className='bg-Background rounded-full' />
+          <img
+            src='/assets/HomeImages/logo.png'
+            alt='logo'
+            className='h-14 w-14 ms-2 rounded-full'
+          />
         </Link>
-        <div className='flex gap-2'>
-          <p className='text-textColor2 text-xs px-3 py-2 rounded-full bg-Background'>
+        <div className='flex gap-2 p-4'>
+          <p className='text-textColor3 text-xs px-3 py-2 rounded-full bg-textColor3 bg-opacity-30'>
             Connect Wallet
           </p>
-          <div className='bg-[#ae28a1] text-sm p-2 rounded-full'>
+          <div className='bg-[#f032dd] text-base p-2 rounded-full'>
             <FaRegBell />
           </div>
           <div className='bg-Background flex items-center text-sm p-2 rounded-full'>
@@ -50,13 +54,13 @@ const Navbar = ({ home }) => {
 
       {menu && (
         <div className='absolute top-0 h-[135vh] w-full text-textColor3 bg-black transition-all duration-500'>
-          <div className='px-3 py-4 flex justify-between border-b border-textColor2'>
+          <div className='px-3 flex items-center justify-between border-b border-textColor2'>
             <img
-              src=''
+              src='/assets/HomeImages/logo.png'
               alt='logo'
-              className='bg-gray-800 rounded-full w-10 h-10'
+              className='h-14 w-14 ms-2 rounded-full'
             />
-            <div className='flex justify-end'>
+            <div className='flex justify-end py-4'>
               <div className='inline-block bg-gray-800 p-2 rounded-full shadow-2xl'>
                 <HiMiniXMark
                   className='text-white text-3xl cursor-pointer'

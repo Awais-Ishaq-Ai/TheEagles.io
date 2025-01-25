@@ -7,20 +7,20 @@ import UserTable from '../Components/Lvl1/UserTable';
 import { BsFillQuestionCircleFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
-const Levelx4 = () => {
+const Levelx2 = () => {
   const levels = [
-    { level: 1, cost: 5, peopleCount: 28, timer: '00' },
-    { level: 2, cost: 10, peopleCount: 2, timer: '00' },
-    { level: 3, cost: 20, peopleCount: 36, timer: '00' },
-    { level: 4, cost: 40, peopleCount: 66, timer: '00' },
-    { level: 5, cost: 80, peopleCount: 0, timer: '00' },
-    { level: 6, cost: 160, peopleCount: 65, timer: '00' },
-    { level: 7, cost: 320, peopleCount: 23, timer: '00' },
-    { level: 8, cost: 640, peopleCount: 1, timer: '00' },
-    { level: 9, cost: 1280, peopleCount: 765, timer: '00' },
-    { level: 10, cost: 2560, peopleCount: 53, timer: '00' },
-    { level: 11, cost: 5120, peopleCount: 5, timer: '00' },
-    { level: 12, cost: 10240, peopleCount: 86, timer: '00' },
+    { level: 1, cost: 2.5, peopleCount: 28, timer: '00' },
+    { level: 2, cost: 5, peopleCount: 2, timer: '00' },
+    { level: 3, cost: 10, peopleCount: 36, timer: '00' },
+    { level: 4, cost: 20, peopleCount: 66, timer: '00' },
+    { level: 5, cost: 40, peopleCount: 0, timer: '00' },
+    { level: 6, cost: 80, peopleCount: 65, timer: '00' },
+    { level: 7, cost: 160, peopleCount: 23, timer: '00' },
+    { level: 8, cost: 320, peopleCount: 1, timer: '00' },
+    { level: 9, cost: 640, peopleCount: 765, timer: '00' },
+    { level: 10, cost: 1250, peopleCount: 53, timer: '00' },
+    { level: 11, cost: 2500, peopleCount: 5, timer: '00' },
+    { level: 12, cost: 5000, peopleCount: 86, timer: '00' },
   ];
 
   const [activeLevels, setActiveLevels] = useState([1]);
@@ -30,6 +30,10 @@ const Levelx4 = () => {
       setActiveLevels((prev) => [...prev, level]);
     }
   };
+
+  const totalCost = levels
+    .filter((item) => activeLevels.includes(item.level))
+    .reduce((sum, item) => sum + item.cost, 0);
 
   return (
     <>
@@ -42,7 +46,7 @@ const Levelx4 = () => {
         </h4>
         <div className='text-textColor3 text-lg mt-4 flex justify-between'>
           <h1>The Eagles.io x2</h1>
-          <h1>0 USDT</h1>
+          <h1>{totalCost} USDT</h1>
         </div>
       </div>
       <div className='bg-gradient-to-r from-[#170e61] to-[#5b4fc6] w-full h-auto px-2 py-6 mt-3'>
@@ -146,4 +150,4 @@ const Levelx4 = () => {
   );
 };
 
-export default Levelx4;
+export default Levelx2;
