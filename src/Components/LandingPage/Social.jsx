@@ -4,8 +4,10 @@ import {
   FaYoutube,
   FaFacebookF,
   FaRegFileAlt,
+  FaTiktok,
 } from 'react-icons/fa';
 import { RiTelegram2Fill } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 
 const Social = () => {
   return (
@@ -20,14 +22,17 @@ const Social = () => {
           </div>
           <p className='text-sm mt-2'>Telegram Channel</p>
         </div>
-        <div className='flex flex-col items-center'>
+        <Link
+          to='https://www.tiktok.com/@theeapzlwm4?_t=ZS-8tMNEoaEiv4&_r=1'
+          className='flex flex-col items-center'
+        >
           <div className='p-[2px] bg-gradient-to-b from-[#990091] via-[#7a00aa] to-[#3600e5] rounded-full'>
             <div className='bg-black h-20 w-20 flex justify-center items-center rounded-full'>
-              <RiTelegram2Fill className='text-textColor3 text-4xl' />
+              <FaTiktok className='text-textColor3 text-4xl' />
             </div>
           </div>
-          <p className='text-sm mt-2'>Telegram Chat</p>
-        </div>
+          <p className='text-sm mt-2'>Tiktok</p>
+        </Link>
         <div className='flex flex-col items-center'>
           <div className='p-[2px] bg-gradient-to-b from-[#990091] via-[#7a00aa] to-[#3600e5] rounded-full'>
             <div className='bg-black h-20 w-20 flex justify-center items-center rounded-full'>
@@ -44,14 +49,17 @@ const Social = () => {
           </div>
           <p className='text-sm mt-2'>Facebook</p>
         </div>
-        <div className='flex flex-col items-center'>
+        <Link
+          to='https://www.youtube.com/@MrAmtazKallu'
+          className='flex flex-col items-center'
+        >
           <div className='p-[2px] bg-gradient-to-b from-[#990091] via-[#7a00aa] to-[#3600e5] rounded-full'>
             <div className='bg-black h-20 w-20 flex justify-center items-center rounded-full'>
               <FaYoutube className='text-textColor3 text-4xl' />
             </div>
           </div>
           <p className='text-sm mt-2'>Youtube</p>
-        </div>
+        </Link>
       </div>
       <div className='flex flex-wrap items-center w-full px-2 text-textColor3 font-medium'>
         <div className='flex items-center gap-2 w-1/2 h-full'>
