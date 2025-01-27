@@ -59,7 +59,7 @@ const Navbar = ({ home }) => {
               <img
                 src='/assets/HomeImages/logo.png'
                 alt='logo'
-                className='h-9 w-9 ms-2 rounded-full object-cover'
+                className='h-12 w-12 rounded-full object-cover'
               />
             </div>
 

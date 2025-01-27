@@ -57,7 +57,7 @@ function Landingpage() {
             </Link>
             <button className='bg-gradient-to-r from-[#5b4fc6] to-[#170e61] text-white w-[50%] py-2 rounded-full mt-3'>
               <div className='flex items-center justify-center gap-2'>
-                Register
+                <Link to='/support'>Register</Link>
                 <GrLinkNext />
               </div>
             </button>

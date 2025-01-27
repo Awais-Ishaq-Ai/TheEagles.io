@@ -23,6 +23,7 @@ import Partner from './Pages/Partner';
 import Links from './Pages/Links';
 import Calculator from './Pages/Calculator';
 import AccountSearch from './Pages/AccountSearch';
+import Support from './Pages/Support';
 
 const ScrollToTop = () => {
   const location = useLocation();
@@ -45,6 +46,7 @@ function App() {
     '/passId',
     '/',
     '/accountSearch',
+    '/support',
   ];
 
   const [showHome, setShowHome] = useState(true);
@@ -73,6 +75,7 @@ function App() {
         {showHome && <Route path='/links' element={<Links />} />}
         {showHome && <Route path='/stats' element={<Stats />} />}
         {showHome && <Route path='/calculator' element={<Calculator />} />}
+        <Route path='/support' element={<Support />} />
       </Routes>
       {!hideNavbarFooterRoutes.includes(location.pathname) && <Footer />}
     </>

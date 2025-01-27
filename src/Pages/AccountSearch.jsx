@@ -12,7 +12,7 @@ const AccountSearch = () => {
           <img
             src='/assets/HomeImages/logo.png'
             alt='logo'
-            className='h-9 w-9 ms-2 rounded-full object-cover'
+            className='h-12 w-12 rounded-full object-cover'
           />
           <div className='flex justify-end py-4'>
             <div className='inline-block bg-Background bg-opacity-20 p-2 rounded-full shadow-2xl'>
