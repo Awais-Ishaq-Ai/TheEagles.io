@@ -68,8 +68,8 @@ const Links = () => {
             </span>
           </p>
           <p className='text-3xl text-textColor3'>0</p>
-          <div className='w-[90%] mx-auto mt-4 flex justify-between p-1 rounded-full bg-[#5b4fc6]'>
-            <div className='flex items-center text-textColor3 text-xl'>
+          <div className='w-[85%] mx-auto mt-7 flex justify-between p-1 rounded-full bg-green-600 bg-opacity-20'>
+            <div className='flex items-center text-green-600 text-xl'>
               <GoArrowUp /> 0
             </div>
             <div className='gradient-circle'></div>
@@ -83,8 +83,8 @@ const Links = () => {
             </span>
           </p>
           <p className='text-3xl text-textColor3'>0</p>
-          <div className='w-[90%] mx-auto mt-4 flex justify-between p-1 rounded-full bg-[#5b4fc6]'>
-            <div className='flex items-center text-textColor3 text-xl'>
+          <div className='w-[85%] mx-auto mt-7 flex justify-between p-1 rounded-full bg-green-600 bg-opacity-20'>
+            <div className='flex items-center text-green-600 text-xl'>
               <GoArrowUp /> 0
             </div>
             <div className='gradient-circle'></div>
@@ -98,8 +98,8 @@ const Links = () => {
           <BsFillQuestionCircleFill className=' text-textColor3' />
         </p>
         <p className='text-3xl text-textColor3'>0</p>
-        <div className='w-[90%] mx-auto mt-4 flex justify-between p-1 rounded-full bg-[#5b4fc6]'>
-          <div className='flex items-center text-textColor3 text-xl'>
+        <div className='w-[85%] mx-auto mt-7 flex justify-between p-1 rounded-full bg-green-600 bg-opacity-20'>
+          <div className='flex items-center text-green-600 text-xl'>
             <GoArrowUp /> 0
           </div>
           <div className='gradient-circle'></div>

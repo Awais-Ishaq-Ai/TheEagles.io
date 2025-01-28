@@ -26,8 +26,8 @@ const Home = () => {
 
   return (
     <>
-      <div className='w-full px-4 pt-8 homebg'>
-        <div>
+      <div className='w-full px-4 pt-8 homebg bg-[#0000ff40]'>
+        <div className='bg-eagles'>
           <div className='h-auto flex justify-between'>
             <div className='flex gap-6'>
               <div className='gradient-border h-20 w-20 rounded-full'>
@@ -43,8 +43,8 @@ const Home = () => {
                 </div>
               </div>
               <div className='text-textColor3'>
-                <h1 className='text-lg font-semibold font-sans'>Amtaz</h1>
-                <p className='text-lg text-[#622aff] italic font-medium'>
+                <h1 className='text-lg font-semibold font-sans'>Username</h1>
+                <p className='text-lg text-yellow-300 italic font-medium'>
                   ID 5436547
                 </p>
                 <button
@@ -77,8 +77,8 @@ const Home = () => {
               </div>
               <div className='flex gap-2 items-center text-textColor3 text-sm'>
                 <p>invited 24.11.2024 by</p>
-                <p className='px-3 py-2 w-44 flex justify-center text-textColor font-semibold text-lg bg-Background bg-opacity-50 rounded-full italic'>
-                  ID 5436547
+                <p className='px-3 flex justify-center text-yellow-300 font-medium text-lg bg-[#333333] bg-opacity-35  rounded-full italic'>
+                  ID 4677755
                 </p>
               </div>
             </div>
