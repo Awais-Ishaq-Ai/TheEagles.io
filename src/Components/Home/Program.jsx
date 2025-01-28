@@ -10,7 +10,7 @@ const Program = () => {
         <Link to='/lvlx1' className='w-1/2'>
           <div className='bg-Background px-2 py-2 rounded-lg'>
             <div className='flex justify-between text-textColor3'>
-              <h1 className='text-2xl'>x1</h1>
+              <h1 className='text-2xl capitalize'>x1</h1>
               <p className='flex items-center gap-1'>
                 0 USDT
                 <span>
@@ -38,7 +38,7 @@ const Program = () => {
         <Link to='/lvlx2' className='w-1/2'>
           <div className='bg-Background px-2 py-2 rounded-lg'>
             <div className='flex justify-between text-textColor3'>
-              <h1 className='text-2xl'>x2</h1>
+              <h1 className='text-2xl capitalize'>x2</h1>
               <p className='flex items-center gap-1'>
                 0 USDT{' '}
                 <span>
