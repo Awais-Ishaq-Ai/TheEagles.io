@@ -73,7 +73,6 @@ body {
 
 .bg-eagles {
   position: relative;
-  /* background-color: rgba(0, 0, 255, 0.275); */
 }
 
 .bg-eagles::before {
@@ -83,7 +82,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url(assets/HomeImages/eaglebg.jpg);
+  background-image: url('assets/HomeImages/eaglebg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 30px -50px;
