@@ -198,7 +198,7 @@ const Authenticate = () => {
             </div>
           </div>
           <Link to='/passId'>
-            <div className='mt-5 bg-Background text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'>
+            <div className='mt-5 bg-zinc-900 text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'>
               <div className='h-16 w-16 bg-textColor3 rounded-full flex justify-center items-center'>
                 <img
                   src='/assets/AuthImages/trust.png'
@@ -215,7 +215,7 @@ const Authenticate = () => {
             </div>
           </Link>
           <Link to='#'>
-            <div className='mt-3 bg-Background text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'>
+            <div className='mt-3 bg-zinc-900 text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'>
               <div className='h-16 w-16 bg-textColor3 rounded-full flex justify-center items-center'>
                 <img
                   src='/assets/AuthImages/pocket.png'
@@ -232,7 +232,7 @@ const Authenticate = () => {
             </div>
           </Link>
           <Link to='#'>
-            <div className='mt-3 bg-Background text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'>
+            <div className='mt-3 bg-zinc-900 text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'>
               <div className='h-16 w-16 bg-textColor3 rounded-full flex justify-center items-center'>
                 <img
                   src='/assets/AuthImages/Mask.png'
