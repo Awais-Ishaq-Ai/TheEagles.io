@@ -47,15 +47,15 @@ function Landingpage() {
           style={{ backgroundImage: `url(${back})` }}
         >
           <div className='h-[39vh] w-full bg-[#8080806c] relative flex flex-col justify-center items-center'>
-            <p className='text-3xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-blue-500'>
-              The Eagles.io
+            <p className='text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r uppercase font-sans italic from-[#ffa14c] via-[#f24d99] via-[#ffa14c] to-[#6a2cfa]'>
+              the eagles
             </p>
             <Link to='/login' className='w-[50%]'>
-              <button className='bg-gradient-to-r from-[#5b4fc6] to-[#170e61] text-white w-full py-2 rounded-full mt-8'>
+              <button className='bg-[#622aff] text-white w-full py-2 rounded-full mt-8'>
                 Sign in
               </button>
             </Link>
-            <button className='bg-gradient-to-r from-[#5b4fc6] to-[#170e61] text-white w-[50%] py-2 rounded-full mt-3'>
+            <button className='bg-[#622aff] text-white w-[50%] py-2 rounded-full mt-3'>
               <div className='flex items-center justify-center gap-2'>
                 <Link to='/support'>Register</Link>
                 <GrLinkNext />

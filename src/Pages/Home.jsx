@@ -29,7 +29,7 @@ const Home = () => {
       <div className='w-full px-4 pt-8 homebg'>
         <div>
           <div className='h-auto flex justify-between'>
-            <div className='flex gap-3'>
+            <div className='flex gap-6'>
               <div className='gradient-border h-20 w-20 rounded-full'>
                 <div className='relative flex items-center justify-center text-white h-full w-full rounded-full bg-Background'>
                   <p className='text-[#bcbcbc]'>
@@ -43,10 +43,12 @@ const Home = () => {
                 </div>
               </div>
               <div className='text-textColor3'>
-                <h1 className='text-lg'>UserName</h1>
-                <p className='text-base text-[#f032dd]'>ID 000000</p>
+                <h1 className='text-lg font-semibold font-sans'>Amtaz</h1>
+                <p className='text-lg text-[#622aff] italic font-medium'>
+                  ID 5436547
+                </p>
                 <button
-                  className='ms-4 mt-3 text-base flex gap-2 items-center justify-center bg-Background text-textColor2 w-36 py-1 rounded-full'
+                  className='ms-4 mt-3 text-base flex gap-2 items-center justify-center bg-Background text-textColor2 w-44 py-1 rounded-full'
                   onClick={() => setShowDetails(!showDetails)}
                 >
                   {showDetails ? 'Show less' : 'Show more'}
@@ -75,18 +77,18 @@ const Home = () => {
               </div>
               <div className='flex gap-2 items-center text-textColor3 text-sm'>
                 <p>invited 24.11.2024 by</p>
-                <p className='px-3 py-2 text-[#f032dd] font-medium text-base bg-Background rounded-full font-mono'>
-                  ID 000000
+                <p className='px-3 py-2 w-44 flex justify-center text-textColor font-semibold text-lg bg-Background bg-opacity-50 rounded-full italic'>
+                  ID 5436547
                 </p>
               </div>
             </div>
           )}
         </div>
-        <div className='bg-Background w-full px-2 py-3 rounded-lg mt-4'>
-          <div className='flex items-center justify-between text-xs mb-5'>
-            <h5 className='text-textColor2'>Personal link</h5>
-            <p className='text-[#f032dd] text-base font-medium flex gap-2 items-center'>
-              theeagles.io/**********
+        <div className='bg-textColor bg-opacity-20 w-full px-2 py-3 rounded-lg mt-4'>
+          <div className='flex items-center justify-between text-base mb-5'>
+            <h5 className='text-textColor3'>Personal link</h5>
+            <p className='text-textColor3 text-base font-sans font-medium flex gap-2 items-center'>
+              theeagles.io/******
               <span>
                 <GoArrowUpRight className='text-textColor3 text-lg' />
               </span>

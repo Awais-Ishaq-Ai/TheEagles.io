@@ -4,12 +4,12 @@ import USDT from '/assets/LoginImages/tether.png';
 const USDTlogin = () => {
   return (
     <>
-      <div className='bg-Background h-auto w-full px-3 py-5 mt-6 rounded-lg'>
+      <div className='bg-zinc-900 h-auto w-full px-3 py-5 mt-6 rounded-lg'>
         <div className='flex justify-between text-textColor3 font-bold text-3xl'>
           <h1>USDT</h1>
           <img src={USDT} alt='' className='h-10 w-10' />
         </div>
-        <div className='text-textColor2 text-sm font-medium mt-5 space-y-5'>
+        <div className='text-gray-200 text-sm font-medium mt-5 space-y-5'>
           <div className='leading-4'>
             <p>Advantages:</p>
             <p>Stablecoin is pegged to the value of the dollar</p>
@@ -27,7 +27,7 @@ const USDTlogin = () => {
           </p>
         </div>
         <Link to='/auth'>
-          <div className='bg-gradient-to-r from-[#5b4fc6] to-[#170e61] w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-12 text-textColor3 font-medium rounded-lg'>
+          <div className='bg-gradient-to-r from-[#5b4fc6] to-[#170e61] w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-12 text-textColor3 font-medium rounded-full'>
             <button>Login USDT</button>
           </div>
         </Link>
