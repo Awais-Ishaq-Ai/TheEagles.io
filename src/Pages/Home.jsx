@@ -8,6 +8,7 @@ import Contract from '../Components/Home/Contract';
 import History from '../Components/Home/History';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { FaHeart } from 'react-icons/fa';
 
 const Home = () => {
   const [showDetails, setShowDetails] = useState(true);
@@ -38,20 +39,29 @@ const Home = () => {
           <div className='bg-eagles relative inset-0 z-10'>
             <div className='h-auto flex justify-between'>
               <div className='flex gap-6'>
-                <div className='gradient-border h-20 w-20 rounded-full'>
+                <div className='gradient-border h-24 w-24 rounded-full'>
                   <div className='relative flex items-center justify-center text-white h-full w-full rounded-full bg-Background'>
                     <p className='text-[#bcbcbc]'>
-                      <IoPersonCircleSharp className='text-7xl text-textColor3' />
+                      <IoPersonCircleSharp className='text-8xl text-textColor3' />
                     </p>
                     <img
                       src='/assets/HomeImages/logo.png'
                       alt='logo'
-                      className='h-7 w-7 ms-2 object-cover absolute bottom-1 -right-4 rounded-full'
+                      className='h-7 w-7 ms-2 object-cover absolute bottom-2 -right-4 rounded-full'
                     />
+                    <div className='w-28 rounded-full p-[2px] absolute -bottom-5  bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500'>
+                      <div className='bg-Background rounded-full text-xs px-2 flex items-center justify-between py-1'>
+                        <p className='text-slate-400'>Social</p>
+                        <span className='flex gap-1 items-center'>
+                          <FaHeart className='text-pink-700' />
+                          526
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div className='text-textColor3'>
-                  <h1 className='text-lg font-semibold font-sans'>Username</h1>
+                  <h1 className='text-2xl font-semibold font-sans'>Username</h1>
                   <p className='text-lg text-yellow-300 italic font-medium'>
                     ID 5436547
                   </p>
