@@ -42,28 +42,60 @@ function Landingpage() {
   return (
     <>
       <div className='overflow-hidden'>
+        <div className='flex justify-between items-center px-3 py-3 gap-9 max-w-full overflow-auto'>
+          <div className='text-textColor3 w-max whitespace-nowrap'>
+            <p>
+              All Participants &nbsp;
+              <span className='text-[#2cd9ff]'>3 765 561</span>
+            </p>
+          </div>
+          <span className='text-[#2cd9ff] text-2xl'>•</span>
+          <div className='text-textColor3 w-max whitespace-nowrap'>
+            <p>
+              Joined in 24 hours &nbsp;
+              <span className='text-[#2cd9ff]'>34</span>
+            </p>
+          </div>
+          <span className='text-[#2cd9ff] text-2xl'>•</span>
+          <div className='text-textColor3 w-max whitespace-nowrap'>
+            <p>
+              Profit users result &nbsp;
+              <span className='text-[#2cd9ff]'>3 674 764 788</span>
+            </p>
+          </div>
+        </div>
         <div
           className='bg-cover bg-center'
           style={{ backgroundImage: `url(${back})` }}
         >
-          <div className='h-[39vh] w-full bg-[#8080806c] relative flex flex-col justify-center items-center'>
-            <p className='text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r uppercase font-sans italic from-[#ffa14c] via-[#f24d99] via-[#ffa14c] to-[#6a2cfa]'>
-              the eagles
-            </p>
-            <Link to='/login' className='w-[50%]'>
-              <button className='bg-[#622aff] text-white w-full py-2 rounded-full mt-8'>
-                Sign in
+          <div className='h-[42vh] w-full bg-[#8080806c] relative'>
+            <div className='ms-3 pt-2'>
+              <img
+                src='assets/HomeImages/logo.png'
+                alt='logo'
+                className='h-16 w-16'
+              />
+            </div>
+
+            <div className='flex flex-col justify-center items-center'>
+              {' '}
+              <p className='text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r uppercase font-sans italic from-[#ffa14c] via-[#f24d99] via-[#ffa14c] to-[#6a2cfa]'>
+                the eagles
+              </p>
+              <Link to='/login' className='w-[50%]'>
+                <button className='bg-[#622aff] text-white w-full py-2 rounded-full mt-8'>
+                  Sign in
+                </button>
+              </Link>
+              <button className='bg-[#622aff] text-white w-[50%] py-2 rounded-full mt-3'>
+                <div className='flex items-center justify-center gap-2'>
+                  <Link to='/support'>Register</Link>
+                  <GrLinkNext />
+                </div>
               </button>
-            </Link>
-            <button className='bg-[#622aff] text-white w-[50%] py-2 rounded-full mt-3'>
-              <div className='flex items-center justify-center gap-2'>
-                <Link to='/support'>Register</Link>
-                <GrLinkNext />
-              </div>
-            </button>
+            </div>
           </div>
         </div>
-
         <div className='w-[80%] mx-auto mt-8'>
           <p className='text-white font-medium text-center my-3'>
             A decentralized networking platform based on smart contracts, which{' '}
@@ -99,7 +131,6 @@ function Landingpage() {
             </Swiper>
           </div>
         </div>
-
         <div className='relative mt-20 h-64'>
           <PiGraduationCapThin className='text-landingtext absolute text-6xl -z-10 -top-8 -rotate-45 left-2' />
           <p className='text-textColor3 text-xs w-4/5 text-center mx-auto font-medium'>
@@ -138,7 +169,6 @@ function Landingpage() {
             Real-time globle event of the The Eagles.io Platform
           </p>
         </div>
-
         <History />
         <div className='bg-gradient-to-b from-[#990091] via-[#7a00aa] to-[#3600e5] h-auto px-2 py-5'>
           <h1 className='text-textColor3 font-semibold text-3xl'>

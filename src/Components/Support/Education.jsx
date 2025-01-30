@@ -34,7 +34,7 @@ const Education = () => {
       <div className='border border-[#dedddd] rounded-lg py-3 px-1 text-sm flex justify-between items-center'>
         <div className='flex gap-1'>
           <img
-            src='assets/HomeImages/logo.png'
+            src='assets/SupportImages/logo.png'
             alt='logo'
             className='w-10 h-auto'
           />
