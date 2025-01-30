@@ -88,7 +88,7 @@ const Home = () => {
               </div>
             </div>
             {showDetails && (
-              <div className='mt-3'>
+              <div className='mt-6'>
                 <div className='flex gap-x-2 items-center text-sm text-textColor3'>
                   <p>0x783c...2sso</p>
                   <IoCopy />
@@ -104,7 +104,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className='bg-textColor bg-opacity-20 w-full px-2 py-3 rounded-lg mt-4'>
+        <div className='bg-textColor bg-opacity-20 w-full px-2 py-3 rounded-lg mt-6'>
           <div className='flex items-center justify-between text-base mb-5'>
             <h5 className='text-textColor3'>Personal link</h5>
             <p className='text-textColor3 text-base font-sans font-medium flex gap-2 items-center'>
