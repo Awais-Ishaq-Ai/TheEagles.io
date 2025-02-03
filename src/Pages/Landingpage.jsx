@@ -83,11 +83,11 @@ function Landingpage() {
                 the eagles
               </p>
               <Link to='/login' className='w-[50%]'>
-                <button className='bg-[#622aff] text-white w-full py-2 rounded-full mt-8'>
+                <button className='bg-gradient-to-r from-[#1a1303] to-[#a67912] text-white w-full py-2 rounded-full mt-8'>
                   Sign in
                 </button>
               </Link>
-              <button className='bg-[#622aff] text-white w-[50%] py-2 rounded-full mt-3'>
+              <button className='bg-gradient-to-r from-[#1a1303] to-[#a67912]  text-white w-[50%] py-2 rounded-full mt-3'>
                 <div className='flex items-center justify-center gap-2'>
                   <Link to='/support'>Register</Link>
                   <GrLinkNext />

@@ -66,7 +66,7 @@ function Profile() {
 
   return (
     <>
-      <div className='w-[95%] mx-auto'>
+      <div className='w-[95%] mx-auto mb-5'>
         <p className='text-textColor2 my-2'>
           Dashboard / <span className='text-textColor3'>Profile</span>
         </p>
@@ -183,7 +183,7 @@ function Profile() {
         )}
 
         <button
-          className='text-white bg-gradient-to-r from-[#5b4fc6] to-[#170e61] w-[80%] py-2 rounded-lg mx-auto block'
+          className='text-white bg-gradient-to-r from-[#a67912] to-[#1a1303]s w-[80%] py-2 rounded-lg mx-auto block'
           onClick={() => navigate('/home')}
         >
           Save Changes

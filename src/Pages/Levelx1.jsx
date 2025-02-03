@@ -49,15 +49,15 @@ const Levelx1 = () => {
           <h1>{totalCost} USDT</h1>
         </div>
       </div>
-      <div className='bg-gradient-to-r from-[#dc0cc8] to-[#3924f5] w-full h-auto px-2 py-6 mt-3'>
+      <div className='bg-gradient-to-r from-[#a67912] to-[#1a1303] w-full h-auto px-2 py-6 mt-3'>
         <div className='grid grid-cols-2 gap-3'>
           {levels.map((item, index) => (
             <div
               key={index}
               className={`px-2 py-3 rounded-md h-[150px] ${
                 activeLevels.includes(item.level)
-                  ? 'bg-textColor'
-                  : 'bg-Background'
+                  ? 'bg-textColor bg-opacity-50'
+                  : 'bg-Background bg-opacity-50'
               }`}
             >
               <div className='flex justify-between'>
@@ -81,7 +81,7 @@ const Levelx1 = () => {
                       Upgrade your result x{item.level}
                     </h1>
                     <button
-                      className='px-4 py-1 mt-3 rounded-md text-lg font-medium text-textColor3 bg-textColor'
+                      className='px-4 py-1 mt-3 rounded-md text-lg font-medium text-textColor3 bg-[#a67912]'
                       onClick={() => handleActivate(item.level)}
                     >
                       Active
@@ -92,12 +92,12 @@ const Levelx1 = () => {
               {activeLevels.includes(item.level) && (
                 <div className='flex flex-col gap-2'>
                   <div className='flex justify-center gap-x-4'>
-                    <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
-                    <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
+                    <div className='h-8 w-8 rounded-full bg-[#a67912]'></div>
+                    <div className='h-8 w-8 rounded-full bg-[#a67912]'></div>
                   </div>
                   <div className='flex justify-center gap-x-4'>
-                    <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
-                    <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
+                    <div className='h-8 w-8 rounded-full bg-[#a67912]'></div>
+                    <div className='h-8 w-8 rounded-full bg-[#26a17b]'></div>
                   </div>
                   <div className='flex justify-between'>
                     <p className='flex gap-1 items-center text-textColor3'>
@@ -136,7 +136,7 @@ const Levelx1 = () => {
               <p className='text-textColor2'>Gift</p>
             </div>
           </div>
-          <button className='bg-[#172b7d] text-textColor3 px-8 mt-5 py-3 rounded-full font-medium flex gap-2'>
+          <button className='bg-[#26a17b] text-textColor3 px-8 mt-5 py-3 rounded-full font-medium flex gap-2'>
             <Link to='/Upgradex1' className='flex gap-2 items-center'>
               <BsFillQuestionCircleFill className=' text-textColor3' />
               Marketing legend
