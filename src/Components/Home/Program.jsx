@@ -23,12 +23,12 @@ const Program = () => {
                 <div
                   key={index}
                   className={`w-7 h-7 rounded-full ${
-                    index === 0 ? 'bg-[#503ef3]' : 'bg-[#5c5c5c]'
+                    index === 0 ? 'bg-[#a67912]' : 'bg-[#5c5c5c]'
                   }`}
                 ></div>
               ))}
             </div>
-            <div className='bg-gradient-to-r from-[#5b4fc6] to-[#170e61] rounded-md flex justify-center items-center px-3 py-2 mt-6 font-medium'>
+            <div className='bg-gradient-to-r from-[#a67912] to-[#1a1303] rounded-md flex justify-center items-center px-3 py-2 mt-6 font-medium'>
               <button className='text-xs text-white '>
                 Upgrade for 5 USDT
               </button>
@@ -51,12 +51,12 @@ const Program = () => {
                 <div
                   key={index}
                   className={`w-7 h-7 rounded-full ${
-                    index === 0 ? 'bg-[#503ef3]' : 'bg-[#5c5c5c]'
+                    index === 0 ? 'bg-[#a67912]' : 'bg-[#5c5c5c]'
                   }`}
                 ></div>
               ))}
             </div>
-            <div className='bg-gradient-to-r from-[#5b4fc6] to-[#170e61] rounded-md flex justify-center items-center px-3 py-2 mt-6 font-medium'>
+            <div className='bg-gradient-to-r from-[#a67912] to-[#1a1303] rounded-md flex justify-center items-center px-3 py-2 mt-6 font-medium'>
               <button className='text-xs text-white '>
                 Upgrade for 5 USDT
               </button>

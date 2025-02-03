@@ -16,7 +16,7 @@ const Contract = () => {
         <h1 className='text-textColor2 border-b border-textColor2 flex justify-between items-center px-3 py-4'>
           The Eagles USDT contract
           <span
-            className='bg-textColor h-8 w-8 flex justify-center items-center rounded-full cursor-pointer'
+            className='bg-[#a67912] h-8 w-8 flex justify-center items-center rounded-full cursor-pointer'
             onClick={toggleVisibility}
           >
             <BsTriangleFill

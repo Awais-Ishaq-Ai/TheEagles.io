@@ -27,7 +27,7 @@ const USDTlogin = () => {
           </p>
         </div>
         <Link to='/auth'>
-          <div className='bg-gradient-to-r from-[#5b4fc6] to-[#170e61] w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-12 text-textColor3 font-medium rounded-full'>
+          <div className='bg-gradient-to-r from-[#a67912] to-[#1a1303] w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-12 text-textColor3 font-medium rounded-full'>
             <button>Login USDT</button>
           </div>
         </Link>

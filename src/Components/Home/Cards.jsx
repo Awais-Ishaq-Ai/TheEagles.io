@@ -34,7 +34,7 @@ const Cards = () => {
             </span>
           </p>
           <p className='text-3xl text-textColor3'>0</p>
-          <div className='w-[85%] mx-auto mt-7 flex justify-between p-1 rounded-full bg-green-600 bg-opacity-20'>
+          <div className='w-[85%] mx-auto mt-7 flex justify-between p-1 rounded-full bg-[#a67912] bg-opacity-20'>
             <div className='flex items-center text-green-600 font-medium text-xl'>
               <GoArrowUp /> 0
             </div>
@@ -49,7 +49,7 @@ const Cards = () => {
             </span>
           </p>
           <p className='text-3xl text-textColor3'>0</p>
-          <div className='w-[85%] mx-auto mt-7 flex justify-between p-1 rounded-full bg-green-600 bg-opacity-20'>
+          <div className='w-[85%] mx-auto mt-7 flex justify-between p-1 rounded-full bg-[#a67912] bg-opacity-20'>
             <div className='flex items-center text-green-600 font-medium text-xl'>
               <GoArrowUp /> 46
             </div>
