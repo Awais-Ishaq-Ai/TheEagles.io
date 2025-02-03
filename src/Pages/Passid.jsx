@@ -105,7 +105,7 @@ const Passid = () => {
             Don’t Know any ID?
           </h1>
           <Link to='#'>
-            <div className='bg-gradient-to-r from-[#5b4fc6] to-[#170e61] w-1/2 flex items-center justify-center px-8 py-3 mt-6 text-textColor3 font-medium rounded-lg'>
+            <div className='bg-gradient-to-r from-[#a67912] to-[#1a1303] w-1/2 flex items-center justify-center px-8 py-3 mt-6 text-textColor3 font-medium rounded-lg'>
               <button>Check Demo</button>
             </div>
           </Link>
@@ -163,7 +163,7 @@ const Passid = () => {
             Get qualified support from The Eagles.io experts vuia online chat
           </p>
 
-          <div className='bg-gradient-to-r from-[#5b4fc6] to-[#170e61] w-3/4 flex items-center justify-center px-8 py-3 mt-10 text-textColor3 font-medium rounded-lg mb-14'>
+          <div className='bg-gradient-to-r from-[#a67912] to-[#1a1303] w-3/4 flex items-center justify-center px-8 py-3 mt-10 text-textColor3 font-medium rounded-lg mb-14'>
             <button>Connect support</button>
           </div>
         </div>

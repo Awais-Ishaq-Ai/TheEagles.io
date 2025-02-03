@@ -57,9 +57,9 @@ const Calculator = () => {
         </p>
 
         <div
-          className={`bg-gradient-to-r w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-4 text-textColor3 font-medium rounded-lg  ${
+          className={`bg-gradient-to-r w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-4 text-textColor3 font-medium rounded-lg ${
             active == 'X3'
-              ? 'from-[#5b4fc6] to-[#170e61]'
+              ? 'from-[#a67912] to-[#1a1303]'
               : 'from-[#000000] to-[#747474]'
           }`}
           onClick={handleValueX3}
@@ -69,7 +69,7 @@ const Calculator = () => {
         <div
           className={`bg-gradient-to-r w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-4 text-textColor3 font-medium rounded-lg  ${
             active == 'X4'
-              ? 'from-[#5b4fc6] to-[#170e61]'
+              ? 'from-[#a67912] to-[#1a1303]'
               : 'from-[#000000] to-[#747474]'
           }`}
           onClick={handleValueX4}
@@ -79,7 +79,7 @@ const Calculator = () => {
       </div>
       <div className='bg-Background text-white mt-5 py-3'>
         <div className='flex items-center px-3'>
-          <h3 className='p-2 bg-[#4531FB] rounded-full px-3'>{active}</h3>
+          <h3 className='p-2 bg-[#a67912] rounded-full px-3'>{active}</h3>
           <h3 className='ml-5'>The Eagles.io</h3>
         </div>
         <p className='text-[13px] text-textColor2 mt-3 px-3'>{activepara}</p>
@@ -89,7 +89,7 @@ const Calculator = () => {
               <div
                 key={i}
                 className={`h-10 w-10 rounded-full flex items-center justify-center ${
-                  selected === i ? 'bg-[#4531FB]' : 'bg-[#4E4E4E]'
+                  selected === i ? 'bg-[#a67912]' : 'bg-[#4E4E4E]'
                 }`}
                 onClick={() => handleLevel(i)}
               >

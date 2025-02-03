@@ -27,7 +27,7 @@ const Home = () => {
 
   return (
     <>
-      <div className='w-full px-4 pt-8 homebg bg-[#0000ff40]'>
+      <div className='w-full px-4 pt-8 pb-5 homebg bg-[#a67a1240]'>
         <div className='relative'>
           <div className='absolute inset-0 h-full opacity-10 left-12'>
             <img
@@ -104,7 +104,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className='bg-textColor bg-opacity-20 w-full px-2 py-3 rounded-lg mt-6'>
+        <div className='bg-[#a67912] bg-opacity-20 w-full px-2 py-3 rounded-lg mt-6'>
           <div className='flex items-center justify-between text-base mb-5'>
             <h5 className='text-textColor3'>Personal link</h5>
             <p className='text-textColor3 text-base font-sans font-medium flex gap-2 items-center'>
@@ -116,7 +116,7 @@ const Home = () => {
           </div>
           <div className='text-lg space-y-4'>
             <button
-              className='bg-textColor w-full text-textColor3 font-medium px-6 py-1 rounded-full'
+              className='bg-[#a67912] w-full text-textColor3 font-medium px-6 py-1 rounded-full'
               onClick={() => handleCopy('Text from Button 1')}
             >
               Copy

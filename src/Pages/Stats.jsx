@@ -58,7 +58,7 @@ const Stats = () => {
           <div className='flex justify-center mt-2'>
             <button
               onClick={handleShowMore}
-              className='text-textColor3 w-3/4 rounded-lg py-3 font-medium bg-gradient-to-r from-[#5b4fc6] to-[#170e61]'
+              className='text-textColor3 w-3/4 rounded-lg py-3 font-medium bg-gradient-to-r from-[#a67912] to-[#1a1303]'
             >
               See More
             </button>

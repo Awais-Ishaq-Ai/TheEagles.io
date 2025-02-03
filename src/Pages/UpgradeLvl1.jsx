@@ -14,7 +14,7 @@ const UpgradeLvl3 = () => {
           <h1 className='w-1/4 text-2xl text-textColor3 font-semibold'>
             Upgrade x1
           </h1>
-          <div className='px-2 py-3 rounded-lg h-[160px] w-1/2 me-4 bg-textColor'>
+          <div className='px-2 py-3 rounded-lg h-[160px] w-1/2 me-4 bg-textColor bg-opacity-50'>
             <div className='flex justify-between'>
               <h3 className='text-base text-textColor2'>Lvl 1</h3>
               <p className='flex gap-1 items-center text-textColor3'>
@@ -30,12 +30,12 @@ const UpgradeLvl3 = () => {
             </div>
             <div className='flex flex-col gap-2 my-3'>
               <div className='flex justify-center gap-x-4'>
-                <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
-                <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
+                <div className='h-8 w-8 rounded-full bg-[#a67912]'></div>
+                <div className='h-8 w-8 rounded-full bg-[#a67912]'></div>
               </div>
               <div className='flex justify-center gap-x-4'>
-                <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
-                <div className='h-8 w-8 rounded-full bg-[#597aff]'></div>
+                <div className='h-8 w-8 rounded-full bg-[#a67912]'></div>
+                <div className='h-8 w-8 rounded-full bg-[#26a17b]'></div>
               </div>
               <div className='flex justify-between'>
                 <p className='flex gap-1 items-center text-textColor3'>
@@ -108,7 +108,7 @@ const UpgradeLvl3 = () => {
           </div>
         </div>
 
-        <div className='bg-gradient-to-r from-[#5b4fc6] to-[#170e61] w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-12 text-textColor3 font-medium rounded-lg'>
+        <div className='bg-gradient-to-r from-[#a67912] to-[#1a1303] w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-12 text-textColor3 font-medium rounded-lg'>
           <button>Check Again</button>
         </div>
       </div>
