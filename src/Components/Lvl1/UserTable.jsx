@@ -20,7 +20,7 @@ const UserTable = () => {
   };
 
   return (
-    <div className='bg-Background pb-6 overflow-hidden'>
+    <div className='bg-Background pb-6 mb-5 overflow-hidden'>
       <div className='overflow-auto h-48'>
         <table className='min-w-[500px] table-auto'>
           <thead className='text-textColor2 sticky top-0 z-10 bg-Background'>
@@ -57,7 +57,7 @@ const UserTable = () => {
       <div className='flex justify-center mt-2'>
         <button
           onClick={handleShowMore}
-          className='text-textColor3 w-3/4 rounded-lg py-3 font-medium bg-gradient-to-r from-[#5b4fc6] to-[#170e61]'
+          className='text-textColor3 w-3/4 rounded-lg py-3 font-medium bg-gradient-to-r from-[#a67912] to-[#1a1303]'
         >
           See More
         </button>

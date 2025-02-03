@@ -145,13 +145,13 @@ const History = () => {
                     {history.icon}
                   </div>
                   <div>
-                    <h1 className='text-textColor text-base'>
+                    <h1 className='text-[#a67912] text-base'>
                       {history.Paymentid}
                     </h1>
                     <p className='text-textColor2 flex gap-1 text-sm'>
                       <span className='text-textColor3'>{history.payment}</span>
                       in
-                      <span className='text-textColor'>{history.level}</span>
+                      <span className='text-[#a67912]'>{history.level}</span>
                     </p>
                   </div>
                 </div>
@@ -171,7 +171,7 @@ const History = () => {
         <div className='flex justify-center mt-6'>
           <button
             onClick={handleSeeMore}
-            className='text-textColor3 w-3/4 bg-gradient-to-r from-[#5b4fc6] to-[#170e61] rounded-lg py-3 font-medium'
+            className='text-textColor3 w-3/4 bg-gradient-to-r from-[#a67912] to-[#1a1303] rounded-lg py-3 font-medium'
           >
             See More
           </button>

@@ -7,7 +7,7 @@ import {
 
 const Footer = () => {
   return (
-    <div className='flex justify-between mt-5 px-3 py-4 bg-Background'>
+    <div className='flex justify-between px-3 py-4 bg-Background'>
       <div>
         <p className='text-textColor2 text-sm font-semibold'>
           &copy; 2024 All Rights Reserved

@@ -30,7 +30,7 @@ const Navbar = ({ home }) => {
   }, [menu]);
 
   return (
-    <div className='relative bg-[#ae28a1]'>
+    <div className='relative bg-[#a67912]'>
       <div className='text-white flex items-center justify-between border-b'>
         <Link to='/home'>
           <img
