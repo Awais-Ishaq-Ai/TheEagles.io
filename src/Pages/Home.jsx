@@ -49,8 +49,8 @@ const Home = () => {
                       alt='logo'
                       className='h-7 w-7 ms-2 object-cover absolute bottom-2 -right-4 rounded-full'
                     />
-                    <div className='w-28 rounded-full p-[2px] absolute -bottom-5  bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500'>
-                      <div className='bg-Background rounded-full text-xs px-2 flex items-center justify-between py-1'>
+                    <div className='w-28 rounded-full p-[2px] absolute -bottom-5  bg-gradient-to-r from-[#a67912] via-white to-white'>
+                      <div className='bg-[#433108] rounded-full text-xs px-2 flex items-center justify-between py-1'>
                         <p className='text-slate-400'>Social</p>
                         <span className='flex gap-1 items-center'>
                           <FaHeart className='text-pink-700' />
@@ -101,6 +101,7 @@ const Home = () => {
                 </div>
               </div>
             )}
+                      
           </div>
         </div>
 

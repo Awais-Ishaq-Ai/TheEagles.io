@@ -55,7 +55,7 @@ const Passid = () => {
           </div>
         </div>
 
-        <div className='bg-textColor mx-3 px-3 py-6 mt-5 rounded-lg'>
+        <div className='bg-gradient-to-r from-[#a67912] to-[#2a261e] mx-3 px-3 py-6 mt-5 rounded-lg'>
           <div className='flex gap-5 items-center'>
             <div className='bg-textColor2 h-20 w-20 flex justify-center items-center rounded-full'>
               <IoPersonCircleSharp className='text-7xl text-textColor3' />
@@ -82,7 +82,7 @@ const Passid = () => {
           </p>
         </div>
 
-        <div className='bg-textColor px-3 mx-3 py-6 mt-5 rounded-lg'>
+        <div className='bg-gradient-to-r from-[#a67912] to-[#2a261e] px-3 mx-3 py-6 mt-5 rounded-lg'>
           <h1 className='text-textColor3 text-xl font-medium'>
             Ender ID or USDT wallet
           </h1>

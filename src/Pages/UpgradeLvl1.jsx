@@ -1,15 +1,13 @@
-import { GiGreekTemple } from 'react-icons/gi';
 import { GoPeople } from 'react-icons/go';
 import { HiOutlineArrowPath } from 'react-icons/hi2';
 import { BsFillQuestionCircleFill } from 'react-icons/bs';
 import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 
-const UpgradeLvl3 = () => {
+const UpgradeLvl1 = () => {
   return (
     <>
       <div className='pt-4 pb-8'>
         <div className='h-1/2 w-1/4 mx-auto bg-[rgba(21,15,77,0.9)] rounded-full shadow-[0_0_200px_50px_rgba(21,15,77,1),0_0_300px_100px_rgba(21,15,77,1)]'></div>
-
         <div className='px-3 flex justify-between mt-7'>
           <h1 className='w-1/4 text-2xl text-textColor3 font-semibold'>
             Upgrade x1
@@ -82,7 +80,7 @@ const UpgradeLvl3 = () => {
           <div className='text-textColor text-sm font-medium flex justify-between'>
             <h1>Upgrade Amount</h1>
             <p>
-              10 USDT (<span className='text-landingtext'>0.015 BNB</span>)
+              5 USDT (<span className='text-landingtext'>0.015 BNB</span>)
             </p>
           </div>
           <div className='text-textColor text-xs font-medium flex justify-between'>
@@ -90,7 +88,7 @@ const UpgradeLvl3 = () => {
               Services fee{' '}
               <BsFillQuestionCircleFill className=' text-textColor3 text-sm' />
             </h1>
-            <p>3 USDT</p>
+            <p>0.005 USDT</p>
           </div>
         </div>
         <div className='py-7 px-3 space-y-4'>
@@ -99,7 +97,7 @@ const UpgradeLvl3 = () => {
             <IoIosCheckmarkCircleOutline className='text-[16px]' />
           </div>
           <div className='text-sm text-textColor2 flex justify-between items-center'>
-            <p>Balance check 13 USDT</p>
+            <p>Balance check 10 USDT</p>
             <div className='h-[13px] w-[13px] me-[2px] rounded-full border border-textColor2'></div>
           </div>
           <div className='text-sm text-textColor2 flex justify-between items-center'>
@@ -115,5 +113,4 @@ const UpgradeLvl3 = () => {
     </>
   );
 };
-
-export default UpgradeLvl3;
+export default UpgradeLvl1;
