@@ -61,7 +61,7 @@ const Authenticate = () => {
             </div>
           </div>
 
-          <div className='bg-textColor mx-3 px-3 py-6 mt-5 rounded-lg'>
+          <div className='bg-gradient-to-r from-[#a67912] to-[#2a261e] mx-3 px-3 py-6 mt-5 rounded-lg'>
             <h1 className='text-textColor3 text-xl font-medium'>
               Welcome to The Eagles.io
             </h1>
@@ -72,11 +72,11 @@ const Authenticate = () => {
             <div>
               <div
                 onClick={handleConnectClick}
-                className='bg-gradient-to-r from-[#000000] to-[#747474] w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-12 text-textColor3 font-medium rounded-lg'
+                className='bg-gradient-to-r from-[rgba(6,67,1,0.98)] to-[#747474] w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-12 text-white font-medium rounded-lg'
               >
-                <button>Connect wallet</button>
+                <button className='font-bold'>Connect wallet</button>
               </div>
-              <div className='bg-textColor2 w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-6 text-balck font-medium rounded-lg'>
+              <div className='bg-gradient-to-r  from-[#13110e] to-[#747674] text-white w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-6  font-medium rounded-lg'>
                 <button>Connect tutorial</button>
               </div>
             </div>
@@ -93,18 +93,18 @@ const Authenticate = () => {
             </p>
           </div>
 
-          <div className='bg-textColor px-3 mx-3 py-6 mt-5 rounded-lg'>
+          <div className='bg-gradient-to-r from-[#a67912] to-[#2a261e] px-3 mx-3 py-6 mt-5 rounded-lg'>
             <h1 className='text-textColor3 text-xl font-medium'>
               Ender ID or USDT wallet
             </h1>
             <div>
               <Link to='#'>
-                <div className='bg-gradient-to-r from-[#000000] to-[#747474] w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-9 text-textColor3 font-medium rounded-lg'>
-                  <button>Example: 87381</button>
+                <div className='bg-gradient-to-r from-[rgba(6,67,1,0.98)] to-[#747474] w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-9 text-white font-medium rounded-lg '>
+                  <button className='font-bold'>Example: 87381</button>
                 </div>
               </Link>
               <Link to='#'>
-                <div className='bg-textColor2 w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-6 text-balck font-medium rounded-lg'>
+                <div className='bg-gradient-to-r  from-[#13110e] to-[#747674] text-white w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-6 text-balck font-medium rounded-lg'>
                   <button>Preview</button>
                 </div>
               </Link>

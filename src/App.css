@@ -9,7 +9,7 @@ body {
 }
 
 .gradient-border {
-  background: linear-gradient(to right, #aba9bf, #3924f5, #aba9bf, #dc0cc8);
+  background: linear-gradient(to right, #aba9bf, #a67912, #aba9bf, #dc0cc8);
   padding: 4px;
   display: inline-block;
 }
