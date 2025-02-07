@@ -6,7 +6,7 @@ const Program = () => {
   const circles = Array.from({ length: numberOfCircles }, (_, index) => index);
   return (
     <>
-      <div className='w-full h-full mt-6 pb-3 flex justify-between gap-2'>
+      <div className='w-full h-full mt-4 pb-3 flex justify-between gap-2'>
         <Link to='/lvlx1' className='w-1/2'>
           <div className='bg-Background shadow-xl shadow-[#00000079]  px-2 py-2 rounded-lg'>
             <div className='flex justify-between text-textColor3'>
