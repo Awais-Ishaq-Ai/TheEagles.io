@@ -27,30 +27,30 @@ const Home = () => {
 
   return (
     <>
-      <div className='w-full px-4 pt-8 pb-5 homebg bg-[#a67a1240]'>
+      <div className='w-full px-4 pt-3 pb-5 homebg bg-[#a67a1240]'>
         <div className='relative '>
-          <div className='absolute inset-0 h-full opacity-10 left-12'>
+          <div className='absolute inset-0 h-full opacity-10 left-20 -top-3'>
             <img
               src='assets/HomeImages/eaglebg.jpg'
               alt='Background'
-              className='w-full  h-full object-cover'
+              className='w-full h-full object-cover'
             />
           </div>
           <div className='bg-eagles relative inset-0 z-10'>
             <div className='h-auto flex justify-between'>
               <div className='flex gap-6'>
-                <div className='gradient-border h-16 w-16 rounded-full'>
-                  <div className='relative  flex items-center justify-center text-white h-full w-full rounded-full bg-Background'>
+                <div className='gradient-border h-20 w-20 rounded-full'>
+                  <div className='relative flex items-center justify-center text-white h-full w-full rounded-full bg-Background'>
                     <p className='text-[#bcbcbc] shadow-md absolute shadow-white rounded-full'>
-                      <IoPersonCircleSharp className='text-6xl text-textColor3' />
+                      <IoPersonCircleSharp className='text-7xl text-textColor3' />
                     </p>
                     <img
                       src='/assets/HomeImages/logo.png'
                       alt='logo'
                       className='h-7 w-7 ms-2 object-cover absolute bottom-2 -right-6 rounded-full'
                     />
-                    <div className='w-28 rounded-full p-[2px] absolute -bottom-8 bg-gradient-to-r ml-[20px] from-[#a67912] via-white to-white'>
-                      <div className='bg-[#433108]  rounded-full text-xs px-2 flex items-center justify-between py-1'>
+                    <div className='w-28 rounded-full p-[2px] absolute -bottom-7 bg-gradient-to-r ml-[20px] from-[#a67912] via-white to-white'>
+                      <div className='bg-[#433108] rounded-full text-xs px-2 flex items-center justify-between py-1'>
                         <p className='text-slate-400'>Social</p>
                         <span className='flex gap-1 items-center'>
                           <FaHeart className='text-pink-400' />
@@ -66,7 +66,7 @@ const Home = () => {
                     ID 5436547
                   </p>
                   <button
-                    className='mt-1 text-base flex gap-2 items-center justify-center bg-Background shadow-xl shadow-[#00000079] transition-all ease-in-out text-textColor2 w-44 py-1 rounded-full'
+                    className='mt-8 text-base flex gap-2 items-center justify-center bg-Background shadow-xl shadow-[#00000079] transition-all ease-in-out text-textColor2 w-44 py-1 rounded-full'
                     onClick={() => setShowDetails(!showDetails)}
                   >
                     {showDetails ? 'Show less' : 'Show more'}
@@ -88,14 +88,14 @@ const Home = () => {
               </div>
             </div>
             {showDetails && (
-              <div className='mt-6'>
+              <div className='mt-3'>
                 <div className='flex gap-x-2 items-center text-sm text-textColor3'>
                   <p>0x783c...2sso</p>
                   <IoCopy />
                 </div>
                 <div className='flex gap-2 items-center text-textColor3 text-sm'>
                   <p>invited 24.11.2024 by</p>
-                  <p className='px-3 flex justify-center text-yellow-300 shadow-lg shadow-[#00000079] font-medium text-lg bg-[#333333] bg-opacity-35  rounded-full italic'>
+                  <p className='px-3 flex justify-center text-yellow-300 shadow-lg shadow-[#00000079] font-medium text-base bg-[#333333] bg-opacity-35  rounded-full italic'>
                     ID 4677755
                   </p>
                 </div>
@@ -106,7 +106,7 @@ const Home = () => {
 
         <div className='bg-[#a67912] shadow-xl shadow-[#00000079] bg-opacity-20 w-full px-2 py-3 rounded-lg mt-6'>
           <div className='flex items-center justify-between text-base mb-5'>
-            <h5 className='text-textColor3'>Personal link</h5>
+            <h5 className='text-textColor3'>My Personal link</h5>
             <p className='text-textColor3 text-base font-sans font-medium flex gap-2 items-center'>
               theeagles.io/******
               <span>
@@ -114,22 +114,22 @@ const Home = () => {
               </span>
             </p>
           </div>
-          <div className='text-lg space-y-4'>
+          <div className='text-lg flex gap-3'>
             <button
-              className='bg-[#a67912] w-full text-textColor3 shadow-xl mb-2 shadow-[#00000079] font-medium px-6 py-1 rounded-full'
+              className='bg-[#a67912] w-full text-textColor3 shadow-xl shadow-[#00000079] font-medium px-6 py-1 rounded-full'
               onClick={() => handleCopy('Text from Button 1')}
             >
               Copy
             </button>
-            <button className='w-full bg-textColor3 text-textColor shadow-lg shadow-[#00000079] font-medium px-6 py-1 rounded-full'>
+            <button className='w-full bg-textColor3 shadow-lg shadow-[#00000079] font-medium px-6 rounded-full'>
               Share
             </button>
           </div>
         </div>
 
+        <Cards />
         <Program />
         <Members />
-        <Cards />
         <Contract />
         <History />
       </div>

@@ -27,7 +27,7 @@ const Cards = () => {
 
       <div className='w-full h-full mt-4 pb-3 flex justify-between gap-2'>
         <div className='bg-Background px-2 shadow-xl shadow-[#00000079] py-3 w-1/2 rounded-lg bg-person2'>
-          <p className='text-textColor2 font-sans text-base flex gap-2 items-center'>
+          <p className='text-textColor3 font-sans text-base flex gap-2 items-center'>
             Partners
             <span className='bg-[#5c5c5c] rounded-full p-1 mt-1'>
               <BsShare className='text-textColor3' />
@@ -42,7 +42,7 @@ const Cards = () => {
           </div>
         </div>
         <div className='bg-Background px-2 shadow-xl shadow-[#00000079] py-3 w-1/2 rounded-lg bg-person3'>
-          <p className='text-textColor2 font-sans text-base flex gap-2 items-center'>
+          <p className='text-textColor3 font-sans text-base flex gap-2 items-center'>
             Team
             <span className='bg-[#5c5c5c] rounded-full p-1 mt-1'>
               <BsShare className='text-textColor3' />

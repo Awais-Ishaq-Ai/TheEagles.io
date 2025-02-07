@@ -248,6 +248,23 @@ const Authenticate = () => {
               </div>
             </div>
           </Link>
+          <Link to='#'>
+            <div className='mt-3 bg-zinc-900 text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'>
+              <div className='h-16 w-16 bg-textColor3 rounded-full flex justify-center items-center'>
+                <img
+                  src='/assets/AuthImages/connect.png'
+                  alt=''
+                  className='h-[48px] w-[48px]'
+                />
+              </div>
+              <div>
+                <h1 className='text-2xl font-medium text-textColor3'>
+                  WalletConnect
+                </h1>
+                <p className='text-xs'>Any Wallet and browser</p>
+              </div>
+            </div>
+          </Link>
 
           <p className='text-textColor2 text-center mt-16 text-sm'>
             Got a Question?{' '}

@@ -39,12 +39,6 @@ const Support = () => {
             opportunities for a brand new economics since 2025.
           </p>
           <p>
-            {' '}
-            The Eagles Community is 2,000,000+ people from 200+ countries around
-            the globe. Their total turnover exceeded{' '}
-            <span className='font-semibold'>200,000 US dollars!</span>
-          </p>
-          <p>
             Watch the video to meet some of The Eagles community members and
             catch our vibe ⤵️
           </p>
