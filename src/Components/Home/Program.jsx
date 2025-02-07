@@ -6,9 +6,9 @@ const Program = () => {
   const circles = Array.from({ length: numberOfCircles }, (_, index) => index);
   return (
     <>
-      <div className='w-full h-full mt-4 pb-3 flex justify-between gap-2'>
+      <div className='w-full h-full mt-6 pb-3 flex justify-between gap-2'>
         <Link to='/lvlx1' className='w-1/2'>
-          <div className='bg-Background px-2 py-2 rounded-lg'>
+          <div className='bg-Background shadow-xl shadow-[#00000079]  px-2 py-2 rounded-lg'>
             <div className='flex justify-between text-textColor3'>
               <h1 className='text-2xl capitalize'>x1</h1>
               <p className='flex items-center gap-1'>
@@ -29,14 +29,12 @@ const Program = () => {
               ))}
             </div>
             <div className='bg-gradient-to-r from-[#a67912] to-[#1a1303] rounded-md flex justify-center items-center px-3 py-2 mt-6 font-medium'>
-              <button className='text-xs text-white '>
-                Upgrade for 5 USDT
-              </button>
+              <button className='text-xs text-white'>Upgrade for 5 USDT</button>
             </div>
           </div>
         </Link>
         <Link to='/lvlx2' className='w-1/2'>
-          <div className='bg-Background px-2 py-2 rounded-lg'>
+          <div className='bg-Background shadow-lg shadow-[#00000079]  px-2 py-2 rounded-lg'>
             <div className='flex justify-between text-textColor3'>
               <h1 className='text-2xl capitalize'>x2</h1>
               <p className='flex items-center gap-1'>

@@ -122,7 +122,7 @@ function Profile() {
 
         <div className='w-full h-[20vh] px-5 py-3 bg-Background rounded-lg my-4'>
           <p className='text-gray-300'>Social media accounts</p>
-          <div className='h-[11vh] w-full my-2 rounded-lg flex justify-center items-center bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500'>
+          <div className='h-[11vh] w-full my-2 shadow-xl shadow-[#00000079] rounded-lg flex justify-center items-center bg-gradient-to-r from-[#695628d0] to-[#8f8673d0] '>
             <div className='h-[93%] w-[98%] rounded-lg bg-Background'>
               <button
                 className='bg-white font-medium w-[90%] py-2 rounded-lg my-4 mx-auto block'
@@ -183,7 +183,7 @@ function Profile() {
         )}
 
         <button
-          className='text-white bg-gradient-to-r from-[#a67912] to-[#1a1303]s w-[80%] py-2 rounded-lg mx-auto block'
+          className='text-white bg-gradient-to-r from-[#a67912] to-[#453b23] shadow-md shadow-[#3b3b3b79] w-[80%] py-2 rounded-lg mx-auto block'
           onClick={() => navigate('/home')}
         >
           Save Changes

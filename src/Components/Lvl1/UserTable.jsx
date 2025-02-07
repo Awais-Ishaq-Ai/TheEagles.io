@@ -57,7 +57,7 @@ const UserTable = () => {
       <div className='flex justify-center mt-2'>
         <button
           onClick={handleShowMore}
-          className='text-textColor3 w-3/4 rounded-lg py-3 font-medium bg-gradient-to-r from-[#a67912] to-[#1a1303]'
+          className='text-textColor3 w-3/4 rounded-lg shadow-xl shadow-[#00000079]  py-3 font-medium bg-gradient-to-r from-[#a67912] to-[#1a1303]'
         >
           See More
         </button>

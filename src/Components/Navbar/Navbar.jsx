@@ -43,7 +43,7 @@ const Navbar = ({ home }) => {
           <p className='text-textColor3 text-xs px-3 py-2 rounded-full bg-textColor3 bg-opacity-30'>
             Connect Wallet
           </p>
-          <div className='bg-[#f032dd] text-base p-2 rounded-full'>
+          <div className='bg-[#45330c] text-base p-2 rounded-full'>
             <FaRegBell />
           </div>
           <div className='bg-Background flex items-center text-sm p-2 rounded-full'>

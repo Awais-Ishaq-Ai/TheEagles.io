@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { GiGreekTemple } from 'react-icons/gi';
 import { GoPeople } from 'react-icons/go';
 import { HiOutlineArrowPath } from 'react-icons/hi2';
 import Notify from '../Components/Lvl1/Notify';
@@ -37,30 +36,30 @@ const Levelx1 = () => {
 
   return (
     <>
-      <div className='px-3 mt-3'>
+      <div className='px-3 py-4 shadow-lg shadow-[#21202079]'>
         <h4 className='text-[#7b7b7b] text-sm'>
           ID 1848323 /{' '}
           <span className='text-textColor2 text-base font-medium'>
             The Eagles.io x1 (1/12)
           </span>
         </h4>
-        <div className='text-textColor3 text-lg mt-4 flex justify-between'>
+        <div className='text-textColor3  text-lg mt-4 flex justify-between'>
           <h1>The Eagles.io x1</h1>
           <h1>{totalCost} USDT</h1>
         </div>
       </div>
-      <div className='bg-gradient-to-r from-[#a67912] to-[#1a1303] w-full h-auto px-2 py-6 mt-3'>
+      <div className='bg-gradient-to-r from-[#a67912] border to-[#1a1303] w-full h-auto px-2 py-6'>
         <div className='grid grid-cols-2 gap-3'>
           {levels.map((item, index) => (
             <div
               key={index}
-              className={`px-2 py-3 rounded-md h-[150px] ${
+              className={`px-2 py-3 shadow-xl shadow-[#00000079] my-2 rounded-md h-[150px] ${
                 activeLevels.includes(item.level)
                   ? 'bg-textColor bg-opacity-50'
                   : 'bg-Background bg-opacity-50'
               }`}
             >
-              <div className='flex justify-between'>
+              <div className='flex justify-between '>
                 <h3 className='text-base text-textColor2'>Lvl {item.level}</h3>
                 <p className='flex gap-1 items-center text-textColor3'>
                   <div className=' h-3 w-3 rounded-full flex justify-center items-center'>
@@ -81,7 +80,7 @@ const Levelx1 = () => {
                       Upgrade your result x{item.level}
                     </h1>
                     <button
-                      className='px-4 py-1 mt-3 rounded-md text-lg font-medium text-textColor3 bg-[#a67912]'
+                      className='px-4 shadow-xl shadow-[#00000079] py-1 mt-3 rounded-md text-lg font-medium text-textColor3 bg-[#a67912]'
                       onClick={() => handleActivate(item.level)}
                     >
                       Active
@@ -136,7 +135,7 @@ const Levelx1 = () => {
               <p className='text-textColor2'>Gift</p>
             </div>
           </div>
-          <button className='bg-[#26a17b] text-textColor3 px-8 mt-5 py-3 rounded-full font-medium flex gap-2'>
+          <button className='bg-[#26a17b] shadow-xl shadow-[#00000079] text-textColor3 px-8 mt-5 py-3 rounded-full font-medium flex gap-2'>
             <Link to='/Upgradex1' className='flex gap-2 items-center'>
               <BsFillQuestionCircleFill className=' text-textColor3' />
               Marketing legend

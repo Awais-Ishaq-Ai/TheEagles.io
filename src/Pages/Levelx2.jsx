@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { GiGreekTemple } from 'react-icons/gi';
 import { GoPeople } from 'react-icons/go';
 import { HiOutlineArrowPath } from 'react-icons/hi2';
 import Notify from '../Components/Lvl1/Notify';
@@ -37,7 +36,7 @@ const Levelx2 = () => {
 
   return (
     <>
-      <div className='px-3 mt-3'>
+      <div className='px-3 mt-3 '>
         <h4 className='text-[#7b7b7b] text-sm'>
           ID 1848323 /{' '}
           <span className='text-textColor2 text-base font-medium'>
@@ -49,12 +48,12 @@ const Levelx2 = () => {
           <h1>{totalCost} USDT</h1>
         </div>
       </div>
-      <div className='bg-gradient-to-r from-[#a67912] to-[#1a1303] w-full h-auto px-2 py-6 mt-3'>
+      <div className='bg-gradient-to-r from-[#a67912] to-[#1a1303]  w-full h-auto px-2 py-6 mt-3'>
         <div className='grid grid-cols-2 gap-3'>
           {levels.map((item) => (
             <div
               key={item.level}
-              className={`px-2 py-3 rounded-md h-[150px] ${
+              className={`px-2 py-3 rounded-md shadow-xl shadow-[#00000079] my-2 h-[150px] ${
                 activeLevels.includes(item.level)
                   ? 'bg-textColor bg-opacity-50'
                   : 'bg-Background bg-opacity-50'
@@ -81,7 +80,7 @@ const Levelx2 = () => {
                       Upgrade your result x{item.level}
                     </h1>
                     <button
-                      className='px-4 py-1 mt-3 rounded-md text-lg font-medium text-textColor3 bg-[#a67912]'
+                      className='px-4 py-1 mt-3 rounded-md text-lg shadow-xl shadow-[#00000079]  font-medium text-textColor3 bg-[#a67912]'
                       onClick={() => handleActivate(item.level)}
                     >
                       Active
@@ -139,7 +138,7 @@ const Levelx2 = () => {
               <p className='text-textColor2'>Gift</p>
             </div>
           </div>
-          <button className='bg-[#26a17b] text-textColor3 px-8 mt-5 py-3 rounded-full font-medium flex gap-2'>
+          <button className='bg-[#26a17b] shadow-xl shadow-[#00000079]  text-textColor3 px-8 mt-5 py-3 rounded-full font-medium flex gap-2'>
             <Link to='/Upgradex2' className='flex gap-2 items-center'>
               <BsFillQuestionCircleFill className=' text-textColor3' />
               Marketing legend
