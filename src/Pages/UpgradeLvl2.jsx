@@ -3,17 +3,16 @@ import { HiOutlineArrowPath } from 'react-icons/hi2';
 import { BsFillQuestionCircleFill } from 'react-icons/bs';
 import { PiWarningCircleLight } from 'react-icons/pi';
 
-const UpgradeLvl2 = () => {
+const UpgradeLvl4 = () => {
   return (
     <>
       <div className='pt-4 pb-8'>
         <div className='h-1/2 w-1/4 mx-auto bg-[rgba(21,15,77,0.9)] rounded-full shadow-[0_0_200px_50px_rgba(21,15,77,1),0_0_300px_100px_rgba(21,15,77,1)]'></div>
-
         <div className='px-3 flex justify-between mt-7'>
           <h1 className='w-1/4 text-2xl text-textColor3 font-semibold'>
             Upgrade x2
           </h1>
-          <div className='px-2 py-3 rounded-lg h-[160px] w-1/2 me-4 bg-textColor bg-opacity-50'>
+          <div className='px-2 py-3 rounded-lg h-[160px]  shadow-lg shadow-[#5a5775e6] w-1/2 me-4 bg-textColor bg-opacity-50'>
             <div className='flex justify-between'>
               <h3 className='text-base text-textColor2'>Lvl 1</h3>
               <p className='flex gap-1 items-center text-textColor3'>
@@ -30,12 +29,12 @@ const UpgradeLvl2 = () => {
             <div className='flex flex-col gap-2'>
               <div className='flex flex-col items-center my-2 gap-y-2 leading-4'>
                 <div className=''>
-                  <div className='h-9 w-9 rounded-full bg-[linear-gradient(135deg,#a67912_50%,#26a17b_50%)] shadow-xl shadow-[#a67912]'></div>
+                  <div className='h-9 w-9 rounded-full bg-[linear-gradient(135deg,_#a67912_50%,_#26a17b_50%)] shadow-xl shadow-[#a67912]'></div>
                 </div>
                 <div className='flex gap-x-4'>
                   <div className='h-6 w-6 rounded-full bg-[#a67912]'></div>
                   <div className='h-6 w-6 rounded-full bg-[#a67912]'></div>
-                  <div className='h-6 w-6 rounded-full bg-[linear-gradient(135deg,#a67912_50%,#26a17b_50%)] shadow-xl shadow-[#a67912]'></div>
+                  <div className='h-6 w-6 rounded-full bg-[linear-gradient(135deg,_#a67912_50%,_#26a17b_50%)] shadow-xl shadow-[#a67912]'></div>
                 </div>
               </div>
               <div className='flex justify-between'>
@@ -109,7 +108,7 @@ const UpgradeLvl2 = () => {
           </div>
         </div>
 
-        <div className='bg-gradient-to-r from-[#a67912] to-[#1a1303] w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-12 text-textColor3 font-medium rounded-lg'>
+        <div className='bg-gradient-to-r from-[#a67912] to-[#1a1303] shadow-md shadow-[#53532479]  w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-12 text-textColor3 font-medium rounded-lg'>
           <button>Check Again</button>
         </div>
       </div>
@@ -117,4 +116,4 @@ const UpgradeLvl2 = () => {
   );
 };
 
-export default UpgradeLvl2;
+export default UpgradeLvl4;

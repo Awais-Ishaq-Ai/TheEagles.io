@@ -6,10 +6,10 @@ const Notify = () => {
     <>
       <div className='w-full flex justify-center'>
         <div
-          className='h-[240px] w-auto bg-auto bg-no-repeat bg-top'
+          className='h-[240px] w-auto bg-auto  bg-no-repeat bg-top'
           style={{ backgroundImage: `url(${bgImage})` }}
         >
-          <div className='relative mt-12 w-full'>
+          <div className='relative mt-12  w-full'>
             <GoArrowUpRight className='text-textColor3 mt-5 text-lg ms-auto me-10 absolute -top-7 right-7' />
             <h1 className='text-lg font-semibold text-textColor3 w-1/2 mx-auto'>
               Official <span className='text-landingtext'>Notify Bot</span> for

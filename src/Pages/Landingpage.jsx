@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import back from '/assets/LandingImages/back.jpg';
+import Homegif from '/egealesHomeImg.gif';
 import { GrLinkNext } from 'react-icons/gr';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -8,10 +8,7 @@ import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 import Footer from '../Components/Footer/Footer';
-import { IoBookOutline, IoCopy, IoEarth } from 'react-icons/io5';
-import { GiBookmarklet } from 'react-icons/gi';
-import { HiOutlineLightBulb } from 'react-icons/hi';
-import { PiGraduationCapThin } from 'react-icons/pi';
+import { IoBookOutline, IoCopy } from 'react-icons/io5';
 import History from '../Components/Home/History';
 import DocumentationSlider from '../Components/LandingPage/DocumentationSlider';
 import FAQ from '../Components/LandingPage/FAQ';
@@ -42,34 +39,36 @@ function Landingpage() {
   return (
     <>
       <div className='overflow-hidden'>
-        <div className='flex justify-between items-center px-3 py-3 gap-9 max-w-full overflow-auto'>
-          <div className='text-textColor3 w-max whitespace-nowrap'>
-            <p>
-              All Participants &nbsp;
-              <span className='text-[#2cd9ff]'>3 765 561</span>
-            </p>
+        <marquee behavior='scroll' direction='Left' scrollamount='7'>
+          <div className='flex justify-between items-center  py-2 gap-4 max-w-full overflow-auto'>
+            <div className='text-textColor3 w-max whitespace-nowrap'>
+              <p>
+                All Participants &nbsp;
+                <span className='text-[#2cd9ff]'>3 765 561</span>
+              </p>
+            </div>
+            <span className='text-[#2cd9ff] text-2xl'>•</span>
+            <div className='text-textColor3 w-max whitespace-nowrap'>
+              <p>
+                Joined in 24 hours &nbsp;
+                <span className='text-[#2cd9ff]'>34</span>
+              </p>
+            </div>
+            <span className='text-[#2cd9ff] text-2xl'>•</span>
+            <div className='text-textColor3  w-max whitespace-nowrap'>
+              <p>
+                Profit users result &nbsp;
+                <span className='text-[#2cd9ff]'>3 674 764 788</span>
+              </p>
+            </div>
           </div>
-          <span className='text-[#2cd9ff] text-2xl'>•</span>
-          <div className='text-textColor3 w-max whitespace-nowrap'>
-            <p>
-              Joined in 24 hours &nbsp;
-              <span className='text-[#2cd9ff]'>34</span>
-            </p>
-          </div>
-          <span className='text-[#2cd9ff] text-2xl'>•</span>
-          <div className='text-textColor3 w-max whitespace-nowrap'>
-            <p>
-              Profit users result &nbsp;
-              <span className='text-[#2cd9ff]'>3 674 764 788</span>
-            </p>
-          </div>
-        </div>
+        </marquee>
         <div
           className='bg-cover bg-center'
-          style={{ backgroundImage: `url(${back})` }}
+          style={{ backgroundImage: `url(${Homegif})` }}
         >
-          <div className='h-[42vh] w-full bg-[#8080806c] relative'>
-            <div className='ms-3 pt-2'>
+          <div className='h-[42vh] w-full bg-[#3939396c] relative'>
+            <div className='ms-3 pt-2  flex justify-center items-center'>
               <img
                 src='assets/HomeImages/logo.png'
                 alt='logo'
@@ -79,35 +78,43 @@ function Landingpage() {
 
             <div className='flex flex-col justify-center items-center'>
               {' '}
-              <p className='text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r uppercase font-sans italic from-[#ffa14c] via-[#f24d99] via-[#ffa14c] to-[#6a2cfa]'>
-                the eagles
+              <p className='text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r uppercase font-sans italic from-[#ffa14c] via-[#ffa14e] to-[#6a2cfa]'>
+                the eagles.io
               </p>
-              <Link to='/login' className='w-[50%]'>
-                <button className='bg-gradient-to-r from-[#1a1303] to-[#a67912] text-white w-full py-2 rounded-full mt-8'>
-                  Sign in
-                </button>
-              </Link>
-              <button className='bg-gradient-to-r from-[#1a1303] to-[#a67912]  text-white w-[50%] py-2 rounded-full mt-3'>
-                <div className='flex items-center justify-center gap-2'>
-                  <Link to='/support'>Register</Link>
-                  <GrLinkNext />
+              <div div className='flex justify-between px-2 mt-8 w-[100%]'>
+                <div className='w-[45%]'>
+                  <Link to='/login'>
+                    <button className='bg-gradient-to-r from-[#1a1303] to-[#a67912] text-white w-[100%] py-2 rounded-full '>
+                      Sign in
+                    </button>
+                  </Link>
                 </div>
-              </button>
+                <div className='w-[50%]'>
+                  <Link to='/support'>
+                    <button className='bg-gradient-to-r from-[#1a1303] to-[#a67912]  text-white w-[100%] py-2 rounded-full h-[40px] '>
+                      <div className='flex items-center justify-center gap-2'>
+                        Register
+                        <GrLinkNext />
+                      </div>
+                    </button>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div className='w-[80%] mx-auto mt-8'>
+        <div className='w-[80%] mx-auto mt-2'>
           <p className='text-white font-medium text-center my-3'>
             A decentralized networking platform based on smart contracts, which{' '}
-            <span className='text-landingtext'>brings people together</span>{' '}
-            from all over the world and{' '}
-            <span className='text-landingtext'>
+            <span className='text-[#a67912]'>brings people together</span> from
+            all over the world and{' '}
+            <span className='text-[#a67912]'>
               opens up endless possibilities
             </span>{' '}
             new economic financial systems
           </p>
         </div>
-        <div className='backgroundimg flex justify-center items-end'>
+        <div className='mt-[20px] flex justify-center items-end'>
           <div className='h-auto w-[85%] bg-Background rounded-lg px-5 pt-4'>
             <Swiper
               pagination={{ clickable: true }}
@@ -131,25 +138,23 @@ function Landingpage() {
             </Swiper>
           </div>
         </div>
-        <div className='relative mt-20 h-64'>
-          <PiGraduationCapThin className='text-landingtext absolute text-6xl -z-10 -top-8 -rotate-45 left-2' />
+        <div className='relative mt-20 h-44 '>
+          {/* <PiGraduationCapThin className='text-landingtext absolute text-6xl -z-10 -top-8 -rotate-45 left-2' /> */}
           <p className='text-textColor3 text-xs w-4/5 text-center mx-auto font-medium'>
-            <span className='text-landingtext font-bold'>
-              The Eagles School
-            </span>{' '}
+            <span className='text-[#a67912] font-bold'>The Eagles School</span>{' '}
             is an exclusive training course designed specifically for the who
             want to unlock thier full potential with The Eagles.io!
           </p>
           <div className='w-4/5 mx-auto'>
-            <button className='bg-Background bg-opacity-75 text-landingtext font-medium mt-3 py-2 rounded-full w-full'>
+            <button className='bg-Background bg-opacity-75 text-[#a67912] font-medium mt-3 py-2 rounded-full w-full'>
               Go to School
             </button>
           </div>
-          <IoEarth className='text-landingtext absolute text-6xl right-9 top-3 -z-10' />
+          {/* <IoEarth className='text-landingtext absolute text-6xl right-9 top-3 -z-10' /> */}
 
-          <GiBookmarklet className='text-landingtext absolute text-6xl right-0 rotate-45   bottom-16' />
-          <HiOutlineLightBulb className='text-landingtext absolute text-8xl -bottom-10 rotate-12' />
-          <div className='bg-black h-[200px] rounded-lg w-4/5 z-10 left-1/2 -translate-x-1/2 absolute -bottom-24 shadow-[10px_0px_30px_8px_rgb(213,77,33)] flex items-center justify-center'>
+          {/* <GiBookmarklet className='text-landingtext absolute text-6xl right-0 rotate-45 bottom-4' /> */}
+          {/* <HiOutlineLightBulb className='text-landingtext absolute text-8xl -bottom-6 rotate-12' /> */}
+          {/* <div className='bg-black h-[200px] rounded-lg w-4/5 z-10 left-1/2 -translate-x-1/2 absolute -bottom-24 shadow-[10px_0px_30px_8px_rgb(213,77,33)] flex items-center justify-center'>
             <iframe
               width='100%'
               height='100%'
@@ -159,18 +164,18 @@ function Landingpage() {
               allowFullScreen
               className='rounded-lg'
             ></iframe>
-          </div>
+          </div> */}
         </div>
-        <div className='h-56 bg-gradient-to-r from-[#b97757] via-[#d8160a] via-20% via-[#e05d1c] via-30% to-[#df370f] flex flex-col justify-end ps-6'>
+        <div className='h-20 flex flex-col justify-end ps-6'>
           <h1 className='text-textColor3 text-2xl mb-4 font-medium'>
             Platform recent activity
           </h1>
-          <p className='text-textColor2 text-xs mb-6'>
+          <p className='text-slate-300 text-sm mb-6'>
             Real-time globle event of the The Eagles.io Platform
           </p>
         </div>
         <History />
-        <div className='bg-gradient-to-b from-[#990091] via-[#7a00aa] to-[#3600e5] h-auto px-2 py-5'>
+        <div className='bg-[#292929] border border-slate-500 rounded shadow-md h-auto px-2 py-5'>
           <h1 className='text-textColor3 font-semibold text-3xl'>
             Partner result
           </h1>
@@ -202,14 +207,13 @@ function Landingpage() {
                 USDT
               </div>
             </div>
-
             <div className='mt-5 text-center'>
               <div className='text-4xl font-bold text-white'>
-                3 395 780 <sup className='text-green-700 text-base'>+422</sup>
+                3 395 780 <sup className='text-[#a67912] text-base'>+422</sup>
               </div>
               <div className='text-2xl font-bold text-white mt-2'>
                 1 469 653 628{' '}
-                <sup className='text-green-700 text-base'>+8 284</sup>
+                <sup className='text-[#a67912] text-base'>+8 284</sup>
               </div>
               <div className='mt-2 text-sm text-textColor2'>
                 Total result, USDT

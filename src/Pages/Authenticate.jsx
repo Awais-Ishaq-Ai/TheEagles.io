@@ -72,7 +72,7 @@ const Authenticate = () => {
             <div>
               <div
                 onClick={handleConnectClick}
-                className='bg-gradient-to-r from-[rgba(6,67,1,0.98)] to-[#747474] w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-12 text-white font-medium rounded-lg'
+                className='bg-gradient-to-r from-[#2f2712d0] to-[#695628d0] w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-12 text-white font-medium rounded-lg'
               >
                 <button className='font-bold'>Connect wallet</button>
               </div>
@@ -99,7 +99,7 @@ const Authenticate = () => {
             </h1>
             <div>
               <Link to='#'>
-                <div className='bg-gradient-to-r from-[rgba(6,67,1,0.98)] to-[#747474] w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-9 text-white font-medium rounded-lg '>
+                <div className='bg-gradient-to-r from-[#2f2712d0] to-[#695628d0] w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-9 text-white font-medium rounded-lg '>
                   <button className='font-bold'>Example: 87381</button>
                 </div>
               </Link>

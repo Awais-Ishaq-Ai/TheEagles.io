@@ -17,7 +17,6 @@ import Programs from '../Components/Support/Programs';
 import Ecosystem from '../Components/Support/Ecosystem';
 import EarnwithEagle from '../Components/Support/EarnwithEagle';
 import Media from '../Components/Support/Media';
-
 const Support = () => {
   return (
     <>
@@ -47,7 +46,7 @@ const Support = () => {
           </p>
           <p>
             Watch the video to meet some of The Eagles community members and
-            catch our vibe ⤵
+            catch our vibe ⤵️
           </p>
         </div>
         <div className='flex justify-center items-center px-3'>

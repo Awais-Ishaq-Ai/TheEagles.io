@@ -3,7 +3,7 @@ import { IoMdInformationCircleOutline } from 'react-icons/io';
 const Ecosystem = () => {
   return (
     <div className='my-6 space-y-4 px-3'>
-      <h1 className='text-2xl font-bold'>💡 Eagles Ecosystem</h1>
+      <h1 className='text-2xl font-bold'>Eagles Ecosystem</h1>
       <p>Eagles is not just a platform or a project.</p>
       <p>
         In the past 2 years, it has grown into an ecosystem that has all it

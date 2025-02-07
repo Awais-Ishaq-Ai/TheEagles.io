@@ -55,7 +55,7 @@ const FAQ = () => {
               >
                 <span className='w-[85%] text-sm'>{faq.question}</span>
                 <span
-                  className={`text-textColor3 text-base p-2 border-2 rounded-full border-[#3600e5] transition-transform duration-300 ${
+                  className={`text-textColor3 text-base p-2 border-2 rounded-full border-[#a67912] transition-transform duration-300 ${
                     activeIndex === index ? 'rotate-180' : ''
                   }`}
                 >

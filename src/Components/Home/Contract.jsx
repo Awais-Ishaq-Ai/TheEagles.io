@@ -12,8 +12,8 @@ const Contract = () => {
 
   return (
     <>
-      <div className='bg-Background w-full h-full rounded-lg mt-1 pb-4'>
-        <h1 className='text-textColor2 border-b border-textColor2 flex justify-between items-center px-3 py-4'>
+      <div className='bg-Background shadow-xl shadow-[#00000079] w-full h-full rounded-lg mt-1 pb-4'>
+        <h1 className='text-textColor2  border-b border-textColor2 flex justify-between items-center px-3 py-4'>
           The Eagles USDT contract
           <span
             className='bg-[#a67912] h-8 w-8 flex justify-center items-center rounded-full cursor-pointer'
@@ -43,15 +43,15 @@ const Contract = () => {
             </div>
             <div className='space-y-1 py-4 px-3 border-b border-textColor2'>
               <h1 className='text-textColor2'>Transaction made</h1>
-              <p className='text-textColor3'>3 188 232</p>
-              <p className='text-green-700 flex'>
+              <p className='text-[#a67912]'>3 188 232</p>
+              <p className='text-white flex'>
                 <span>+000</span>
               </p>
             </div>
             <div className='space-y-1 pt-4 px-3'>
               <h1 className='text-textColor2'>Turnover, USDT</h1>
-              <p className='text-textColor3'>123 546 448.0</p>
-              <p className='text-green-700 flex'>
+              <p className='text-[#a67912]'>123 546 448.0</p>
+              <p className='text-white flex'>
                 <span>+00000</span>
               </p>
             </div>
