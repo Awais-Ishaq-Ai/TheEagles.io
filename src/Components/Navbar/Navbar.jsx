@@ -4,7 +4,7 @@ import Menu from '../DashboardMenu/Menu';
 import { Link } from 'react-router-dom';
 import { HiMiniXMark } from 'react-icons/hi2';
 
-const Navbar = ({ home }) => {
+const Navbar = ({ home, setShowBar }) => {
   const [menu, setMenu] = useState(false);
 
   const handleMenu = () => {
@@ -15,6 +15,11 @@ const Navbar = ({ home }) => {
   const handleRendering = () => {
     setMenu(false);
     home(true);
+  };
+
+  const handleConnectClick = () => {
+    console.log('Connect Wallet Clicked!');
+    setShowBar(true);
   };
 
   useEffect(() => {
@@ -40,7 +45,10 @@ const Navbar = ({ home }) => {
           />
         </Link>
         <div className='flex gap-2 p-4'>
-          <p className='text-textColor3 text-xs px-3 py-2 rounded-full bg-textColor3 bg-opacity-30'>
+          <p
+            className='text-textColor3 text-xs px-3 py-2 rounded-full bg-textColor3 bg-opacity-30'
+            onClick={handleConnectClick}
+          >
             Connect Wallet
           </p>
           <div className='bg-[#45330c] text-base p-2 rounded-full'>
