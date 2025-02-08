@@ -116,7 +116,7 @@ const Home = ({ showBar, setShowBar }) => {
             <span className='text-textColor3 font-medium'>Contact Support</span>
           </p>
         </div>
-        <div className='w-full px-4 pt-3 pb-5 homebg bg-[#a67a1240]'>
+        <div className='w-full px-4 pt-6 pb-5 homebg bg-[#a67a1240]'>
           <div className='relative'>
             <div className='absolute inset-0 h-full opacity-10 left-20 -top-3'>
               <img
@@ -195,7 +195,7 @@ const Home = ({ showBar, setShowBar }) => {
             </div>
           </div>
 
-          <div className='bg-[#a67912] shadow-xl shadow-[#00000079] bg-opacity-20 w-full px-2 py-3 rounded-lg mt-6'>
+          <div className='bg-[#a67912] shadow-xl shadow-[#00000079] bg-opacity-20 w-full px-2 py-5  rounded-lg mt-6'>
             <div className='flex items-center justify-between text-base mb-5'>
               <h5 className='text-textColor3'>My Personal link</h5>
               <p className='text-textColor3 text-base font-sans font-medium flex gap-2 items-center'>
