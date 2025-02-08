@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Homegif from '/egealesHomeImg.gif';
 import { GrLinkNext } from 'react-icons/gr';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -17,6 +17,45 @@ import { IoIosChatbubbles } from 'react-icons/io';
 
 function Landingpage() {
   const [activeTab, setActiveTab] = useState('USDT');
+  const [timeLeft, setTimeLeft] = useState(0);
+  const [isExpired, setIsExpired] = useState(false);
+
+  useEffect(() => {
+    let storedTargetTime = localStorage.getItem('targetTime');
+
+    if (!storedTargetTime) {
+      const newTargetTime =
+        new Date().getTime() +
+        4 * 24 * 60 * 60 * 1000 +
+        20 * 60 * 60 * 1000 +
+        30 * 60 * 1000;
+      localStorage.setItem('targetTime', newTargetTime);
+      storedTargetTime = newTargetTime;
+    }
+
+    const updateTimer = () => {
+      const remaining = storedTargetTime - new Date().getTime();
+      setTimeLeft(remaining);
+      if (remaining <= 0) {
+        setIsExpired(true);
+        clearInterval(interval);
+      }
+    };
+
+    const interval = setInterval(updateTimer, 1000);
+    updateTimer(); // Run once immediately to prevent delay
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const formatTime = (ms) => {
+    if (ms <= 0) return '0d 0h 0m 0s';
+    const days = Math.floor(ms / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((ms % (1000 * 60)) / 1000);
+    return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  };
 
   const slides = [
     {
@@ -67,38 +106,53 @@ function Landingpage() {
           className='bg-cover bg-center'
           style={{ backgroundImage: `url(${Homegif})` }}
         >
-          <div className='h-[42vh] w-full bg-[#3939396c] relative'>
-            <div className='ms-3 pt-2  flex justify-center items-center'>
+          <div className='h-[42vh] w-full bg-[#3939396c] relative flex flex-col justify-center items-center'>
+            {/* Logo */}
+            <div className='ms-3 pt-2 flex justify-center items-center'>
               <img
-                src='assets/HomeImages/logo.png'
+                src='/assets/HomeImages/logo.png'
                 alt='logo'
                 className='h-16 w-16'
               />
             </div>
 
-            <div className='flex flex-col justify-center items-center'>
-              {' '}
-              <p className='text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r uppercase font-sans italic from-[#ffa14c] via-[#ffa14e] to-[#6a2cfa]'>
-                the eagles.io
-              </p>
-              <div div className='flex justify-between px-2 mt-8 w-[100%]'>
-                <div className='w-[45%]'>
-                  <Link to='/login'>
-                    <button className='bg-gradient-to-r from-[#1a1303] to-[#a67912] text-white w-[100%] py-2 rounded-full '>
-                      Sign in
-                    </button>
-                  </Link>
-                </div>
-                <div className='w-[50%]'>
-                  <Link to='/support'>
-                    <button className='bg-gradient-to-r from-[#1a1303] to-[#a67912]  text-white w-[100%] py-2 rounded-full h-[40px] '>
-                      <div className='flex items-center justify-center gap-2'>
-                        Register
-                        <GrLinkNext />
-                      </div>
-                    </button>
-                  </Link>
-                </div>
+            {/* Title */}
+            <p className='text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r uppercase font-sans italic from-[#ffa14c] via-[#ffa14e] to-[#6a2cfa]'>
+              the eagles.io
+            </p>
+
+            {/* Timer Display */}
+            <div className='mt-4 text-2xl font-semibold text-white'>
+              {formatTime(timeLeft)}
+            </div>
+
+            {/* Buttons */}
+            <div className='flex justify-between px-2 mt-8 w-[100%]'>
+              <div className='w-[45%]'>
+                <Link to='/login'>
+                  <button
+                    className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] ${
+                      !isExpired ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
+                    disabled={!isExpired}
+                  >
+                    Sign in
+                  </button>
+                </Link>
+              </div>
+              <div className='w-[50%]'>
+                <Link to='/support'>
+                  <button
+                    className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px] ${
+                      !isExpired ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
+                    disabled={!isExpired}
+                  >
+                    <div className='flex items-center justify-center gap-2'>
+                      Register <GrLinkNext />
+                    </div>
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
