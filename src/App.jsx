@@ -50,16 +50,23 @@ function App() {
   ];
 
   const [showHome, setShowHome] = useState(true);
+  const [showBar, setShowBar] = useState(false);
+  console.log('showBar', showBar);
 
   return (
     <>
       <ScrollToTop />
       {!hideNavbarFooterRoutes.includes(location.pathname) && (
-        <Navbar home={setShowHome} />
+        <Navbar home={setShowHome} setShowBar={setShowBar} />
       )}
       <Routes>
         <Route path='/' element={<Landingpage />} />
-        {showHome && <Route path='/home' element={<Home />} />}
+        {showHome && (
+          <Route
+            path='/home'
+            element={<Home showBar={showBar} setShowBar={setShowBar} />}
+          />
+        )}
         <Route path='/login' element={<Login />} />
         <Route path='/profile' element={<Profile />} />
         {showHome && <Route path='/lvlx1' element={<Levelx1 />} />}
