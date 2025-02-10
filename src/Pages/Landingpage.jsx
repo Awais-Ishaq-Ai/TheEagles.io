@@ -129,7 +129,7 @@ function Landingpage() {
             {/* Buttons */}
             <div className='flex justify-between px-2 mt-8 w-[100%]'>
               <div className='w-[45%]'>
-                <Link to='/login'>
+                <Link to='/login' state={{ type: 'login' }}>
                   <button
                     className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] ${
                       !isExpired ? 'opacity-50 cursor-not-allowed' : ''
@@ -141,7 +141,7 @@ function Landingpage() {
                 </Link>
               </div>
               <div className='w-[50%]'>
-                <Link to='/support'>
+                <Link to='/login' state={{ type: 'register' }}>
                   <button
                     className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px] ${
                       !isExpired ? 'opacity-50 cursor-not-allowed' : ''
@@ -149,7 +149,7 @@ function Landingpage() {
                     disabled={!isExpired}
                   >
                     <div className='flex items-center justify-center gap-2'>
-                      Register <GrLinkNext />
+                      Register
                     </div>
                   </button>
                 </Link>
