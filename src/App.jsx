@@ -24,6 +24,7 @@ import Links from './Pages/Links';
 import Calculator from './Pages/Calculator';
 import AccountSearch from './Pages/AccountSearch';
 import Support from './Pages/Support';
+import Register from './Components/Register/Register';
 
 const ScrollToTop = () => {
   const location = useLocation();
@@ -47,6 +48,7 @@ function App() {
     '/',
     '/accountSearch',
     '/support',
+    '/register',
   ];
 
   const [showHome, setShowHome] = useState(true);
@@ -75,6 +77,7 @@ function App() {
         <Route path='/Upgradex2' element={<UpgradeLvl2 />} />
         <Route path='/auth' element={<Authenticate />} />
         <Route path='/passId' element={<Passid />} />
+        <Route path='/register' element={<Register />} />
         {showHome && <Route path='/partner' element={<Partner />} />}
         {showHome && (
           <Route path='/accountSearch' element={<AccountSearch />} />

@@ -75,8 +75,27 @@ function Landingpage() {
     },
   ];
 
+  const [showToast, setShowToast] = useState(false);
+
+  const handleCopy = (textToCopy) => {
+    navigator.clipboard
+      .writeText(textToCopy)
+      .then(() => {
+        setShowToast(true);
+        setTimeout(() => setShowToast(false), 2000);
+      })
+      .catch((error) => {
+        console.error('Failed to copy text: ', error);
+      });
+  };
+
   return (
     <>
+      {showToast && (
+        <div className='fixed top-5 right-5 bg-gray-800 text-gray-200 py-2 px-4 rounded-lg shadow-2xl transform animate-quickAlert'>
+          🔗 Link copied!
+        </div>
+      )}
       <div className='overflow-hidden'>
         <marquee behavior='scroll' direction='Left' scrollamount='7'>
           <div className='flex justify-between items-center  py-2 gap-4 max-w-full overflow-auto'>
@@ -131,10 +150,7 @@ function Landingpage() {
               <div className='w-[45%]'>
                 <Link to='/login' state={{ type: 'login' }}>
                   <button
-                    className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] ${
-                      !isExpired ? 'opacity-50 cursor-not-allowed' : ''
-                    }`}
-                    disabled={!isExpired}
+                    className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] `}
                   >
                     Sign in
                   </button>
@@ -143,10 +159,7 @@ function Landingpage() {
               <div className='w-[50%]'>
                 <Link to='/login' state={{ type: 'register' }}>
                   <button
-                    className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px] ${
-                      !isExpired ? 'opacity-50 cursor-not-allowed' : ''
-                    }`}
-                    disabled={!isExpired}
+                    className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px]`}
                   >
                     <div className='flex items-center justify-center gap-2'>
                       Register
@@ -244,7 +257,7 @@ function Landingpage() {
             <h5 className='text-textColor3 text-sm flex gap-2'>
               ox5acc77e655....doo5f00FB87:
               <span className='text-xl'>
-                <IoCopy />
+                <IoCopy onClick={() => handleCopy('theeagles.io/******')} />
               </span>
             </h5>
           </div>

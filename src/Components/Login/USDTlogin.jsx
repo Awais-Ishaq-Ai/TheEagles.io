@@ -3,7 +3,7 @@ import USDT from '/assets/LoginImages/tether.png';
 
 const USDTlogin = () => {
   const location = useLocation();
-  const type = location.state?.type || 'login'; // Get type from state
+  const type = location.state?.type || 'login';
 
   return (
     <>
@@ -29,10 +29,9 @@ const USDTlogin = () => {
             Due to the stable price, it is difficult to make money on growth
           </p>
         </div>
-        <Link to='/auth'>
+        <Link to={type === 'register' ? '/register' : '/auth'}>
           <div className='bg-gradient-to-r from-[#a67912] to-[#1a1303] w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-12 text-textColor3 font-medium rounded-full'>
             <button>
-              {' '}
               {type === 'register' ? 'Register USDT' : 'Login USDT'}
             </button>
           </div>

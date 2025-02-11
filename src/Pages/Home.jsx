@@ -7,27 +7,88 @@ import Members from '../Components/Home/Members';
 import Contract from '../Components/Home/Contract';
 import History from '../Components/Home/History';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaHeart } from 'react-icons/fa';
 import { HiMiniXMark } from 'react-icons/hi2';
+import { useConnect, useDisconnect, useAccount, useSwitchChain } from 'wagmi';
+import chainConfig from '../Config/chainConfig';
 
 const Home = ({ showBar, setShowBar }) => {
   const [showDetails, setShowDetails] = useState(true);
   const navigate = useNavigate();
+  const { connectors, connect } = useConnect();
+  const { isConnected, address, chain } = useAccount();
+  const { disconnect } = useDisconnect();
+  const { switchChain } = useSwitchChain();
+
+  const [showToast, setShowToast] = useState(false);
 
   const handleCopy = (textToCopy) => {
     navigator.clipboard
       .writeText(textToCopy)
       .then(() => {
-        console.log(`Text copied to clipboard: ${textToCopy}`);
+        setShowToast(true);
+        setTimeout(() => setShowToast(false), 2000);
       })
       .catch((error) => {
         console.error('Failed to copy text: ', error);
       });
   };
 
+  useEffect(() => {
+    if (isConnected && chain?.id) {
+      const targetChainId = chainConfig[11155111]?.id;
+      if (chain.id !== targetChainId) {
+        switchChain({ chainId: targetChainId });
+      }
+    }
+  }, [chain, isConnected]);
+
+  const handleConnect = (walletName) => {
+    const connector = connectors.find(
+      (c) => c.name.toLowerCase() === walletName.toLowerCase()
+    );
+    if (connector) {
+      connect({ connector });
+      setShowBar(false);
+    }
+  };
+
+  const wallets = [
+    {
+      id: 1,
+      name: 'Trust Wallet',
+      description: 'DApp in App',
+      image: '/assets/AuthImages/trust.png',
+    },
+    {
+      id: 2,
+      name: 'TokenPocket',
+      description: 'DApp in App',
+      image: '/assets/AuthImages/pocket.png',
+    },
+    {
+      id: 3,
+      name: 'MetaMask',
+      description: 'DApp in App',
+      image: '/assets/AuthImages/Mask.png',
+    },
+    {
+      id: 4,
+      name: 'WalletConnect',
+      description: 'Any Wallet and browser',
+      image: '/assets/AuthImages/connect.png',
+    },
+  ];
+
   return (
     <>
+      {showToast && (
+        <div className='fixed top-5 right-5 bg-gray-800 text-gray-200 py-2 px-4 rounded-lg shadow-2xl transform animate-quickAlert'>
+          🔗 Link copied!
+        </div>
+      )}
+
       <div className='relative overflow-hidden'>
         <div
           className={`absolute top-0 h-screen w-full bg-black py-4 px-3 transition-all duration-500 z-50 ${
@@ -42,74 +103,28 @@ const Home = ({ showBar, setShowBar }) => {
               />
             </div>
           </div>
-          <Link to='/passId'>
-            <div className='mt-5 bg-zinc-900 text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'>
+
+          {wallets.map((wallet) => (
+            <div
+              key={wallet.id}
+              onClick={() => handleConnect(wallet.name)}
+              className='cursor-pointer mt-3 bg-zinc-900 text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'
+            >
               <div className='h-16 w-16 bg-textColor3 rounded-full flex justify-center items-center'>
                 <img
-                  src='/assets/AuthImages/trust.png'
-                  alt=''
+                  src={wallet.image}
+                  alt={wallet.name}
                   className='h-[48px] w-[48px]'
                 />
               </div>
               <div>
                 <h1 className='text-2xl font-medium text-textColor3'>
-                  Trust wallet
+                  {wallet.name}
                 </h1>
-                <p className='text-xs'>DApp in App</p>
+                <p className='text-xs'>{wallet.description}</p>
               </div>
             </div>
-          </Link>
-          <Link to='#'>
-            <div className='mt-3 bg-zinc-900 text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'>
-              <div className='h-16 w-16 bg-textColor3 rounded-full flex justify-center items-center'>
-                <img
-                  src='/assets/AuthImages/pocket.png'
-                  alt=''
-                  className='h-[48px] w-[48px]'
-                />
-              </div>
-              <div>
-                <h1 className='text-2xl font-medium text-textColor3'>
-                  TokenPocket
-                </h1>
-                <p className='text-xs'>DApp in App</p>
-              </div>
-            </div>
-          </Link>
-          <Link to='#'>
-            <div className='mt-3 bg-zinc-900 text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'>
-              <div className='h-16 w-16 bg-textColor3 rounded-full flex justify-center items-center'>
-                <img
-                  src='/assets/AuthImages/Mask.png'
-                  alt=''
-                  className='h-[48px] w-[48px]'
-                />
-              </div>
-              <div>
-                <h1 className='text-2xl font-medium text-textColor3'>
-                  MetaMask
-                </h1>
-                <p className='text-xs'>DApp in App</p>
-              </div>
-            </div>
-          </Link>
-          <Link to='#'>
-            <div className='mt-3 bg-zinc-900 text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'>
-              <div className='h-16 w-16 bg-textColor3 rounded-full flex justify-center items-center'>
-                <img
-                  src='/assets/AuthImages/connect.png'
-                  alt=''
-                  className='h-[48px] w-[48px]'
-                />
-              </div>
-              <div>
-                <h1 className='text-2xl font-medium text-textColor3'>
-                  WalletConnect
-                </h1>
-                <p className='text-xs'>Any Wallet and browser</p>
-              </div>
-            </div>
-          </Link>
+          ))}
 
           <p className='text-textColor2 text-center mt-16 text-sm'>
             Got a Question?{' '}
@@ -182,7 +197,10 @@ const Home = ({ showBar, setShowBar }) => {
                 <div className='mt-3'>
                   <div className='flex gap-x-2 items-center text-sm text-textColor3'>
                     <p>0x783c...2sso</p>
-                    <IoCopy />
+                    <IoCopy
+                      onClick={() => handleCopy('0x783c...2sso')}
+                      className='cursor-pointer'
+                    />
                   </div>
                   <div className='flex gap-2 items-center text-textColor3 text-sm'>
                     <p>invited 24.11.2024 by</p>
@@ -208,7 +226,7 @@ const Home = ({ showBar, setShowBar }) => {
             <div className='text-lg flex gap-3'>
               <button
                 className='bg-[#a67912] w-full text-textColor3 shadow-xl shadow-[#00000079] font-medium px-6 py-1 rounded-full'
-                onClick={() => handleCopy('Text from Button 1')}
+                onClick={() => handleCopy('theeagles.io/******')}
               >
                 Copy
               </button>

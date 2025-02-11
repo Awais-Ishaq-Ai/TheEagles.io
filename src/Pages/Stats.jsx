@@ -3,6 +3,20 @@ import { IoCopy } from 'react-icons/io5';
 import { RiShare2Line } from 'react-icons/ri';
 
 const Stats = () => {
+  const [showToast, setShowToast] = useState(false);
+
+  const handleCopy = (textToCopy) => {
+    navigator.clipboard
+      .writeText(textToCopy)
+      .then(() => {
+        setShowToast(true);
+        setTimeout(() => setShowToast(false), 2000);
+      })
+      .catch((error) => {
+        console.error('Failed to copy text: ', error);
+      });
+  };
+
   const data = [
     { id: 1, date: '2025-01-01', level: 1, wallet: '100 USDT' },
     { id: 2, date: '2025-01-02', level: 2, wallet: '200 USDT' },
@@ -20,6 +34,11 @@ const Stats = () => {
   };
   return (
     <>
+      {showToast && (
+        <div className='fixed top-5 right-5 bg-gray-800 text-gray-200 py-2 px-4 rounded-lg shadow-2xl transform animate-quickAlert'>
+          🔗 Link copied!
+        </div>
+      )}
       <div className='min-h-screen'>
         <div className='bg-Background pb-6 overflow-hidden'>
           <div className='overflow-auto  h-[700px]'>
@@ -45,7 +64,10 @@ const Stats = () => {
                     <td className='w-[180px] translate-y-1/2 grid grid-cols-2 gap-4'>
                       {user.wallet}
                       <span className='flex gap-2'>
-                        <IoCopy className='text-textColor3 text-xl' />
+                        <IoCopy
+                          className='text-textColor3 text-xl'
+                          onClick={() => handleCopy('theeagles.io/******')}
+                        />
                         <RiShare2Line className='text-textColor3 text-xl rotate-45' />
                       </span>
                     </td>
