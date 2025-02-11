@@ -1,50 +1,68 @@
 import { HiMiniXMark } from 'react-icons/hi2';
 import { Link, useNavigate } from 'react-router-dom';
-import flag from '/assets/AuthImages/raceFlag.png';
 import Members from '../Components/Home/Members';
 import Contract from '../Components/Home/Contract';
 import History from '../Components/Home/History';
 import Footer from '../Components/Footer/Footer';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useConnect, useDisconnect, useAccount, useSwitchChain } from 'wagmi';
+import chainConfig from '../Config/chainConfig';
 
 const Authenticate = () => {
   const navigate = useNavigate();
   const [showSidebar, setShowSidebar] = useState(false);
+  const { connectors, connect } = useConnect();
+  const { isConnected, address, chain } = useAccount();
+  const { disconnect } = useDisconnect();
+  const { switchChain } = useSwitchChain();
+
+  useEffect(() => {
+    if (isConnected && chain?.id) {
+      const targetChainId = chainConfig[11155111]?.id;
+      if (chain.id !== targetChainId) {
+        switchChain({ chainId: targetChainId });
+      }
+    }
+  }, [chain, isConnected]);
 
   const handleConnectClick = () => {
     setShowSidebar(true);
   };
 
-  const raceplayers = [
+  const handleConnect = (walletName) => {
+    const connector = connectors.find(
+      (c) => c.name.toLowerCase() === walletName.toLowerCase()
+    );
+    if (connector) {
+      connect({ connector });
+      setShowSidebar(false);
+    }
+  };
+
+  const wallets = [
     {
-      id: '1',
-      playerName: 'MianAsim',
-      playerId: 'ID 1826817',
-      prize: '$860',
+      id: 1,
+      name: 'Trust Wallet',
+      description: 'DApp in App',
+      image: '/assets/AuthImages/trust.png',
     },
     {
-      id: '2',
-      playerName: 'MianAsim',
-      playerId: 'ID 1826817',
-      prize: '$860',
+      id: 2,
+      name: 'TokenPocket',
+      description: 'DApp in App',
+      image: '/assets/AuthImages/pocket.png',
     },
     {
-      id: '3',
-      playerName: 'MianAsim',
-      playerId: 'ID 1826817',
-      prize: '$860',
+      id: 3,
+      name: 'MetaMask',
+      description: 'DApp in App',
+      image: '/assets/AuthImages/Mask.png',
     },
     {
-      id: '4',
-      playerName: 'MianAsim',
-      playerId: 'ID 1826817',
-      prize: '$860',
-    },
-    {
-      id: '5',
-      playerName: 'MianAsim',
-      playerId: 'ID 1826817',
-      prize: '$860',
+      id: 4,
+      name: 'WalletConnect',
+      description: 'Any Wallet and browser',
+      image: '/assets/AuthImages/connect.png',
     },
   ];
 
@@ -122,42 +140,6 @@ const Authenticate = () => {
             </Link>
           </div>
 
-          {/* <div className='px-3 mt-5 mx-3'>
-            <h1 className='text-textColor3 text-xl font-medium'>
-              Weekly Races
-            </h1>
-            <div className='bg-[#FFCE3A] w-full h-auto flex justify-center items-end mt-3 rounded-lg'>
-              <img src={flag} alt='' />
-            </div>
-
-            <div className='mt-7'>
-              {raceplayers.map((player, index) => {
-                return (
-                  <div
-                    key={index}
-                    className='text-textColor3 px-2 py-3 flex border-b items-center justify-between border-textColor2'
-                  >
-                    <h1 className='text-2xl'>{player.id}</h1>
-                    <div className='flex gap-2 items-center'>
-                      <div className='h-7 w-7 rounded-full bg-textColor2'></div>
-                      <div>
-                        <h4 className='text-sm'>{player.playerName}</h4>
-                        <p className='text-xs text-textColor2'>
-                          {player.playerId}
-                        </p>
-                      </div>
-                    </div>
-                    <p>{player.prize}</p>
-
-                    <button className='bg-gradient-to-r from-[#5b4fc6] to-[#170e61] text-textColor3 text-xs rounded-md px-3 py-2'>
-                      Join Team
-                    </button>
-                  </div>
-                );
-              })}
-            </div>
-          </div> */}
-
           <div className='px-3 mt-5'>
             <h1 className='text-textColor3 text-xl font-medium'>
               Platform recent activity
@@ -197,74 +179,28 @@ const Authenticate = () => {
               />
             </div>
           </div>
-          <Link to='/passId'>
-            <div className='mt-5 bg-zinc-900 text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'>
+
+          {wallets.map((wallet) => (
+            <div
+              key={wallet.id}
+              onClick={() => handleConnect(wallet.name)}
+              className='cursor-pointer mt-3 bg-zinc-900 text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'
+            >
               <div className='h-16 w-16 bg-textColor3 rounded-full flex justify-center items-center'>
                 <img
-                  src='/assets/AuthImages/trust.png'
-                  alt=''
+                  src={wallet.image}
+                  alt={wallet.name}
                   className='h-[48px] w-[48px]'
                 />
               </div>
               <div>
                 <h1 className='text-2xl font-medium text-textColor3'>
-                  Trust wallet
+                  {wallet.name}
                 </h1>
-                <p className='text-xs'>DApp in App</p>
+                <p className='text-xs'>{wallet.description}</p>
               </div>
             </div>
-          </Link>
-          <Link to='#'>
-            <div className='mt-3 bg-zinc-900 text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'>
-              <div className='h-16 w-16 bg-textColor3 rounded-full flex justify-center items-center'>
-                <img
-                  src='/assets/AuthImages/pocket.png'
-                  alt=''
-                  className='h-[48px] w-[48px]'
-                />
-              </div>
-              <div>
-                <h1 className='text-2xl font-medium text-textColor3'>
-                  TokenPocket
-                </h1>
-                <p className='text-xs'>DApp in App</p>
-              </div>
-            </div>
-          </Link>
-          <Link to='#'>
-            <div className='mt-3 bg-zinc-900 text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'>
-              <div className='h-16 w-16 bg-textColor3 rounded-full flex justify-center items-center'>
-                <img
-                  src='/assets/AuthImages/Mask.png'
-                  alt=''
-                  className='h-[48px] w-[48px]'
-                />
-              </div>
-              <div>
-                <h1 className='text-2xl font-medium text-textColor3'>
-                  MetaMask
-                </h1>
-                <p className='text-xs'>DApp in App</p>
-              </div>
-            </div>
-          </Link>
-          <Link to='#'>
-            <div className='mt-3 bg-zinc-900 text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'>
-              <div className='h-16 w-16 bg-textColor3 rounded-full flex justify-center items-center'>
-                <img
-                  src='/assets/AuthImages/connect.png'
-                  alt=''
-                  className='h-[48px] w-[48px]'
-                />
-              </div>
-              <div>
-                <h1 className='text-2xl font-medium text-textColor3'>
-                  WalletConnect
-                </h1>
-                <p className='text-xs'>Any Wallet and browser</p>
-              </div>
-            </div>
-          </Link>
+          ))}
 
           <p className='text-textColor2 text-center mt-16 text-sm'>
             Got a Question?{' '}
