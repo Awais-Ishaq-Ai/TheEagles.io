@@ -25,6 +25,7 @@ import Calculator from './Pages/Calculator';
 import AccountSearch from './Pages/AccountSearch';
 import Support from './Pages/Support';
 import Register from './Components/Register/Register';
+import Social from './Pages/Social';
 
 const ScrollToTop = () => {
   const location = useLocation();
@@ -46,6 +47,7 @@ function App() {
     '/auth',
     '/passId',
     '/',
+    "/social",
     '/accountSearch',
     '/support',
     '/register',
@@ -69,6 +71,7 @@ function App() {
             element={<Home showBar={showBar} setShowBar={setShowBar} />}
           />
         )}
+        <Route path='/social' element={<Social />} />
         <Route path='/login' element={<Login />} />
         <Route path='/profile' element={<Profile />} />
         {showHome && <Route path='/lvlx1' element={<Levelx1 />} />}
