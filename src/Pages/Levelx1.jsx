@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { GoPeople } from 'react-icons/go';
 import { HiOutlineArrowPath } from 'react-icons/hi2';
-import Notify from '../Components/Lvl1/Notify';
-import { Link } from 'react-router-dom';
 import { BsFillQuestionCircleFill } from 'react-icons/bs';
+import Notify from '../Components/Lvl1/Notify';
 import UserTable from '../Components/Lvl1/UserTable';
+import { Link } from 'react-router-dom';
+import { RiLock2Fill } from 'react-icons/ri';
 
 const Levelx1 = () => {
   const levels = [
@@ -43,38 +44,46 @@ const Levelx1 = () => {
             The Eagles.io x1 (1/12)
           </span>
         </h4>
-        <div className='text-textColor3  text-lg mt-4 flex justify-between'>
+        <div className='text-textColor3 text-lg mt-4 flex justify-between'>
           <h1>The Eagles.io x1</h1>
           <h1>{totalCost} USDT</h1>
         </div>
       </div>
       <div className='bg-gradient-to-r from-[#a67912] border to-[#1a1303] w-full h-auto px-2 py-6'>
         <div className='grid grid-cols-2 gap-3'>
-          {levels.map((item, index) => (
-            <div
-              key={index}
-              className={`px-2 py-3 shadow-xl shadow-[#00000079] my-2 rounded-md h-[150px] ${
-                activeLevels.includes(item.level)
-                  ? 'bg-textColor bg-opacity-50'
-                  : 'bg-Background bg-opacity-50'
-              }`}
-            >
-              <div className='flex justify-between '>
-                <h3 className='text-base text-textColor2'>Lvl {item.level}</h3>
-                <p className='flex gap-1 items-center text-textColor3'>
-                  <div className=' h-3 w-3 rounded-full flex justify-center items-center'>
-                    <img
-                      src='/assets/LoginImages/tether.png'
-                      alt=''
-                      className='h-[12px] w-auto'
-                    />
-                  </div>
-                  {item.cost}
-                </p>
-              </div>
+          {levels.map((item, index) => {
+            const isNextToActivate =
+              activeLevels.includes(item.level - 1) &&
+              !activeLevels.includes(item.level);
+            const isLocked =
+              !activeLevels.includes(item.level) && !isNextToActivate;
 
-              {activeLevels.includes(item.level - 1) &&
-                !activeLevels.includes(item.level) && (
+            return (
+              <div
+                key={index}
+                className={`relative px-2 py-3 shadow-xl shadow-[#00000079] my-2 rounded-md h-[150px] ${
+                  activeLevels.includes(item.level)
+                    ? 'bg-textColor bg-opacity-50'
+                    : 'bg-Background bg-opacity-50'
+                }`}
+              >
+                <div className='flex justify-between'>
+                  <h3 className='text-base text-textColor2'>
+                    Lvl {item.level}
+                  </h3>
+                  <p className='flex gap-1 items-center text-textColor3'>
+                    <div className='h-3 w-3 rounded-full flex justify-center items-center'>
+                      <img
+                        src='/assets/LoginImages/tether.png'
+                        alt=''
+                        className='h-[12px] w-auto'
+                      />
+                    </div>
+                    {item.cost}
+                  </p>
+                </div>
+
+                {isNextToActivate && (
                   <div className='flex flex-col items-center'>
                     <h1 className='text-textColor3 text-lg w-3/4 leading-5 text-center mt-2'>
                       Upgrade your result x{item.level}
@@ -88,30 +97,35 @@ const Levelx1 = () => {
                   </div>
                 )}
 
-              {activeLevels.includes(item.level) && (
-                <div className='flex flex-col gap-2'>
-                  <div className='flex justify-center gap-x-4'>
-                    <div className='h-8 w-8 rounded-full bg-[#a67912]'></div>
-                    <div className='h-8 w-8 rounded-full bg-[#a67912]'></div>
+                {activeLevels.includes(item.level) && (
+                  <div className='flex flex-col gap-2'>
+                    <div className='flex justify-center gap-x-4'>
+                      <div className='h-8 w-8 rounded-full bg-[#a67912]'></div>
+                      <div className='h-8 w-8 rounded-full bg-[#a67912]'></div>
+                    </div>
+                    <div className='flex justify-center gap-x-4'>
+                      <div className='h-8 w-8 rounded-full bg-[#a67912]'></div>
+                      <div className='h-8 w-8 rounded-full bg-[#26a17b]'></div>
+                    </div>
+                    <div className='flex justify-between'>
+                      <p className='flex gap-1 items-center text-textColor3'>
+                        <GoPeople className='text-textColor2' />
+                        {item.peopleCount}
+                      </p>
+                      <p className='flex gap-1 items-center text-textColor3'>
+                        <HiOutlineArrowPath className='text-textColor2' />
+                        {item.timer}
+                      </p>
+                    </div>
                   </div>
-                  <div className='flex justify-center gap-x-4'>
-                    <div className='h-8 w-8 rounded-full bg-[#a67912]'></div>
-                    <div className='h-8 w-8 rounded-full bg-[#26a17b]'></div>
-                  </div>
-                  <div className='flex justify-between'>
-                    <p className='flex gap-1 items-center text-textColor3'>
-                      <GoPeople className='text-textColor2' />
-                      {item.peopleCount}
-                    </p>
-                    <p className='flex gap-1 items-center text-textColor3'>
-                      <HiOutlineArrowPath className='text-textColor2' />
-                      {item.timer}
-                    </p>
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
+                )}
+
+                {isLocked && (
+                  <RiLock2Fill className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-400 text-xl' />
+                )}
+              </div>
+            );
+          })}
         </div>
 
         <div className='mt-7'>

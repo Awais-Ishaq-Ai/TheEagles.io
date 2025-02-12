@@ -4,19 +4,116 @@ import { CiCircleQuestion } from 'react-icons/ci';
 import { MdInfo } from 'react-icons/md';
 import { AiOutlineMessage } from 'react-icons/ai';
 import { MdOutlineErrorOutline } from 'react-icons/md';
+import { registrationExt } from '../../Config/Contract-Methods';
+import { useEffect, useState } from 'react';
+import { useConnect, useAccount, useSwitchChain } from 'wagmi';
+import chainConfig from '../../Config/chainConfig';
+import { HiMiniXMark } from 'react-icons/hi2';
+import axios from 'axios';
 
 const Register = () => {
+  const [showSidebar, setShowSidebar] = useState(false);
+  const { connectors, connect } = useConnect();
+  const { isConnected, address, chain } = useAccount();
+  const { switchChain } = useSwitchChain();
+  const [upline, setUpline] = useState('');
+
+  const handleInputChange = (e) => {
+    setUpline(e.target.value);
+  };
+
+  useEffect(() => {
+    if (isConnected && chain?.id) {
+      const targetChainId = chainConfig[11155111]?.id;
+      if (chain.id !== targetChainId) {
+        switchChain({ chainId: targetChainId });
+      }
+    }
+  }, [chain, isConnected]);
+
+  useEffect(() => {
+    if (address && isConnected) {
+      saveWalletAddress(address);
+    }
+  }, [address, isConnected]);
+
+  const handleConnectClick = () => {
+    setShowSidebar(true);
+  };
+
+  const saveWalletAddress = async (walletAddress) => {
+    try {
+      const response = await axios.get(
+        'http://localhost:5000/api/v1/get-wallets',
+        {
+          address: walletAddress,
+        }
+      );
+      let Addresses = response?.data?.wallet;
+      console.log(Addresses);
+    } catch (error) {
+      alert(error.response?.data?.error || 'Something went wrong');
+    }
+  };
+
+  const handleConnect = (walletName) => {
+    const connector = connectors.find(
+      (c) => c.name.toLowerCase() === walletName.toLowerCase()
+    );
+    if (connector) {
+      connect({ connector });
+      setShowSidebar(false);
+    }
+  };
+
+  const wallets = [
+    {
+      id: 1,
+      name: 'Trust Wallet',
+      description: 'DApp in App',
+      image: '/assets/AuthImages/trust.png',
+    },
+    {
+      id: 2,
+      name: 'TokenPocket',
+      description: 'DApp in App',
+      image: '/assets/AuthImages/pocket.png',
+    },
+    {
+      id: 3,
+      name: 'MetaMask',
+      description: 'DApp in App',
+      image: '/assets/AuthImages/Mask.png',
+    },
+    {
+      id: 4,
+      name: 'WalletConnect',
+      description: 'Any Wallet and browser',
+      image: '/assets/AuthImages/connect.png',
+    },
+  ];
+
   return (
     <>
-      <div className='min-h-screen w-full bg-gradient-to-tr from-gray-900 via-gray-900 to-blue-600 text-white flex justify-center gap-10 items-center md:p-6 px-2 py-6'>
+      <div className='min-h-screen w-full relative overflow-hidden bg-gradient-to-tr from-gray-900 via-gray-900 to-blue-600 text-white flex justify-center gap-10 items-center md:p-6 px-2 py-6'>
         <div className='md:max-w-5xl w-full flex flex-col md:flex-row justify-between gap-16 p-6 rounded-xl shadow-lg md:gap-x-44'>
           <div className='flex-1  p-2 md:p-4 lg:p-2'>
+            <div className='flex justify-end'>
+              <p
+                className='text-textColor3 inline-block text-xs px-3 py-2 rounded-full bg-textColor3 bg-opacity-30'
+                onClick={handleConnectClick}
+              >
+                Connect Wallet
+              </p>
+            </div>
             <h1 className='text-2xl font-semibold mb-4'>
-              Registration <br /> in The Eagle USDT
+              Registration <br /> in Theeagles USDT
             </h1>
             <label className='block text-gray-400 mb-2'>Your upline</label>
             <input
               type='text'
+              value={upline}
+              onChange={handleInputChange}
               defaultValue={1}
               className='w-full p-2 rounded bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500'
             />
@@ -32,14 +129,17 @@ const Register = () => {
               </div>
               <div className='flex items-center gap-2 text-red-400'>
                 <MdOutlineErrorOutline />
-                Balance: min 5 USDT or 0.021 BNB
+                Balance: min 5 USDT or 0.001 BNB
               </div>
-              <div className='flex items-center gap-2 text-white'>
+              <div className='flex ditems-center gap-2 text-white'>
                 <RiCheckboxBlankCircleLine /> Aprove USDT
               </div>
             </div>
-            <button className=' mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg'>
-              Check again
+            <button
+              className='mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg'
+              onClick={registrationExt(upline)}
+            >
+              Register
             </button>
             <button className='  flex items-center justify-center p-2 mt-2 text-gray-500   rounded-lg'>
               Registration fee <CiCircleQuestion className='ml-2 text-white ' />
@@ -57,7 +157,7 @@ const Register = () => {
               </span>
               Registration requires <span className='text-white'>5 USDT</span>{' '}
               and at least
-              <span className='text-white'> 0.005 BNB</span>. Your wallet
+              <span className='text-white'> 0.001 BNB</span>. Your wallet
               balance:
               <span className='text-red-400 font-medium'> 0.00 USDT </span> and
               <span className='text-red-400 font-medium'> 0.000 BNB</span>.
@@ -84,6 +184,48 @@ const Register = () => {
               </p>
             </div>
           </div>
+        </div>
+
+        <div
+          className={`absolute top-0 h-screen w-full bg-black py-4 px-3 transition-all duration-500 ${
+            showSidebar ? 'right-0' : '-right-full'
+          }`}
+        >
+          <div className='flex justify-end'>
+            <div className='inline-block bg-Background p-2 rounded-full shadow-2xl'>
+              <HiMiniXMark
+                className='text-white text-3xl'
+                onClick={() => setShowSidebar(false)}
+              />
+            </div>
+          </div>
+
+          {wallets.map((wallet) => (
+            <div
+              key={wallet.id}
+              onClick={() => handleConnect(wallet.name)}
+              className='cursor-pointer mt-3 bg-zinc-900 text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'
+            >
+              <div className='h-16 w-16 bg-textColor3 rounded-full flex justify-center items-center'>
+                <img
+                  src={wallet.image}
+                  alt={wallet.name}
+                  className='h-[48px] w-[48px]'
+                />
+              </div>
+              <div>
+                <h1 className='text-2xl font-medium text-textColor3'>
+                  {wallet.name}
+                </h1>
+                <p className='text-xs'>{wallet.description}</p>
+              </div>
+            </div>
+          ))}
+
+          <p className='text-textColor2 text-center mt-16 text-sm'>
+            Got a Question?{' '}
+            <span className='text-textColor3 font-medium'>Contact Support</span>
+          </p>
         </div>
       </div>
       );

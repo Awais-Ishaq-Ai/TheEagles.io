@@ -6,42 +6,18 @@ import Contract from '../Components/Home/Contract';
 import History from '../Components/Home/History';
 import Footer from '../Components/Footer/Footer';
 import { IoPersonCircleSharp } from 'react-icons/io5';
+import { useAccount } from 'wagmi';
 
 const Passid = () => {
   const navigate = useNavigate();
+  const { address } = useAccount();
 
-  const raceplayers = [
-    {
-      id: '1',
-      playerName: 'MianAsim',
-      playerId: 'ID 1826817',
-      prize: '$860',
-    },
-    {
-      id: '2',
-      playerName: 'MianAsim',
-      playerId: 'ID 1826817',
-      prize: '$860',
-    },
-    {
-      id: '3',
-      playerName: 'MianAsim',
-      playerId: 'ID 1826817',
-      prize: '$860',
-    },
-    {
-      id: '4',
-      playerName: 'MianAsim',
-      playerId: 'ID 1826817',
-      prize: '$860',
-    },
-    {
-      id: '5',
-      playerName: 'MianAsim',
-      playerId: 'ID 1826817',
-      prize: '$860',
-    },
-  ];
+  const shortenAddress = (address) => {
+    if (!address) return '';
+    return `${address.slice(0, 10)}...${address.slice(-8)}`;
+  };
+
+  const WalletAddress = shortenAddress(address);
 
   return (
     <>
@@ -63,7 +39,7 @@ const Passid = () => {
             <h1 className='text-2xl text-textColor3'>ID 1842424</h1>
           </div>
           <p className='text-xs text-textColor2 mt-7'>
-            0x783c...2ssois a number of The Eagles.io USDT
+            {WalletAddress} is a number of The Eagles.io USDT
           </p>
           <Link to='/home'>
             <div className='bg-gradient-to-r from-[#000000] to-[#747474] w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-12 text-textColor3 font-medium rounded-lg'>

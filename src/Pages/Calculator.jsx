@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const Calculator = () => {
   const [selected, setSelected] = useState(null);
   const [value, setValue] = useState(0.5);
-  const [active, setActive] = useState('X3');
+  const [active, setActive] = useState('X1');
   const [activepara, setActivepara] = useState(
     'Basic matrix program,which is best for those who are self-reliant and prefer independent development'
   );
@@ -23,21 +23,21 @@ const Calculator = () => {
   ];
   const handleLevel = (i) => {
     setSelected(i);
-    if (active == 'X3') {
+    if (active == 'X1') {
       setValue(0.5 * i + 1);
     } else {
       setValue(0.9 * i + 1);
     }
   };
-  const handleValueX3 = () => {
-    setActive('X3');
+  const handleValueX1 = () => {
+    setActive('X1');
     setValue(0.5);
     setActivepara(
       'Basic matrix program,which is best for those who are self-reliant and prefer independent development'
     );
   };
-  const handleValueX4 = () => {
-    setActive('X4');
+  const handleValueX2 = () => {
+    setActive('X2');
     setValue(0.9);
     setActivepara(
       'More advanced program, designed for team work. Results are achieved here through direct partners, as well as through spillovers from other participate.'
@@ -58,23 +58,23 @@ const Calculator = () => {
 
         <div
           className={`bg-gradient-to-r w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-4 text-textColor3 font-medium rounded-lg ${
-            active == 'X3'
+            active == 'X1'
               ? 'from-[#a67912] to-[#1a1303]'
               : 'from-[#000000] to-[#747474]'
           }`}
-          onClick={handleValueX3}
+          onClick={handleValueX1}
         >
-          <button>x3</button>
+          <button>x1</button>
         </div>
         <div
           className={`bg-gradient-to-r w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-4 text-textColor3 font-medium rounded-lg  ${
-            active == 'X4'
+            active == 'X2'
               ? 'from-[#a67912] to-[#1a1303]'
               : 'from-[#000000] to-[#747474]'
           }`}
-          onClick={handleValueX4}
+          onClick={handleValueX2}
         >
-          <button>x4</button>
+          <button>x2</button>
         </div>
       </div>
       <div className='bg-Background text-white mt-5 py-3'>
@@ -101,7 +101,7 @@ const Calculator = () => {
         <p className='text-[13px] text-textColor2 mt-3 mb-2 px-3'>
           Cost of all selected slots
         </p>
-        <h2 className='text-textColor3 font-semibold px-3'>{value} USDT</h2>
+        {/* <h2 className='text-textColor3 font-semibold px-3'>{value} USDT</h2> */}
         <hr />
         <p className='text-[13px] text-textColor2 mt-3 px-3'>
           Result of all selected

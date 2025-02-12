@@ -5,15 +5,15 @@ import Contract from '../Components/Home/Contract';
 import History from '../Components/Home/History';
 import Footer from '../Components/Footer/Footer';
 import { useEffect, useState } from 'react';
-import { useConnect, useDisconnect, useAccount, useSwitchChain } from 'wagmi';
+import { useConnect, useAccount, useSwitchChain } from 'wagmi';
 import chainConfig from '../Config/chainConfig';
+import axios from 'axios';
 
 const Authenticate = () => {
   const navigate = useNavigate();
   const [showSidebar, setShowSidebar] = useState(false);
   const { connectors, connect } = useConnect();
   const { isConnected, address, chain } = useAccount();
-  const { disconnect } = useDisconnect();
   const { switchChain } = useSwitchChain();
 
   useEffect(() => {
@@ -25,10 +25,29 @@ const Authenticate = () => {
     }
   }, [chain, isConnected]);
 
+  useEffect(() => {
+    if (address && isConnected) {
+      navigate('/passId');
+      saveWalletAddress(address);
+    }
+  }, [address, isConnected]);
+
   const handleConnectClick = () => {
     setShowSidebar(true);
   };
 
+  const saveWalletAddress = async (walletAddress) => {
+    try {
+      const response = await axios.post(
+        'http://localhost:5000/api/v1/save-wallet',
+        {
+          address: walletAddress,
+        }
+      );
+    } catch (error) {
+      alert(error.response?.data?.error || 'Failed to save wallet');
+    }
+  };
   const handleConnect = (walletName) => {
     const connector = connectors.find(
       (c) => c.name.toLowerCase() === walletName.toLowerCase()
