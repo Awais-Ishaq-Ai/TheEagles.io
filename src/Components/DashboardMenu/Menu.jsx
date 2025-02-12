@@ -11,13 +11,16 @@ import {
 import { CiGrid41 } from 'react-icons/ci';
 import { GoPeople } from 'react-icons/go';
 import { RiArrowDownSLine } from 'react-icons/ri';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useDisconnect } from 'wagmi';
 
 const Menu = ({ menu, home }) => {
+  const navigate = useNavigate();
   const [isTeamVisible, setIsTeamVisible] = useState(true);
   const [isInfoVisible, setIsInfoVisible] = useState(true);
   const [activeSpan, setActiveSpan] = useState('Dashboard');
+  const { disconnect } = useDisconnect();
 
   const handleRendering = () => {
     menu(false);
@@ -38,6 +41,12 @@ const Menu = ({ menu, home }) => {
 
   const getSpanClass = (spanName) =>
     activeSpan === spanName ? 'text-textColor3' : 'text-textColor2';
+
+  const handlelogout = () => {
+    disconnect();
+    home(true);
+    navigate('/auth');
+  };
 
   return (
     <>
@@ -171,9 +180,7 @@ const Menu = ({ menu, home }) => {
         >
           <HiOutlineLogout className='text-xl' />
           <span onClick={() => handleActiveSpan('Log out')}>
-            <Link to='/auth' onClick={() => home(true)}>
-              Log out
-            </Link>
+            <p onClick={handlelogout}>Log out</p>
           </span>
         </div>
       </div>

@@ -54,7 +54,7 @@ const UpgradeLvl4 = () => {
           <div className='flex justify-between text-xs'>
             <h3 className='text-textColor2'>Number of places for re-cycle</h3>
             <p className='text-textColor3 flex gap-1 items-center'>
-              3
+              4
               <span>
                 <GoPeople />
               </span>
@@ -62,35 +62,28 @@ const UpgradeLvl4 = () => {
           </div>
           <div className='flex justify-between text-xs'>
             <h3 className='text-textColor2'>Net reward for every cycle</h3>
-            <p className='text-textColor3'>40.00000 USDT</p>
+            <p className='text-textColor3'>10.00000 USDT</p>
           </div>
           <div className='flex justify-between text-xs'>
             <h3 className='text-textColor2'>Level cycle profit</h3>
             <p className='text-textColor3 flex gap-1 items-center'>
-              400 %
+              70 %
               <span className='text-green-700'>
                 <HiOutlineArrowPath />
               </span>
             </p>
           </div>
           <div className='flex justify-between text-xs'>
-            <h3 className='text-textColor2'>Max automaticre-cycle</h3>
-            <p className='text-textColor3'>00</p>
+            <h3 className='text-textColor2'>Max automatic re-cycle</h3>
+            <p className='text-textColor3'>∞</p>
           </div>
         </div>
         <div className='py-7 px-3 space-y-2 border-b border-textColor2'>
           <div className='text-textColor text-sm font-medium flex justify-between'>
             <h1>Upgrade Amount</h1>
             <p>
-              5 USDT (<span className='text-landingtext'>0.015 BNB</span>)
+              5 USDT (<span className='text-landingtext'>0.001 BNB</span>)
             </p>
-          </div>
-          <div className='text-textColor text-xs font-medium flex justify-between'>
-            <h1 className='flex gap-2 items-center'>
-              Services fee{' '}
-              <BsFillQuestionCircleFill className=' text-textColor3 text-sm' />
-            </h1>
-            <p>0.005 USDT</p>
           </div>
         </div>
         <div className='py-7 px-3 space-y-4'>
@@ -99,7 +92,7 @@ const UpgradeLvl4 = () => {
             <PiWarningCircleLight className='text-[16px] text-red-700' />
           </div>
           <div className='text-sm text-textColor2 flex justify-between items-center'>
-            <p>Balance check 10 USDT</p>
+            <p>Balance check 5 USDT</p>
             <div className='h-[13px] w-[13px] me-[2px] rounded-full border border-textColor2'></div>
           </div>
           <div className='text-sm text-textColor2 flex justify-between items-center'>

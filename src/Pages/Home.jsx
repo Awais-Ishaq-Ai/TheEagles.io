@@ -143,7 +143,7 @@ const Home = ({ showBar, setShowBar }) => {
             <div className='bg-eagles relative inset-0 z-10'>
               <div className='h-auto flex justify-between'>
                 <div className='flex gap-6'>
-                  <div className='gradient-border h-20 w-20 rounded-full'>
+                  <div className='gradient-border h-20 w-20 rounded-full ms-3'>
                     <div className='relative flex items-center justify-center text-white h-full w-full rounded-full bg-Background'>
                       <p className='text-[#bcbcbc] shadow-md absolute shadow-white rounded-full'>
                         <IoPersonCircleSharp className='text-7xl text-textColor3' />
@@ -153,7 +153,7 @@ const Home = ({ showBar, setShowBar }) => {
                         alt='logo'
                         className='h-7 w-7 ms-2 object-cover absolute bottom-2 -right-6 rounded-full'
                       />
-                      <div className='w-28 rounded-full p-[2px] absolute -bottom-7 bg-gradient-to-r ml-[20px] from-[#a67912] via-white to-white'>
+                      <div className='w-28 rounded-full p-[2px] absolute -bottom-7 bg-gradient-to-r from-[#a67912] via-white to-white'>
                         <div className='bg-[#433108] rounded-full text-xs px-2 flex items-center justify-between py-1'>
                           <p className='text-slate-400'>Social</p>
                           <span className='flex gap-1 items-center'>
