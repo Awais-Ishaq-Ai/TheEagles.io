@@ -24,7 +24,7 @@ const USDTlogin = () => {
           </p>
           <p>Fixed profit and fall protection</p>
           <p>Instant transaction</p>
-          <p>Limitation:</p>
+          <p>Limitations:</p>
           <p>
             Due to the stable price, it is difficult to make money on growth
           </p>
@@ -32,7 +32,7 @@ const USDTlogin = () => {
         <Link to={type === 'register' ? '/register' : '/auth'}>
           <div className='bg-gradient-to-r from-[#a67912] to-[#1a1303] w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-12 text-textColor3 font-medium rounded-full'>
             <button>
-              {type === 'register' ? 'Register USDT' : 'Login USDT'}
+              {type === 'register' ? 'Registeration USDT' : 'Login USDT'}
             </button>
           </div>
         </Link>

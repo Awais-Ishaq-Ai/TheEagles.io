@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { GoPeople } from 'react-icons/go';
 import { HiOutlineArrowPath } from 'react-icons/hi2';
 import { BsFillQuestionCircleFill } from 'react-icons/bs';
@@ -22,6 +22,35 @@ const Levelx1 = () => {
     { level: 11, cost: 2500, peopleCount: 5, timer: '00' },
     { level: 12, cost: 5000, peopleCount: 86, timer: '00' },
   ];
+
+  const users = [{ user: '1' }, { user: '1' }];
+
+  const maxDivs = 4;
+  const defaultColor = 'bg-white';
+  const filledColor = 'bg-[#a67912]';
+
+  const [resetCount, setResetCount] = useState(0);
+  const [divColors, setDivColors] = useState(
+    new Array(maxDivs).fill(defaultColor)
+  );
+
+  useEffect(() => {
+    if (users.length === 0) {
+      setResetCount(0);
+      setDivColors(new Array(maxDivs).fill(defaultColor));
+    } else if (users.length % maxDivs === 0) {
+      setResetCount((prev) =>
+        users.length > prev * maxDivs ? prev + 1 : prev - 1
+      );
+      setDivColors(new Array(maxDivs).fill(defaultColor));
+    } else {
+      setDivColors((prevColors) =>
+        prevColors.map((color, index) =>
+          index < users.length % maxDivs ? filledColor : defaultColor
+        )
+      );
+    }
+  }, [users.length]);
 
   const [activeLevels, setActiveLevels] = useState([1]);
 
@@ -83,7 +112,11 @@ const Levelx1 = () => {
                   </p>
                 </div>
 
-                {isNextToActivate && (
+                {resetCount === 0 && isNextToActivate && (
+                  <RiLock2Fill className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-400 text-xl' />
+                )}
+
+                {resetCount > 1 && isNextToActivate && (
                   <div className='flex flex-col items-center'>
                     <h1 className='text-textColor3 text-lg w-3/4 leading-5 text-center mt-2'>
                       Upgrade your result x{item.level}
@@ -100,21 +133,29 @@ const Levelx1 = () => {
                 {activeLevels.includes(item.level) && (
                   <div className='flex flex-col gap-2'>
                     <div className='flex justify-center gap-x-4'>
-                      <div className='h-8 w-8 rounded-full bg-[#a67912]'></div>
-                      <div className='h-8 w-8 rounded-full bg-[#a67912]'></div>
+                      <div
+                        className={`h-8 w-8 rounded-full ${divColors[0]}`}
+                      ></div>
+                      <div
+                        className={`h-8 w-8 rounded-full ${divColors[1]}`}
+                      ></div>
                     </div>
                     <div className='flex justify-center gap-x-4'>
-                      <div className='h-8 w-8 rounded-full bg-[#a67912]'></div>
-                      <div className='h-8 w-8 rounded-full bg-[#26a17b]'></div>
+                      <div
+                        className={`h-8 w-8 rounded-full ${divColors[2]}`}
+                      ></div>
+                      <div
+                        className={`h-8 w-8 rounded-full ${divColors[3]}`}
+                      ></div>
                     </div>
                     <div className='flex justify-between'>
                       <p className='flex gap-1 items-center text-textColor3'>
                         <GoPeople className='text-textColor2' />
-                        {item.peopleCount}
+                        {users.length}
                       </p>
                       <p className='flex gap-1 items-center text-textColor3'>
                         <HiOutlineArrowPath className='text-textColor2' />
-                        {item.timer}
+                        {resetCount}
                       </p>
                     </div>
                   </div>

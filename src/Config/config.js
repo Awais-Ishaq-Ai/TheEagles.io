@@ -3,6 +3,7 @@ import { sepolia, mainnet } from 'wagmi/chains';
 import { injected, metaMask, walletConnect } from 'wagmi/connectors';
 
 const projectId = '45a029651f37ec8e01c2e486810e6f3e';
+export const USDTContractAdress = '0xaA8E23Fb1079EA71e0a56F48a2aA51851D8433D0';
 
 export const config = createConfig({
   chains: [sepolia],
@@ -326,5 +327,18 @@ export const ABI = [
     type: 'function',
   },
   { stateMutability: 'payable', type: 'receive' },
+];
+
+export const USDTTestNetABI = [
+  {
+    inputs: [
+      { internalType: 'address', name: 'spender', type: 'address' },
+      { internalType: 'uint256', name: 'amount', type: 'uint256' },
+    ],
+    name: 'approve',
+    outputs: [{ internalType: 'bool', name: '', type: 'bool' }],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
 ];
 export const ContractAdress = '0xDBA4eb1e4eA0Ed5eeD9F5927fA1Ed458f5a792AA';

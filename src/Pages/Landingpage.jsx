@@ -98,7 +98,7 @@ function Landingpage() {
       )}
       <div className='overflow-hidden'>
         <marquee behavior='scroll' direction='Left' scrollamount='7'>
-          <div className='flex justify-between items-center  py-2 gap-4 max-w-full overflow-auto'>
+          <div className='flex justify-between items-center py-2 gap-4 max-w-full overflow-auto'>
             <div className='text-textColor3 w-max whitespace-nowrap'>
               <p>
                 All Participants &nbsp;
@@ -113,7 +113,7 @@ function Landingpage() {
               </p>
             </div>
             <span className='text-[#2cd9ff] text-2xl'>•</span>
-            <div className='text-textColor3  w-max whitespace-nowrap'>
+            <div className='text-textColor3 w-max whitespace-nowrap'>
               <p>
                 Profit users result &nbsp;
                 <span className='text-[#2cd9ff]'>3 674 764 788</span>
@@ -121,11 +121,9 @@ function Landingpage() {
             </div>
           </div>
         </marquee>
-        <div
-          className='bg-cover bg-center'
-          style={{ backgroundImage: `url(${Homegif})` }}
-        >
-          <div className='h-[42vh] w-full bg-[#3939396c] relative flex flex-col justify-center items-center'>
+        <div className='relative'>
+          {/* First Section */}
+          <div className='bg-[#3939396c] absolute h-[42vh] w-full flex flex-col justify-center items-center'>
             {/* Logo */}
             <div className='ms-3 pt-2 flex justify-center items-center'>
               <img
@@ -140,7 +138,7 @@ function Landingpage() {
               the eagles.io
             </p>
 
-            {/* Timer Display */}
+            {/* Countdown Timer */}
             <div className='mt-4 text-2xl font-semibold text-white'>
               {formatTime(timeLeft)}
             </div>
@@ -149,18 +147,14 @@ function Landingpage() {
             <div className='flex justify-between px-2 mt-8 w-[100%]'>
               <div className='w-[45%]'>
                 <Link to='/login' state={{ type: 'login' }}>
-                  <button
-                    className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] `}
-                  >
+                  <button className='w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912]'>
                     Sign in
                   </button>
                 </Link>
               </div>
               <div className='w-[50%]'>
                 <Link to='/login' state={{ type: 'register' }}>
-                  <button
-                    className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px]`}
-                  >
+                  <button className='w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px]'>
                     <div className='flex items-center justify-center gap-2'>
                       Register
                     </div>
@@ -169,7 +163,19 @@ function Landingpage() {
               </div>
             </div>
           </div>
+
+          {/* Video Section (Moved Below) */}
+          <div className='w-full'>
+            <video
+              src='/intro.mp4'
+              className='h-[42vh] w-full'
+              autoPlay
+              loop
+              muted
+            ></video>
+          </div>
         </div>
+
         <div className='w-[80%] mx-auto mt-2'>
           <p className='text-white font-medium text-center my-3'>
             A decentralized networking platform based on smart contracts, which{' '}
