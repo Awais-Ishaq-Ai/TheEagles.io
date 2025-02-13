@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Homegif from '/egealesHomeImg.gif';
 import { GrLinkNext } from 'react-icons/gr';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -140,57 +139,66 @@ function Landingpage() {
             </div>
           </div>
         </marquee>
-        <div
-          className='bg-cover bg-center'
-          style={{ backgroundImage: `url(${Homegif})` }}
-        >
-          <div className='h-[42vh] w-full bg-[#3939396c] relative flex flex-col justify-center items-center'>
-            {/* Logo */}
-            <div className='ms-3 pt-2 flex justify-center items-center'>
-              <img
-                src='/assets/HomeImages/logo.png'
-                alt='logo'
-                className='h-16 w-16'
-              />
+        <div className='h-[42vh] w-full bg-[#3939396c] relative text-white flex flex-col justify-center items-center overflow-hidden'>
+          {/* Background Video */}
+          <video
+            src='/intro.mp4'
+            autoPlay
+            loop
+            muted
+            playsInline
+            className='absolute top-0 left-0 opacity-80 w-full h-full object-cover'
+          ></video>
+
+          {/* Overlay to Darken the Video */}
+          <div className='absolute top-0 left-0 w-full h-full bg-black opacity-30'></div>
+
+          {/* Logo */}
+          <div className='ms-3 pt-2 flex justify-center items-center z-10'>
+            <img
+              src='/assets/HomeImages/logo.png'
+              alt='logo'
+              className='h-16 w-16'
+            />
+          </div>
+
+          {/* Title */}
+          <p className='text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r uppercase font-sans italic from-[#ffa14c] via-[#ffa14e] to-[#6a2cfa] z-10'>
+            the eagles.io
+          </p>
+
+          {/* Timer Display */}
+          <div className='mt-4 text-2xl font-semibold text-white z-10'>
+            {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s U.T.C
+          </div>
+
+          {/* Buttons */}
+          <div className='flex justify-between px-2 mt-8 w-[100%] z-10'>
+            <div className='w-[45%]'>
+              <Link to='/login' state={{ type: 'login' }}>
+                <button
+                  className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px] ${
+                    timeLeftSec > 0 ? 'opacity-50 cursor-not-allowed' : ''
+                  }`}
+                  disabled={timeLeftSec > 0}
+                >
+                  Sign in
+                </button>
+              </Link>
             </div>
-
-            {/* Title */}
-            <p className='text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r uppercase font-sans italic from-[#ffa14c] via-[#ffa14e] to-[#6a2cfa]'>
-              the eagles.io
-            </p>
-
-            {/* Timer Display */}
-            <div className='mt-4 text-2xl font-semibold text-white'>
-              {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s U.T.C
-            </div>
-
-            <div className='flex justify-between px-2 mt-8 w-[100%]'>
-              <div className='w-[45%]'>
-                <Link to='/login' state={{ type: 'login' }}>
-                  <button
-                    className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px] ${
-                      timeLeftSec > 0 ? 'opacity-50 cursor-not-allowed' : ''
-                    }`}
-                    disabled={timeLeftSec > 0}
-                  >
-                    Sign in
-                  </button>
-                </Link>
-              </div>
-              <div className='w-[50%]'>
-                <Link to='/login' state={{ type: 'register' }}>
-                  <button
-                    className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px] ${
-                      timeLeftSec > 0 ? 'opacity-50 cursor-not-allowed' : ''
-                    }`}
-                    disabled={timeLeftSec > 0}
-                  >
-                    <div className='flex items-center justify-center gap-2'>
-                      Register
-                    </div>
-                  </button>
-                </Link>
-              </div>
+            <div className='w-[50%]'>
+              <Link to='/login' state={{ type: 'register' }}>
+                <button
+                  className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px] ${
+                    timeLeftSec > 0 ? 'opacity-50 cursor-not-allowed' : ''
+                  }`}
+                  disabled={timeLeftSec > 0}
+                >
+                  <div className='flex items-center justify-center gap-2'>
+                    Register
+                  </div>
+                </button>
+              </Link>
             </div>
           </div>
         </div>
