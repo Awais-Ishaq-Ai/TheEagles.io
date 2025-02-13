@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { GrGallery } from 'react-icons/gr';
 import { IoClose } from 'react-icons/io5';
-import {
-  FaFacebook,
-  FaTwitter,
-  FaInstagram,
-  FaYoutube,
-  FaWhatsapp,
-} from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -18,8 +11,10 @@ function Profile() {
   const [name, setNickname] = useState('');
   const [email, setEmail] = useState('');
   const [description, setDescription] = useState('');
+
   const [socialLinks, setSocialLinks] = useState([]);
   const [currentLink, setCurrentLink] = useState('');
+  const [selectedPlatform, setSelectedPlatform] = useState('');
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -30,65 +25,51 @@ function Profile() {
     }
   };
 
-  const socialMedia = [
-    {
-      id: 1,
-      icon: <FaFacebook className='text-white' />,
-      bgColor: 'bg-Background',
-    },
-    {
-      id: 2,
-      icon: <FaTwitter className='text-white' />,
-      bgColor: 'bg-Background',
-    },
-    {
-      id: 3,
-      icon: <FaInstagram className='text-white' />,
-      bgColor: 'bg-Background',
-    },
-    {
-      id: 4,
-      icon: <FaYoutube className='text-white' />,
-      bgColor: 'bg-Background',
-    },
-    {
-      id: 5,
-      icon: <FaWhatsapp className='text-white' />,
-      bgColor: 'bg-Background',
-    },
-  ];
-
   const addSocialLink = () => {
-    if (currentLink) {
-      setSocialLinks([...socialLinks, currentLink]);
+    if (currentLink && selectedPlatform) {
+      setSocialLinks([
+        ...socialLinks,
+        { platform: selectedPlatform, url: currentLink },
+      ]);
       setCurrentLink('');
-      closeModal();
+      setSelectedPlatform('');
     }
   };
 
-  const createUser = async () => {
+  const createUser = async (e) => {
+    e.preventDefault();
+
+    // Convert socialLinks array into an object with key-value pairs
+    const formattedSocialLinks = socialLinks.reduce((acc, link) => {
+      acc[link.platform.toLowerCase()] = link.url; // Convert platform name to lowercase
+      return acc;
+    }, {});
+
+    const userData = {
+      name,
+      email,
+      description,
+      socialLinks: formattedSocialLinks,
+    };
+
     try {
-      const formData = {
-        id: new Date().getTime(),
-        name,
-        email,
-        description,
-        socialLinks,
-      };
-
-      console.log('Sending data:', formData); // Debugging
-
       const response = await axios.post(
         'http://localhost:2700/api/profile',
-        formData
+        userData
       );
-
-      if (response.data) {
-        navigate('/home');
-      }
-    } catch (err) {
-      console.error('Error:', err?.response?.data);
+      console.log('Profile Created:', response.data);
+      alert('Profile saved successfully!');
+    } catch (error) {
+      console.error(
+        'Error saving profile:',
+        error.response?.data || error.message
+      );
+      alert('Failed to save profile.');
     }
+  };
+
+  const removeSocialLink = (index) => {
+    setSocialLinks(socialLinks.filter((_, i) => i !== index));
   };
 
   useEffect(() => {
@@ -182,17 +163,18 @@ function Profile() {
                     Select social network
                   </p>
                 </div>
-                <div className='flex space-x-6 my-8'>
-                  {socialMedia.map((item) => (
-                    <div
-                      key={item.id}
-                      className={`h-[30px] w-[30px] ${item.bgColor} rounded-full flex justify-center items-center`}
-                    >
-                      {item.icon}
-                    </div>
-                  ))}
-                </div>
-
+                <select
+                  value={selectedPlatform}
+                  onChange={(e) => setSelectedPlatform(e.target.value)}
+                  className='bg-Background text-white mb-3 py-2 w-full rounded px-2 outline-none'
+                >
+                  <option value=''>Select Platform</option>
+                  <option value='Facebook'>Facebook</option>
+                  <option value='Twitter'>Twitter</option>
+                  <option value='Instagram'>Instagram</option>
+                  <option value='YouTube'>YouTube</option>
+                  <option value='WhatsApp'>WhatsApp</option>
+                </select>
                 <input
                   type='text'
                   value={currentLink}
@@ -210,6 +192,25 @@ function Profile() {
             </div>
           </div>
         )}
+
+        <div className='mt-4'>
+          {socialLinks.map((link, index) => (
+            <div
+              key={index}
+              className='flex justify-between items-center bg-gray-800 p-2 rounded my-1'
+            >
+              <p className='text-white'>
+                {link.platform}: {link.url}
+              </p>
+              <button
+                onClick={() => removeSocialLink(index)}
+                className='text-red-500'
+              >
+                Remove
+              </button>
+            </div>
+          ))}
+        </div>
 
         <button
           className='text-white bg-gradient-to-r from-[#a67912] to-[#453b23] shadow-md shadow-[#3b3b3b79] w-[80%] py-2 rounded-lg mx-auto block'
