@@ -30,14 +30,14 @@ export const buyNewLevelFor = async (address, matrix, level) => {
   return result;
 };
 //4
-export const registrationExt = async (address) => {
+export const register = async (address) => {
   const result = await writeContract(config, {
     abi: ABI,
     address: ContractAdress,
-    functionName: 'registrationExt',
+    functionName: 'register',
     args: [address],
   });
-  console.log('registrationExt :', result);
+  console.log('register :', result);
   return result;
 };
 //5

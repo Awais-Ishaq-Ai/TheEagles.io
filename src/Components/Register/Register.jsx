@@ -12,7 +12,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import React from 'react';
 import {
   idToAddress,
-  registrationExt,
+  register,
   USDTapprove,
 } from '../../Config/Contract-Methods';
 
@@ -64,7 +64,7 @@ const Register = () => {
         await USDTapprove(5);
         console.log('first');
         try {
-          let x = await registrationExt(uplineaddress);
+          let x = await register(uplineaddress);
           console.log(x);
           console.log('📤 Registering with Address:', uplineaddress);
         } catch (err) {
