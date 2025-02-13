@@ -54,7 +54,7 @@ function Profile() {
 
     try {
       const response = await axios.post(
-        'http://localhost:2700/api/profile',
+        'http://localhost:5000/api/profile',
         userData
       );
       console.log('Profile Created:', response.data);
