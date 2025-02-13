@@ -12,6 +12,7 @@ import { FaHeart } from 'react-icons/fa';
 import { HiMiniXMark } from 'react-icons/hi2';
 import { useConnect, useDisconnect, useAccount, useSwitchChain } from 'wagmi';
 import chainConfig from '../Config/chainConfig';
+import { users } from '../Config/Contract-Methods';
 
 const Home = ({ showBar, setShowBar }) => {
   const [showDetails, setShowDetails] = useState(true);
@@ -22,6 +23,9 @@ const Home = ({ showBar, setShowBar }) => {
   const { switchChain } = useSwitchChain();
 
   const [showToast, setShowToast] = useState(false);
+  const [userData, setUserData] = useState(null);
+
+  console.log('userData', userData);
 
   const handleCopy = (textToCopy) => {
     navigator.clipboard
@@ -34,6 +38,21 @@ const Home = ({ showBar, setShowBar }) => {
         console.error('Failed to copy text: ', error);
       });
   };
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      if (isConnected && address) {
+        try {
+          const result = await users(address);
+          setUserData(result);
+        } catch (error) {
+          console.error('Error fetching user data:', error);
+        }
+      }
+    };
+
+    fetchUserData();
+  }, [isConnected, address]);
 
   useEffect(() => {
     if (isConnected && chain?.id) {
@@ -171,7 +190,7 @@ const Home = ({ showBar, setShowBar }) => {
                       Username
                     </h1>
                     <p className='text-lg text-yellow-300 italic font-medium'>
-                      ID 5436547
+                      ID {userData?.[1]?.toString() ?? 'Loading...'}
                     </p>
                     <button
                       className='mt-8 text-base flex gap-2 items-center justify-center bg-Background shadow-xl shadow-[#00000079] transition-all ease-in-out text-textColor2 w-44 py-1 rounded-full'
@@ -219,7 +238,7 @@ const Home = ({ showBar, setShowBar }) => {
             <div className='flex items-center justify-between text-base mb-5'>
               <h5 className='text-textColor3'>My Personal link</h5>
               <p className='text-textColor3 text-base font-sans font-medium flex gap-2 items-center'>
-                theeagles.io/******
+                theeagles.io/{userData?.[1]?.toString() ?? 'Loading...'}
                 <span>
                   <GoArrowUpRight className='text-textColor3 text-lg' />
                 </span>
@@ -228,7 +247,7 @@ const Home = ({ showBar, setShowBar }) => {
             <div className='text-lg flex gap-3'>
               <button
                 className='bg-[#a67912] w-full text-textColor3 shadow-xl shadow-[#00000079] font-medium px-6 py-1 rounded-full'
-                onClick={() => handleCopy('theeagles.io/******')}
+                onClick={() => handleCopy(`theeagles.io/${userData?.[1]}`)}
               >
                 Copy
               </button>

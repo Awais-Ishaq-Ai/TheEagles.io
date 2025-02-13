@@ -28,6 +28,7 @@ import Register from './Components/Register/Register';
 import Social from './Pages/Social';
 import NumberRedirect from './NumberRedirect';
 import SocialRewards from './Pages/SocialRewards';
+import { useAccount } from 'wagmi';
 
 const ScrollToTop = () => {
   const location = useLocation();
@@ -43,8 +44,8 @@ function App() {
   const location = useLocation();
 
   const hideNavbarFooterRoutes = [
-    '/Upgradex1',
-    '/Upgradex2',
+    '/Upgradexone',
+    '/Upgradextwo',
     '/login',
     '/auth',
     '/passId',
@@ -58,12 +59,11 @@ function App() {
 
   const [showHome, setShowHome] = useState(true);
   const [showBar, setShowBar] = useState(false);
-  console.log('showBar', showBar);
 
   return (
     <>
       <ScrollToTop />
-      {/* <NumberRedirect /> */}
+      <NumberRedirect />
       {!hideNavbarFooterRoutes.includes(location.pathname) && (
         <Navbar home={setShowHome} setShowBar={setShowBar} />
       )}
@@ -79,10 +79,10 @@ function App() {
         <Route path='/socialReward' element={<SocialRewards />} />
         <Route path='/login' element={<Login />} />
         <Route path='/profile' element={<Profile />} />
-        {showHome && <Route path='/lvlx1' element={<Levelx1 />} />}
-        {showHome && <Route path='/lvlx2' element={<Levelx2 />} />}
-        <Route path='/Upgradex1' element={<UpgradeLvl1 />} />
-        <Route path='/Upgradex2' element={<UpgradeLvl2 />} />
+        {showHome && <Route path='/lvlxone' element={<Levelx1 />} />}
+        {showHome && <Route path='/lvlxtwo' element={<Levelx2 />} />}
+        <Route path='/Upgradexone' element={<UpgradeLvl1 />} />
+        <Route path='/Upgradextwo' element={<UpgradeLvl2 />} />
         <Route path='/auth' element={<Authenticate />} />
         <Route path='/passId' element={<Passid />} />
         <Route path='/register' element={<Register />} />

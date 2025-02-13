@@ -6,6 +6,7 @@ import Notify from '../Components/Lvl1/Notify';
 import UserTable from '../Components/Lvl1/UserTable';
 import { Link } from 'react-router-dom';
 import { RiLock2Fill } from 'react-icons/ri';
+import { activateLevel } from '../Config/Contract-Methods';
 
 const Levelx1 = () => {
   const levels = [
@@ -23,7 +24,7 @@ const Levelx1 = () => {
     { level: 12, cost: 5000, peopleCount: 86, timer: '00' },
   ];
 
-  const users = [{ user: '1' }, { user: '1' }];
+  const users = [{ user: '1' }, { user: '1' }, { user: '1' }, { user: '1' }];
 
   const maxDivs = 4;
   const defaultColor = 'bg-white';
@@ -54,9 +55,22 @@ const Levelx1 = () => {
 
   const [activeLevels, setActiveLevels] = useState([1]);
 
-  const handleActivate = (level) => {
-    if (!activeLevels.includes(level)) {
-      setActiveLevels((prev) => [...prev, level]);
+  const handleLevelActivation = async (level) => {
+    try {
+      const approvetx = await activateLevel('1', level);
+      const receipt = await getTxn(approvetx);
+
+      if (!receipt) {
+        console.log('Level activation failed');
+        return;
+      }
+
+      // Agar Levelactivation successful ho to UI update karega
+      if (!activeLevels.includes(level)) {
+        setActiveLevels((prev) => [...prev, level]);
+      }
+    } catch (err) {
+      console.log('Error activating level:', err);
     }
   };
 
@@ -78,7 +92,7 @@ const Levelx1 = () => {
           <h1>{totalCost} USDT</h1>
         </div>
       </div>
-      <div className='bg-gradient-to-r from-[#a67912] border to-[#1a1303] w-full h-auto px-2 py-6'>
+      <div className='bg-gradient-to-r from-[#a67912] to-[#1a1303] w-full h-auto px-2 py-6 mt-3'>
         <div className='grid grid-cols-2 gap-3'>
           {levels.map((item, index) => {
             const isNextToActivate =
@@ -89,8 +103,8 @@ const Levelx1 = () => {
 
             return (
               <div
-                key={index}
-                className={`relative px-2 py-3 shadow-xl shadow-[#00000079] my-2 rounded-md h-[150px] ${
+                key={item.level}
+                className={`px-2 py-3 relative rounded-md shadow-xl shadow-[#00000079] my-2 h-[150px] ${
                   activeLevels.includes(item.level)
                     ? 'bg-textColor bg-opacity-50'
                     : 'bg-Background bg-opacity-50'
@@ -116,14 +130,14 @@ const Levelx1 = () => {
                   <RiLock2Fill className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-400 text-xl' />
                 )}
 
-                {resetCount > 1 && isNextToActivate && (
+                {resetCount > 0 && isNextToActivate && (
                   <div className='flex flex-col items-center'>
                     <h1 className='text-textColor3 text-lg w-3/4 leading-5 text-center mt-2'>
                       Upgrade your result x{item.level}
                     </h1>
                     <button
                       className='px-4 shadow-xl shadow-[#00000079] py-1 mt-3 rounded-md text-lg font-medium text-textColor3 bg-[#a67912]'
-                      onClick={() => handleActivate(item.level)}
+                      onClick={() => handleLevelActivation(item.level)}
                     >
                       Active
                     </button>
@@ -131,32 +145,34 @@ const Levelx1 = () => {
                 )}
 
                 {activeLevels.includes(item.level) && (
-                  <div className='flex flex-col gap-2'>
-                    <div className='flex justify-center gap-x-4'>
-                      <div
-                        className={`h-8 w-8 rounded-full ${divColors[0]}`}
-                      ></div>
-                      <div
-                        className={`h-8 w-8 rounded-full ${divColors[1]}`}
-                      ></div>
-                    </div>
-                    <div className='flex justify-center gap-x-4'>
-                      <div
-                        className={`h-8 w-8 rounded-full ${divColors[2]}`}
-                      ></div>
-                      <div
-                        className={`h-8 w-8 rounded-full ${divColors[3]}`}
-                      ></div>
-                    </div>
-                    <div className='flex justify-between'>
-                      <p className='flex gap-1 items-center text-textColor3'>
-                        <GoPeople className='text-textColor2' />
-                        {users.length}
-                      </p>
-                      <p className='flex gap-1 items-center text-textColor3'>
-                        <HiOutlineArrowPath className='text-textColor2' />
-                        {resetCount}
-                      </p>
+                  <div>
+                    <div className='flex flex-col gap-2'>
+                      <div className='flex justify-center gap-x-4'>
+                        <div
+                          className={`h-8 w-8 rounded-full ${divColors[0]}`}
+                        ></div>
+                        <div
+                          className={`h-8 w-8 rounded-full ${divColors[1]}`}
+                        ></div>
+                      </div>
+                      <div className='flex justify-center gap-x-4'>
+                        <div
+                          className={`h-8 w-8 rounded-full ${divColors[2]}`}
+                        ></div>
+                        <div
+                          className={`h-8 w-8 rounded-full ${divColors[3]}`}
+                        ></div>
+                      </div>
+                      <div className='flex justify-between'>
+                        <p className='flex gap-1 items-center text-textColor3'>
+                          <GoPeople className='text-textColor2' />
+                          {users.length}
+                        </p>
+                        <p className='flex gap-1 items-center text-textColor3'>
+                          <HiOutlineArrowPath className='text-textColor2' />
+                          {resetCount}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 )}
@@ -191,7 +207,7 @@ const Levelx1 = () => {
             </div>
           </div>
           <button className='bg-[#26a17b] shadow-xl shadow-[#00000079] text-textColor3 px-8 mt-5 py-3 rounded-full font-medium flex gap-2'>
-            <Link to='/Upgradex1' className='flex gap-2 items-center'>
+            <Link to='/Upgradextwo' className='flex gap-2 items-center'>
               <BsFillQuestionCircleFill className=' text-textColor3' />
               Marketing legend
             </Link>

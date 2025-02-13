@@ -23,7 +23,7 @@ const Levelx2 = () => {
     { level: 12, cost: 5000, peopleCount: 86, timer: '00' },
   ];
 
-  const users = [{ user: '1' }, { user: '1' }, { user: '1' }];
+  const users = [{ user: '1' }, { user: '1' }, { user: '1' }, { user: '1' }];
 
   const maxDivs = 4;
   const defaultColor = 'bg-white';
@@ -195,7 +195,7 @@ const Levelx2 = () => {
             </div>
           </div>
           <button className='bg-[#26a17b] shadow-xl shadow-[#00000079] text-textColor3 px-8 mt-5 py-3 rounded-full font-medium flex gap-2'>
-            <Link to='/Upgradex2' className='flex gap-2 items-center'>
+            <Link to='/Upgradextwo' className='flex gap-2 items-center'>
               <BsFillQuestionCircleFill className=' text-textColor3' />
               Marketing legend
             </Link>
