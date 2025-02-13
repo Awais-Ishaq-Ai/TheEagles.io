@@ -26,12 +26,12 @@ const Contract = () => {
 
   return (
     <>
-      {showToast && (
-        <div className='fixed top-5 right-5 z-50 bg-gray-800 text-gray-200 py-2 px-4 rounded-lg shadow-2xl transform animate-quickAlert'>
-          🔗 Link copied!
-        </div>
-      )}
       <div className='bg-Background shadow-xl shadow-[#00000079] w-full h-full rounded-lg mt-1 pb-4'>
+        {showToast && (
+          <div className='fixed top-5 right-5 z-50 bg-gray-800 text-gray-200 py-2 px-4 rounded-lg shadow-2xl transform animate-quickAlert'>
+            🔗 Link copied!
+          </div>
+        )}
         <h1 className='text-textColor2  border-b border-textColor2 flex justify-between items-center px-3 py-4'>
           The Eagles USDT contract
           <span

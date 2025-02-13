@@ -1,22 +1,25 @@
 import { FaRegCheckCircle } from 'react-icons/fa';
 import { RiCheckboxBlankCircleLine } from 'react-icons/ri';
-import { CiCircleQuestion } from 'react-icons/ci';
 import { MdInfo } from 'react-icons/md';
 import { AiOutlineMessage } from 'react-icons/ai';
 import { MdOutlineErrorOutline } from 'react-icons/md';
-import { registrationExt } from '../../Config/Contract-Methods';
 import { useEffect, useState } from 'react';
 import { useConnect, useAccount, useSwitchChain } from 'wagmi';
 import chainConfig from '../../Config/chainConfig';
 import { HiMiniXMark } from 'react-icons/hi2';
-import axios from 'axios';
+import { BsFillQuestionCircleFill } from 'react-icons/bs';
+import {
+  idToAddress,
+  registrationExt,
+  USDTapprove,
+} from '../../Config/Contract-Methods';
 
 const Register = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   const { connectors, connect } = useConnect();
   const { isConnected, address, chain } = useAccount();
   const { switchChain } = useSwitchChain();
-  const [upline, setUpline] = useState('');
+  const [upline, setUpline] = useState('1');
 
   const handleInputChange = (e) => {
     setUpline(e.target.value);
@@ -31,28 +34,31 @@ const Register = () => {
     }
   }, [chain, isConnected]);
 
-  useEffect(() => {
-    if (address && isConnected) {
-      saveWalletAddress(address);
-    }
-  }, [address, isConnected]);
-
   const handleConnectClick = () => {
     setShowSidebar(true);
   };
 
-  const saveWalletAddress = async (walletAddress) => {
-    try {
-      const response = await axios.get(
-        'http://localhost:5000/api/v1/get-wallets',
-        {
-          address: walletAddress,
+  const getAddress = async () => {
+    const uplineaddress = await idToAddress(upline);
+    console.log('✅ Wallet Address:', uplineaddress);
+
+    if (uplineaddress) {
+      try {
+        console.log('hello');
+        await USDTapprove(5);
+        console.log('first');
+        try {
+          let x = await registrationExt(uplineaddress);
+          console.log(x);
+          console.log('📤 Registering with Address:', uplineaddress);
+        } catch (err) {
+          console.log(err);
         }
-      );
-      let Addresses = response?.data?.wallet;
-      console.log(Addresses);
-    } catch (error) {
-      alert(error.response?.data?.error || 'Something went wrong');
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      console.log('❌ Address not available!');
     }
   };
 
@@ -65,6 +71,17 @@ const Register = () => {
       setShowSidebar(false);
     }
   };
+
+  useEffect(() => {
+    const handlClickToAddress = () => {
+      if (upline) {
+        idToAddress(upline);
+      } else {
+        alert('please enter a valid address');
+      }
+    };
+    handlClickToAddress();
+  }, []);
 
   const wallets = [
     {
@@ -95,15 +112,18 @@ const Register = () => {
 
   return (
     <>
-      <div className='min-h-screen w-full relative overflow-hidden bg-gradient-to-tr from-gray-900 via-gray-900 to-blue-600 text-white flex justify-center gap-10 items-center md:p-6 px-2 py-6'>
-        <div className='md:max-w-5xl w-full flex flex-col md:flex-row justify-between gap-16 p-6 rounded-xl shadow-lg md:gap-x-44'>
-          <div className='flex-1  p-2 md:p-4 lg:p-2'>
+      <div className='h-auto w-full relative overflow-hidden bg-gradient-to-tr from-gray-900 via-gray-900 to-blue-600 text-white flex justify-center gap-10 items-center md:p-6 px-2 py-6'>
+        <div className='md:max-w-5xl w-full flex flex-col md:flex-row justify-between gap-16 p-6 rounded-xl md:gap-x-44'>
+          <div className='flex-1 p-2 md:p-4 lg:p-2'>
             <div className='flex justify-end'>
               <p
-                className='text-textColor3 inline-block text-xs px-3 py-2 rounded-full bg-textColor3 bg-opacity-30'
+                className='text-textColor3 inline-block text-xs px-3 py-2 rounded-full bg-textColor3 bg-opacity-30 w-[105px] overflow-x-scroll'
+                style={{
+                  scrollbarWidth: 'none',
+                }}
                 onClick={handleConnectClick}
               >
-                Connect Wallet
+                {!isConnected ? 'Connect Wallet' : address}
               </p>
             </div>
             <h1 className='text-2xl font-semibold mb-4'>
@@ -114,40 +134,68 @@ const Register = () => {
               type='text'
               value={upline}
               onChange={handleInputChange}
-              defaultValue={1}
               className='w-full p-2 rounded bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500'
             />
             <div className='mt-4 space-y-2'>
-              <div className='flex items-center gap-2 text-green-400'>
-                <FaRegCheckCircle /> Wallet: connected
+              <div
+                className={`flex items-center gap-2 ${
+                  isConnected ? 'text-green-400' : 'text-red-400'
+                }`}
+              >
+                {isConnected ? <FaRegCheckCircle /> : <MdOutlineErrorOutline />}
+                Wallet: connected
               </div>
-              <div className='flex items-center gap-2 text-green-400'>
-                <FaRegCheckCircle /> Network: Smart chain
+              <div
+                className={`flex items-center gap-2 ${
+                  isConnected ? 'text-green-400' : 'text-red-400'
+                }`}
+              >
+                {isConnected ? <FaRegCheckCircle /> : <MdOutlineErrorOutline />}{' '}
+                Network: Smart chain
               </div>
-              <div className='flex items-center gap-2 text-green-400'>
-                <FaRegCheckCircle /> Registration: available
+              <div
+                className={`flex items-center gap-2 ${
+                  isConnected ? 'text-green-400' : 'text-red-400'
+                }`}
+              >
+                {isConnected ? <FaRegCheckCircle /> : <MdOutlineErrorOutline />}{' '}
+                Registration: available
               </div>
               <div className='flex items-center gap-2 text-red-400'>
                 <MdOutlineErrorOutline />
-                Balance: min 5 USDT or 0.001 BNB
+                Balance: min 5 USDT and 0.001 BNB
               </div>
-              <div className='flex ditems-center gap-2 text-white'>
+              <div className='flex items-center gap-2 text-white'>
                 <RiCheckboxBlankCircleLine /> Aprove USDT
               </div>
             </div>
+
             <button
-              className='mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg'
-              onClick={registrationExt(upline)}
+              className={`mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg ${
+                !isConnected ? 'cursor-not-allowed' : 'cursor-pointer'
+              }`}
+              disabled={!isConnected}
+              onClick={getAddress}
             >
-              Register
+              Registeration
             </button>
-            <button className='  flex items-center justify-center p-2 mt-2 text-gray-500   rounded-lg'>
-              Registration fee <CiCircleQuestion className='ml-2 text-white ' />
+            <button className='flex items-center justify-center p-2 mt-2 text-gray-500   rounded-lg gap-1'>
+              Registration fee
+              <span className='relative group'>
+                <BsFillQuestionCircleFill className='text-textColor3 text-sm cursor-pointer' />
+
+                <div className='absolute left-6 -top-9 w-[185px] text-justify bg-gray-800 text-white text-xs rounded-lg p-2 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none'>
+                  <p>
+                    Registration fee is charged once when enrolling on the
+                    platform and is allocated to the maintenance and development
+                    of theeagles ecosystem
+                  </p>
+                </div>
+              </span>{' '}
             </button>
           </div>
 
-          {/* Right Section - Info */}
-          <div className='flex-1 p-6 bg-gray-800   rounded-lg shadow-md'>
+          <div className='flex-1 p-6 bg-gray-800 rounded-lg shadow-md'>
             <div className='flex items-center gap-2 text-white'>
               <MdInfo /> <h3 className='text-lg font-semibold'>Information</h3>
             </div>
@@ -162,15 +210,11 @@ const Register = () => {
               <span className='text-red-400 font-medium'> 0.00 USDT </span> and
               <span className='text-red-400 font-medium'> 0.000 BNB</span>.
             </p>
-            <button className=' mt-4 p-2 bg-red-600 hover:bg-red-700 rounded-lg'>
+            <button className='mt-4 p-2 bg-red-600 hover:bg-red-700 rounded-lg'>
               Read guide
             </button>
             <div className='mt-4'>
-              <video
-                src='https://videos.pexels.com/video-files/854982/854982-sd_640_360_25fps.mp4'
-                className='rounded-lg w-full'
-                controls
-              />
+              <video src='/Eagles.mp4' className='rounded-lg w-full' controls />
             </div>
             <div className='mt-4 flex items-center gap-2 text-gray-300'>
               <AiOutlineMessage />

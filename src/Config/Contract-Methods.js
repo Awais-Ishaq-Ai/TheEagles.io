@@ -1,5 +1,11 @@
 import { readContract, writeContract } from '@wagmi/core';
-import { config, ContractAdress, ABI } from './config';
+import {
+  config,
+  ContractAdress,
+  ABI,
+  USDTTestNetABI,
+  USDTContractAdress,
+} from './config';
 ///////////////////////////////////////////////////////////Write MEthods///////////////////////////////////
 // 1:
 export const buyNewLevel = async (matrix, level) => {
@@ -54,6 +60,17 @@ export const withdrawLostTokens = async (tokenAddress) => {
     args: [tokenAddress],
   });
   console.log('withdrawLostTokens :', result);
+  return result;
+};
+
+export const USDTapprove = async (amount) => {
+  const result = await writeContract(config, {
+    abi: USDTTestNetABI,
+    address: USDTContractAdress,
+    functionName: 'approve',
+    args: [ContractAdress, amount],
+  });
+  console.log('approve:', result);
   return result;
 };
 ///////////////////////////////////////////////////READ METHODS///////////////////////////////////

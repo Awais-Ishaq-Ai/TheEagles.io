@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { GoPeople } from 'react-icons/go';
 import { HiOutlineArrowPath } from 'react-icons/hi2';
 import Notify from '../Components/Lvl1/Notify';
 import UserTable from '../Components/Lvl1/UserTable';
 import { BsFillQuestionCircleFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import { RiLock2Fill } from 'react-icons/ri';
 
 const Levelx2 = () => {
   const levels = [
@@ -22,6 +23,35 @@ const Levelx2 = () => {
     { level: 12, cost: 5000, peopleCount: 86, timer: '00' },
   ];
 
+  const users = [{ user: '1' }, { user: '1' }, { user: '1' }];
+
+  const maxDivs = 4;
+  const defaultColor = 'bg-white';
+  const filledColor = 'bg-[#a67912]';
+
+  const [resetCount, setResetCount] = useState(0);
+  const [divColors, setDivColors] = useState(
+    new Array(maxDivs).fill(defaultColor)
+  );
+
+  useEffect(() => {
+    if (users.length === 0) {
+      setResetCount(0);
+      setDivColors(new Array(maxDivs).fill(defaultColor));
+    } else if (users.length % maxDivs === 0) {
+      setResetCount((prev) =>
+        users.length > prev * maxDivs ? prev + 1 : prev - 1
+      );
+      setDivColors(new Array(maxDivs).fill(defaultColor));
+    } else {
+      setDivColors((prevColors) =>
+        prevColors.map((color, index) =>
+          index < users.length % maxDivs ? filledColor : defaultColor
+        )
+      );
+    }
+  }, [users.length]);
+
   const [activeLevels, setActiveLevels] = useState([1]);
 
   const handleActivate = (level) => {
@@ -36,7 +66,7 @@ const Levelx2 = () => {
 
   return (
     <>
-      <div className='px-3 mt-3 '>
+      <div className='px-3 mt-3'>
         <h4 className='text-[#7b7b7b] text-sm'>
           ID 1848323 /{' '}
           <span className='text-textColor2 text-base font-medium'>
@@ -48,39 +78,52 @@ const Levelx2 = () => {
           <h1>{totalCost} USDT</h1>
         </div>
       </div>
-      <div className='bg-gradient-to-r from-[#a67912] to-[#1a1303]  w-full h-auto px-2 py-6 mt-3'>
-        <div className='grid grid-cols-2 gap-3'>
-          {levels.map((item) => (
-            <div
-              key={item.level}
-              className={`px-2 py-3 rounded-md shadow-xl shadow-[#00000079] my-2 h-[150px] ${
-                activeLevels.includes(item.level)
-                  ? 'bg-textColor bg-opacity-50'
-                  : 'bg-Background bg-opacity-50'
-              }`}
-            >
-              <div className='flex justify-between'>
-                <h3 className='text-base text-textColor2'>Lvl {item.level}</h3>
-                <p className='flex gap-1 items-center text-textColor3'>
-                  <div className='h-3 w-3 rounded-full flex justify-center items-center'>
-                    <img
-                      src='/assets/LoginImages/tether.png'
-                      alt=''
-                      className='h-[12px] w-auto'
-                    />
-                  </div>
-                  {item.cost}
-                </p>
-              </div>
 
-              {activeLevels.includes(item.level - 1) &&
-                !activeLevels.includes(item.level) && (
+      <div className='bg-gradient-to-r from-[#a67912] to-[#1a1303] w-full h-auto px-2 py-6 mt-3'>
+        <div className='grid grid-cols-2 gap-3'>
+          {levels.map((item, index) => {
+            const isNextToActivate =
+              activeLevels.includes(item.level - 1) &&
+              !activeLevels.includes(item.level);
+            const isLocked =
+              !activeLevels.includes(item.level) && !isNextToActivate;
+
+            return (
+              <div
+                key={item.level}
+                className={`px-2 py-3 relative rounded-md shadow-xl shadow-[#00000079] my-2 h-[150px] ${
+                  activeLevels.includes(item.level)
+                    ? 'bg-textColor bg-opacity-50'
+                    : 'bg-Background bg-opacity-50'
+                }`}
+              >
+                <div className='flex justify-between'>
+                  <h3 className='text-base text-textColor2'>
+                    Lvl {item.level}
+                  </h3>
+                  <p className='flex gap-1 items-center text-textColor3'>
+                    <div className='h-3 w-3 rounded-full flex justify-center items-center'>
+                      <img
+                        src='/assets/LoginImages/tether.png'
+                        alt=''
+                        className='h-[12px] w-auto'
+                      />
+                    </div>
+                    {item.cost}
+                  </p>
+                </div>
+
+                {resetCount === 0 && isNextToActivate && (
+                  <RiLock2Fill className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-400 text-xl' />
+                )}
+
+                {resetCount > 0 && isNextToActivate && (
                   <div className='flex flex-col items-center'>
                     <h1 className='text-textColor3 text-lg w-3/4 leading-5 text-center mt-2'>
                       Upgrade your result x{item.level}
                     </h1>
                     <button
-                      className='px-4 py-1 mt-3 rounded-md text-lg shadow-xl shadow-[#00000079]  font-medium text-textColor3 bg-[#a67912]'
+                      className='px-4 shadow-xl shadow-[#00000079] py-1 mt-3 rounded-md text-lg font-medium text-textColor3 bg-[#a67912]'
                       onClick={() => handleActivate(item.level)}
                     >
                       Active
@@ -88,33 +131,46 @@ const Levelx2 = () => {
                   </div>
                 )}
 
-              {activeLevels.includes(item.level) && (
-                <div>
-                  <div className='flex flex-col items-center my-2 gap-y-2 leading-4'>
-                    <div className='flex gap-x-11'>
-                      <div className='h-9 w-9 rounded-full bg-[linear-gradient(135deg,_#a67912_50%,_#26a17b_50%)] shadow-xl shadow-[#a67912]'></div>
+                {activeLevels.includes(item.level) && (
+                  <div>
+                    <div className='flex flex-col items-center my-2 gap-y-2 leading-4'>
+                      <div className='flex gap-x-11'>
+                        <div
+                          className={`h-9 w-9 rounded-full ${divColors[0]}`}
+                        ></div>
+                      </div>
+                      <div className='flex gap-x-4'>
+                        <div
+                          className={`h-6 w-6 rounded-full ${divColors[1]}`}
+                        ></div>
+                        <div
+                          className={`h-6 w-6 rounded-full ${divColors[2]}`}
+                        ></div>
+                        <div
+                          className={`h-6 w-6 rounded-full ${divColors[3]}`}
+                        ></div>
+                      </div>
                     </div>
-                    <div className='flex gap-x-4'>
-                      <div className='h-6 w-6 rounded-full bg-[#a67912]'></div>
-                      <div className='h-6 w-6 rounded-full bg-[#a67912]'></div>
-                      <div className='h-6 w-6 rounded-full bg-[linear-gradient(135deg,_#a67912_50%,_#26a17b_50%)] shadow-xl shadow-[#a67912]'></div>
-                    </div>
-                  </div>
 
-                  <div className='flex justify-between'>
-                    <p className='flex gap-1 items-center text-textColor3'>
-                      <GoPeople className='text-textColor2' />
-                      {item.peopleCount}
-                    </p>
-                    <p className='flex gap-1 items-center text-textColor3'>
-                      <HiOutlineArrowPath className='text-textColor2' />
-                      {item.timer}
-                    </p>
+                    <div className='flex justify-between'>
+                      <p className='flex gap-1 items-center text-textColor3'>
+                        <GoPeople className='text-textColor2' />
+                        {users.length}
+                      </p>
+                      <p className='flex gap-1 items-center text-textColor3'>
+                        <HiOutlineArrowPath className='text-textColor2' />
+                        {resetCount}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
-          ))}
+                )}
+
+                {isLocked && (
+                  <RiLock2Fill className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-400 text-xl' />
+                )}
+              </div>
+            );
+          })}
         </div>
 
         <div className='mt-7'>
@@ -138,7 +194,7 @@ const Levelx2 = () => {
               <p className='text-textColor2'>Gift</p>
             </div>
           </div>
-          <button className='bg-[#26a17b] shadow-xl shadow-[#00000079]  text-textColor3 px-8 mt-5 py-3 rounded-full font-medium flex gap-2'>
+          <button className='bg-[#26a17b] shadow-xl shadow-[#00000079] text-textColor3 px-8 mt-5 py-3 rounded-full font-medium flex gap-2'>
             <Link to='/Upgradex2' className='flex gap-2 items-center'>
               <BsFillQuestionCircleFill className=' text-textColor3' />
               Marketing legend
