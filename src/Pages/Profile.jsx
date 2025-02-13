@@ -9,16 +9,21 @@ import {
   FaWhatsapp,
 } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Profile() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+
+  const [name, setNickname] = useState('');
+  const [email, setEmail] = useState('');
+  const [description, setDescription] = useState('');
+  const [socialLinks, setSocialLinks] = useState([]);
+  const [currentLink, setCurrentLink] = useState('');
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   const handleClickOutside = (event) => {
     if (event.target.id === 'modal-overlay') {
       closeModal();
@@ -53,6 +58,39 @@ function Profile() {
     },
   ];
 
+  const addSocialLink = () => {
+    if (currentLink) {
+      setSocialLinks([...socialLinks, currentLink]);
+      setCurrentLink('');
+      closeModal();
+    }
+  };
+
+  const createUser = async () => {
+    try {
+      const formData = {
+        id: new Date().getTime(),
+        name,
+        email,
+        description,
+        socialLinks,
+      };
+
+      console.log('Sending data:', formData); // Debugging
+
+      const response = await axios.post(
+        'http://localhost:2700/api/profile',
+        formData
+      );
+
+      if (response.data) {
+        navigate('/home');
+      }
+    } catch (err) {
+      console.error('Error:', err?.response?.data);
+    }
+  };
+
   useEffect(() => {
     if (isModalOpen) {
       document.addEventListener('click', handleClickOutside);
@@ -78,42 +116,33 @@ function Profile() {
           <p className='text-textColor2 font-medium text-center my-2'>
             Choose your Photo
           </p>
-          <form action=''>
-            <label
-              htmlFor=''
-              className='text-textColor2 font-medium block mt-3 mb-1'
-            >
+          <form>
+            <label className='text-textColor2 font-medium block mt-3 mb-1'>
               Nickname
             </label>
             <input
               type='text'
-              name=''
-              id=''
+              value={name}
+              onChange={(e) => setNickname(e.target.value)}
               className='bg-[#5c5c5c] py-3 px-3 w-[320px] rounded text-textColor3 outline-none'
               placeholder='Your Nickname'
             />
-            <label
-              htmlFor=''
-              className='text-textColor2 font-medium block mt-3 mb-1'
-            >
+            <label className='text-textColor2 font-medium block mt-3 mb-1'>
               Email
             </label>
             <input
               type='email'
-              name=''
-              id=''
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className='bg-[#5c5c5c] py-3 px-3 w-[320px] rounded text-textColor3 outline-none'
-              placeholder='Your mail'
+              placeholder='Your Email'
             />
-            <label
-              htmlFor=''
-              className='text-textColor2 font-medium block mt-3 mb-1'
-            >
+            <label className='text-textColor2 font-medium block mt-3 mb-1'>
               Description
             </label>
             <textarea
-              name=''
-              id=''
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
               className='h-[15vh] w-[320px] text-white rounded bg-[#5c5c5c] px-3 py-2 outline-none'
               placeholder='Your Description'
             ></textarea>
@@ -141,7 +170,6 @@ function Profile() {
           >
             <div className='bg-black w-[90%] max-w-[600px] p-6 rounded-lg relative'>
               <IoClose
-                id='close-icon'
                 onClick={closeModal}
                 className='absolute top-2 right-2 text-2xl text-gray-500 cursor-pointer'
               />
@@ -154,7 +182,6 @@ function Profile() {
                     Select social network
                   </p>
                 </div>
-
                 <div className='flex space-x-6 my-8'>
                   {socialMedia.map((item) => (
                     <div
@@ -168,13 +195,15 @@ function Profile() {
 
                 <input
                   type='text'
-                  name=''
-                  id=''
+                  value={currentLink}
+                  onChange={(e) => setCurrentLink(e.target.value)}
                   className='bg-Background text-white py-2 w-full rounded px-2 outline-none'
                   placeholder='Add your link'
                 />
-                <div className='h-auto w-full py-12'></div>
-                <button className='w-full py-2 bg-Background text-white rounded'>
+                <button
+                  className='w-full py-2 bg-Background text-white rounded mt-4'
+                  onClick={addSocialLink}
+                >
                   Add Link
                 </button>
               </div>
@@ -184,7 +213,7 @@ function Profile() {
 
         <button
           className='text-white bg-gradient-to-r from-[#a67912] to-[#453b23] shadow-md shadow-[#3b3b3b79] w-[80%] py-2 rounded-lg mx-auto block'
-          onClick={() => navigate('/home')}
+          onClick={createUser}
         >
           Save Changes
         </button>
