@@ -117,7 +117,7 @@ function Landingpage() {
       )}
       <div className='overflow-hidden'>
         <marquee behavior='scroll' direction='Left' scrollamount='7'>
-          <div className='flex justify-between items-center  py-2 gap-4 max-w-full overflow-auto'>
+          <div className='flex justify-between items-center py-2 gap-4 max-w-full'>
             <div className='text-textColor3 w-max whitespace-nowrap'>
               <p>
                 All Participants &nbsp;
@@ -190,10 +190,7 @@ function Landingpage() {
             <div className='w-[50%]'>
               <Link to='/login' state={{ type: 'register' }}>
                 <button
-                  className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px] ${
-                    timeLeftSec > 0 ? 'opacity-50 cursor-not-allowed' : ''
-                  }`}
-                  disabled={timeLeftSec > 0}
+                  className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px] `}
                 >
                   <div className='flex items-center justify-center gap-2'>
                     Register
