@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Footer from '../Components/Footer/Footer';
 import { IoBookOutline, IoCopy } from 'react-icons/io5';
 import History from '../Components/Home/History';
@@ -13,11 +13,9 @@ import DocumentationSlider from '../Components/LandingPage/DocumentationSlider';
 import FAQ from '../Components/LandingPage/FAQ';
 import Social from '../Components/LandingPage/Social';
 import { IoIosChatbubbles } from 'react-icons/io';
-import { AiOutlineClose } from 'react-icons/ai';
 
 function Landingpage() {
   const [activeTab, setActiveTab] = useState('USDT');
-  const navigate = useNavigate();
 
   const slides = [
     {
@@ -36,39 +34,6 @@ function Landingpage() {
       ),
     },
   ];
-
-  const [timeLeft, setTimeLeft] = useState(getRemainingTime(2));
-  const [timeLeftSec, setTimeLeftSec] = useState(22480);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(getRemainingTime());
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  useEffect(() => {
-    if (timeLeft > 0) {
-      const timer = setInterval(() => {
-        setTimeLeft((prevTime) => prevTime - 1);
-      }, 1000);
-      return () => clearInterval(timer);
-    }
-  }, [timeLeft]);
-
-  function getRemainingTime() {
-    const now = new Date();
-    const midnight = new Date();
-    midnight.setHours(24, 0, 0, 0);
-
-    const diff = midnight - now;
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-
-    return { hours, minutes, seconds };
-  }
 
   const [showToast, setShowToast] = useState(false);
 
@@ -97,24 +62,7 @@ function Landingpage() {
           🔗 Link copied!
         </div>
       )}
-      {isOpen && (
-        <div className='fixed inset-0 flex z-50 items-center justify-center bg-black bg-opacity-50'>
-          <div className='relative bg-white p-2 rounded-lg shadow-lg w-[90%] max-w-md'>
-            <button
-              className='absolute -top-7 -right-0 text-white hover:text-[#ffa14c]'
-              onClick={() => setIsOpen(false)}
-            >
-              <AiOutlineClose size={24} />
-            </button>
 
-            <img
-              src='/assets/LandingImages/shab.jpg'
-              alt='Shab-e-Barat'
-              className='w-full rounded'
-            />
-          </div>
-        </div>
-      )}
       <div className='overflow-hidden'>
         <marquee behavior='scroll' direction='Left' scrollamount='7'>
           <div className='flex justify-between items-center py-2 gap-4 max-w-full'>
@@ -168,20 +116,13 @@ function Landingpage() {
             the eagles.io
           </p>
 
-          {/* Timer Display */}
-          <div className='mt-4 text-2xl font-semibold text-white z-10'>
-            {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s U.T.C
-          </div>
-
           {/* Buttons */}
           <div className='flex justify-between px-2 mt-8 w-[100%] z-10'>
             <div className='w-[45%]'>
               <Link to='/login' state={{ type: 'login' }}>
                 <button
-                  className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px] ${
-                    timeLeftSec > 0 ? 'opacity-50 cursor-not-allowed' : ''
-                  }`}
-                  disabled={timeLeftSec > 0}
+                  className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px] cursor-not-allowed opacity-50`}
+                  disabled='true'
                 >
                   Sign in
                 </button>
@@ -190,7 +131,8 @@ function Landingpage() {
             <div className='w-[50%]'>
               <Link to='/login' state={{ type: 'register' }}>
                 <button
-                  className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px] `}
+                  className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px] cursor-not-allowed opacity-50`}
+                  disabled='true'
                 >
                   <div className='flex items-center justify-center gap-2'>
                     Register
@@ -243,12 +185,7 @@ function Landingpage() {
             want to unlock thier full potential with The Eagles.io!
           </p>
           <div className='w-4/5 mx-auto'>
-            <button
-              className='bg-Background bg-opacity-75 text-[#a67912] font-medium mt-3 py-2 rounded-full w-full'
-              onClick={() => {
-                navigate('/login');
-              }}
-            >
+            <button className='bg-Background bg-opacity-75 text-[#a67912] font-medium mt-3 py-2 rounded-full w-full'>
               Go to School
             </button>
           </div>
