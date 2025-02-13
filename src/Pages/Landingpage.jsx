@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../Components/Footer/Footer';
 import { IoBookOutline, IoCopy } from 'react-icons/io5';
 import History from '../Components/Home/History';
@@ -17,6 +17,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 
 function Landingpage() {
   const [activeTab, setActiveTab] = useState('USDT');
+  const navigate = useNavigate();
 
   const slides = [
     {
@@ -245,25 +246,15 @@ function Landingpage() {
             want to unlock thier full potential with The Eagles.io!
           </p>
           <div className='w-4/5 mx-auto'>
-            <button className='bg-Background bg-opacity-75 text-[#a67912] font-medium mt-3 py-2 rounded-full w-full'>
+            <button
+              className='bg-Background bg-opacity-75 text-[#a67912] font-medium mt-3 py-2 rounded-full w-full'
+              onClick={() => {
+                navigate('/login');
+              }}
+            >
               Go to School
             </button>
           </div>
-          {/* <IoEarth className='text-landingtext absolute text-6xl right-9 top-3 -z-10' /> */}
-
-          {/* <GiBookmarklet className='text-landingtext absolute text-6xl right-0 rotate-45 bottom-4' /> */}
-          {/* <HiOutlineLightBulb className='text-landingtext absolute text-8xl -bottom-6 rotate-12' /> */}
-          {/* <div className='bg-black h-[200px] rounded-lg w-4/5 z-10 left-1/2 -translate-x-1/2 absolute -bottom-24 shadow-[10px_0px_30px_8px_rgb(213,77,33)] flex items-center justify-center'>
-            <iframe
-              width='100%'
-              height='100%'
-              src='https://www.youtube.com/embed/YOUR_VIDEO_ID'
-              title='YouTube video player'
-              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-              allowFullScreen
-              className='rounded-lg'
-            ></iframe>
-          </div> */}
         </div>
         <div className='h-20 flex flex-col justify-end ps-6'>
           <h1 className='text-textColor3 text-2xl mb-4 font-medium'>
