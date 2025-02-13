@@ -6,16 +6,34 @@ import {
   USDTTestNetABI,
   USDTContractAdress,
 } from './config';
+
+import { waitForTransactionReceipt } from 'wagmi/actions';
+
+export const getTxn = async (hash) => {
+  try {
+    if (!hash) {
+      return null;
+    }
+    const transactionReceipt = await waitForTransactionReceipt(config, {
+      hash,
+    });
+
+    return transactionReceipt.status === 'success' ? true : false;
+  } catch (error) {
+    console.error('Error getTxn:', error);
+    return null;
+  }
+};
 ///////////////////////////////////////////////////////////Write MEthods///////////////////////////////////
 // 1:
-export const buyNewLevel = async (matrix, level) => {
+export const activateLevel = async (matrix, level) => {
   const result = await writeContract(config, {
     abi: ABI,
     address: ContractAdress,
-    functionName: 'buyNewLevel',
+    functionName: 'activateLevel',
     args: [matrix, level],
   });
-  console.log('buyNewLevel :', result);
+  console.log('activateLevel :', result);
   return result;
 };
 //2
@@ -211,6 +229,5 @@ export const users = async (address) => {
     functionName: 'users',
     args: [address],
   });
-  console.log('users :', result);
   return result;
 };

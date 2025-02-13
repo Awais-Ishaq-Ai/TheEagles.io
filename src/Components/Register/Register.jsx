@@ -9,11 +9,13 @@ import chainConfig from '../../Config/chainConfig';
 import { HiMiniXMark } from 'react-icons/hi2';
 import { BsFillQuestionCircleFill } from 'react-icons/bs';
 import { useLocation, useNavigate } from 'react-router-dom';
+
 import React from 'react';
 import {
   idToAddress,
   register,
   USDTapprove,
+  getTxn,
 } from '../../Config/Contract-Methods';
 
 const Register = () => {
@@ -61,12 +63,26 @@ const Register = () => {
     if (uplineaddress) {
       try {
         console.log('hello');
-        await USDTapprove(5);
+        const approvetx = await USDTapprove('5000000');
+        const receipt = await getTxn(approvetx);
+        if (!receipt) {
+          console.log('Approve failed');
+
+          return;
+        }
         console.log('first');
         try {
-          let x = await register(uplineaddress);
+          console.log('register start');
+
+          let x = await register('0x722f3A7D715ceB9F3BE92643e4C750310c6B1982');
+          const registerreceipt = await getTxn(x);
+          if (!registerreceipt) {
+            console.log('registration failed');
+            return;
+          }
+          console.log('register End');
           console.log(x);
-          console.log('📤 Registering with Address:', uplineaddress);
+          console.log('📤 Registering with Address:', x);
         } catch (err) {
           console.log(err);
         }
@@ -80,7 +96,7 @@ const Register = () => {
 
   const handleClick = async () => {
     setLoading(true);
-    await getAddress();
+    getAddress();
     setLoading(false);
   };
 
