@@ -61,9 +61,6 @@ function Landingpage() {
     const now = new Date();
     const midnight = new Date();
     midnight.setHours(24, 0, 0, 0);
-    const timeLeftInSeconds = Math.floor((midnight - now) / 1000);
-
-    console.log('timeLeftInSeconds', timeLeftInSeconds);
 
     const diff = midnight - now;
     const hours = Math.floor(diff / (1000 * 60 * 60));
@@ -104,7 +101,7 @@ function Landingpage() {
         <div className='fixed inset-0 flex z-50 items-center justify-center bg-black bg-opacity-50'>
           <div className='relative bg-white p-2 rounded-lg shadow-lg w-[90%] max-w-md'>
             <button
-              className='absolute -top-5 -right-8 text-white hover:text-[#ffa14c]'
+              className='absolute -top-7 -right-0 text-white hover:text-[#ffa14c]'
               onClick={() => setIsOpen(false)}
             >
               <AiOutlineClose size={24} />
