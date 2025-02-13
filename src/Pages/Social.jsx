@@ -1,4 +1,5 @@
 import { Fragment, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import p1 from '/assets/Rewords/r1.png';
 import p2 from '/assets/Rewords/r2.png';
 import p3 from '/assets/Rewords/r3.png';
@@ -9,12 +10,11 @@ import {
   IoIosArrowDroprightCircle,
   IoMdArrowDropdownCircle,
 } from 'react-icons/io';
-import { FaTelegramPlane, FaTwitter, FaYoutube } from 'react-icons/fa';
-import { IoGameController } from 'react-icons/io5';
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 
 const Social = () => {
   const [showAll, setShowAll] = useState(false);
+  const navigate = useNavigate();
 
   // Organized reward images into categories
   const RewordsImages = [
@@ -60,9 +60,13 @@ const Social = () => {
     },
   ];
 
+  const handleSeeMoreClick = () => {
+    navigate('/socialReward', { state: { RewordsImages } });
+  };
+
   return (
     <Fragment>
-      <div className='p-6 rounded-lg shadow-lg max-w-md mx-auto'>
+      <div className='bg-gray-800 p-6 rounded-lg shadow-lg max-w-md mx-auto'>
         {/* User Profile Section */}
         <div className='flex items-center justify-center space-x-4 mb-6'>
           <div className='flex flex-col'>
@@ -106,7 +110,7 @@ const Social = () => {
         </div>
 
         {/* Rewards Section */}
-        <div className='mt-5 bg-Background w-full rounded p-4'>
+        <div className='mt-5 bg-gray-900 w-full rounded p-4'>
           {!showAll && (
             <div className='flex justify-around'>
               {[p1, p2, p3, p4].map((img, index) => (
@@ -119,76 +123,21 @@ const Social = () => {
               ))}
             </div>
           )}
-
-          {showAll && (
-            <div>
-              {RewordsImages.map((category, index) => (
-                <div key={index} className='mb-4'>
-                  <h3 className='text-white font-semibold mb-2'>
-                    {category.MainTile}
-                  </h3>
-                  <hr className='border-gray-700 mb-3' />
-                  <div className='grid grid-cols-3 gap-4'>
-                    {category.images.map((img, imgIndex) => (
-                      <div
-                        key={imgIndex}
-                        className='flex flex-col items-center'
-                      >
-                        <div className='w-16 h-16 rounded-full overflow-hidden'>
-                          <img
-                            src={img.imge}
-                            alt={img.tilte}
-                            className='w-full h-full object-cover'
-                          />
-                        </div>
-                        <h1 className='text-white text-sm mt-2'>{img.tilte}</h1>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {showAll && (
-            <div className='flex flex-col justify-center items-start gap-3 mt-4'>
-              <div className='flex justify-start gap-3 text-white'>
-                <div className='bg-Background w-8 h-8 flex justify-center items-center rounded-full hover:bg-gray-600 transition duration-300'>
-                  <IoGameController />
-                </div>
-                <div className='bg-Background w-8 h-8 flex justify-center items-center rounded-full hover:bg-gray-600 transition duration-300'>
-                  <FaTelegramPlane />
-                </div>
-                <div className='bg-Background w-8 h-8 flex justify-center items-center rounded-full hover:bg-gray-600 transition duration-300'>
-                  <FaYoutube />
-                </div>
-                <div className='bg-Background w-8 h-8 flex justify-center items-center rounded-full hover:bg-gray-600 transition duration-300'>
-                  <FaTwitter />
-                </div>
-              </div>
-              <h1 className='text-gray-500 text-sm'>
-                @ 2025 All Right Reserved
-              </h1>
-              <div>
-                <h1 className='font-medium text-white'>Documents</h1>
-              </div>
-            </div>
-          )}
         </div>
 
         {/* See More / See Less Button */}
         <div className='flex justify-center mt-4'>
           <button
-            onClick={() => setShowAll(!showAll)}
+            onClick={handleSeeMoreClick}
             className='text-blue-500 hover:text-blue-400 transition duration-300 flex items-center gap-2'
           >
-            {showAll ? 'See Less' : 'See More'} <IoIosArrowDroprightCircle />
+            See More <IoIosArrowDroprightCircle />
           </button>
         </div>
 
         {/* Posts Section */}
         <div className='mt-5'>
-          <div className='flex justify-between items-center bg-Background p-2 rounded'>
+          <div className='flex justify-between items-center bg-gray-900 p-2 rounded'>
             <button className='px-4 text-gray-400 border-gray-700 border-2 rounded-md hover:bg-gray-800 transition duration-300'>
               +Create New Post
             </button>
@@ -196,7 +145,7 @@ const Social = () => {
               <IoMdArrowDropdownCircle className='text-white hover:text-gray-400 transition duration-300' />
             </button>
           </div>
-          <div className='flex justify-between items-center bg-Background p-2 mt-2 rounded'>
+          <div className='flex justify-between items-center bg-gray-900 p-2 mt-2 rounded'>
             <button className='px-4 text-gray-400 border-gray-700 border-2 rounded-md hover:bg-gray-800 transition duration-300'>
               All Post
             </button>
