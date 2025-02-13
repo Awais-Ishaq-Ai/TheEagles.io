@@ -14,48 +14,10 @@ import DocumentationSlider from '../Components/LandingPage/DocumentationSlider';
 import FAQ from '../Components/LandingPage/FAQ';
 import Social from '../Components/LandingPage/Social';
 import { IoIosChatbubbles } from 'react-icons/io';
+import { AiOutlineClose } from 'react-icons/ai';
 
 function Landingpage() {
   const [activeTab, setActiveTab] = useState('USDT');
-  const [timeLeft, setTimeLeft] = useState(0);
-  const [isExpired, setIsExpired] = useState(false);
-
-  useEffect(() => {
-    let storedTargetTime = localStorage.getItem('targetTime');
-
-    if (!storedTargetTime) {
-      const newTargetTime =
-        new Date().getTime() +
-        4 * 24 * 60 * 60 * 1000 +
-        20 * 60 * 60 * 1000 +
-        30 * 60 * 1000;
-      localStorage.setItem('targetTime', newTargetTime);
-      storedTargetTime = newTargetTime;
-    }
-
-    const updateTimer = () => {
-      const remaining = storedTargetTime - new Date().getTime();
-      setTimeLeft(remaining);
-      if (remaining <= 0) {
-        setIsExpired(true);
-        clearInterval(interval);
-      }
-    };
-
-    const interval = setInterval(updateTimer, 1000);
-    updateTimer(); // Run once immediately to prevent delay
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const formatTime = (ms) => {
-    if (ms <= 0) return '0d 0h 0m 0s';
-    const days = Math.floor(ms / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((ms % (1000 * 60)) / 1000);
-    return `${days}d ${hours}h ${minutes}m ${seconds}s`;
-  };
 
   const slides = [
     {
@@ -75,6 +37,42 @@ function Landingpage() {
     },
   ];
 
+  const [timeLeft, setTimeLeft] = useState(getRemainingTime(2));
+  const [timeLeftSec, setTimeLeftSec] = useState(22480);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(getRemainingTime());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    if (timeLeft > 0) {
+      const timer = setInterval(() => {
+        setTimeLeft((prevTime) => prevTime - 1);
+      }, 1000);
+      return () => clearInterval(timer);
+    }
+  }, [timeLeft]);
+
+  function getRemainingTime() {
+    const now = new Date();
+    const midnight = new Date();
+    midnight.setHours(24, 0, 0, 0);
+    const timeLeftInSeconds = Math.floor((midnight - now) / 1000);
+
+    console.log('timeLeftInSeconds', timeLeftInSeconds);
+
+    const diff = midnight - now;
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    return { hours, minutes, seconds };
+  }
+
   const [showToast, setShowToast] = useState(false);
 
   const handleCopy = (textToCopy) => {
@@ -89,6 +87,12 @@ function Landingpage() {
       });
   };
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    setIsOpen(true);
+  }, []);
+
   return (
     <>
       {showToast && (
@@ -96,9 +100,27 @@ function Landingpage() {
           🔗 Link copied!
         </div>
       )}
+      {isOpen && (
+        <div className='fixed inset-0 flex z-50 items-center justify-center bg-black bg-opacity-50'>
+          <div className='relative bg-white p-2 rounded-lg shadow-lg w-[90%] max-w-md'>
+            <button
+              className='absolute -top-5 -right-8 text-white hover:text-[#ffa14c]'
+              onClick={() => setIsOpen(false)}
+            >
+              <AiOutlineClose size={24} />
+            </button>
+
+            <img
+              src='/assets/LandingImages/shab.jpg'
+              alt='Shab-e-Barat'
+              className='w-full rounded'
+            />
+          </div>
+        </div>
+      )}
       <div className='overflow-hidden'>
         <marquee behavior='scroll' direction='Left' scrollamount='7'>
-          <div className='flex justify-between items-center py-2 gap-4 max-w-full overflow-auto'>
+          <div className='flex justify-between items-center  py-2 gap-4 max-w-full overflow-auto'>
             <div className='text-textColor3 w-max whitespace-nowrap'>
               <p>
                 All Participants &nbsp;
@@ -113,7 +135,7 @@ function Landingpage() {
               </p>
             </div>
             <span className='text-[#2cd9ff] text-2xl'>•</span>
-            <div className='text-textColor3 w-max whitespace-nowrap'>
+            <div className='text-textColor3  w-max whitespace-nowrap'>
               <p>
                 Profit users result &nbsp;
                 <span className='text-[#2cd9ff]'>3 674 764 788</span>
@@ -121,9 +143,11 @@ function Landingpage() {
             </div>
           </div>
         </marquee>
-        <div className='relative'>
-          {/* First Section */}
-          <div className='bg-[#3939396c] absolute h-[42vh] w-full flex flex-col justify-center items-center'>
+        <div
+          className='bg-cover bg-center'
+          style={{ backgroundImage: `url(${Homegif})` }}
+        >
+          <div className='h-[42vh] w-full bg-[#3939396c] relative flex flex-col justify-center items-center'>
             {/* Logo */}
             <div className='ms-3 pt-2 flex justify-center items-center'>
               <img
@@ -138,23 +162,32 @@ function Landingpage() {
               the eagles.io
             </p>
 
-            {/* Countdown Timer */}
+            {/* Timer Display */}
             <div className='mt-4 text-2xl font-semibold text-white'>
-              {formatTime(timeLeft)}
+              {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s U.T.C
             </div>
 
-            {/* Buttons */}
             <div className='flex justify-between px-2 mt-8 w-[100%]'>
               <div className='w-[45%]'>
                 <Link to='/login' state={{ type: 'login' }}>
-                  <button className='w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912]'>
+                  <button
+                    className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px] ${
+                      timeLeftSec > 0 ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
+                    disabled={timeLeftSec > 0}
+                  >
                     Sign in
                   </button>
                 </Link>
               </div>
               <div className='w-[50%]'>
                 <Link to='/login' state={{ type: 'register' }}>
-                  <button className='w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px]'>
+                  <button
+                    className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px] ${
+                      timeLeftSec > 0 ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
+                    disabled={timeLeftSec > 0}
+                  >
                     <div className='flex items-center justify-center gap-2'>
                       Register
                     </div>
@@ -163,19 +196,7 @@ function Landingpage() {
               </div>
             </div>
           </div>
-
-          {/* Video Section (Moved Below) */}
-          <div className='w-full'>
-            <video
-              src='/intro.mp4'
-              className='h-[42vh] w-full'
-              autoPlay
-              loop
-              muted
-            ></video>
-          </div>
         </div>
-
         <div className='w-[80%] mx-auto mt-2'>
           <p className='text-white font-medium text-center my-3'>
             A decentralized networking platform based on smart contracts, which{' '}

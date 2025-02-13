@@ -26,6 +26,7 @@ import AccountSearch from './Pages/AccountSearch';
 import Support from './Pages/Support';
 import Register from './Components/Register/Register';
 import Social from './Pages/Social';
+import NumberRedirect from './NumberRedirect';
 
 const ScrollToTop = () => {
   const location = useLocation();
@@ -47,7 +48,7 @@ function App() {
     '/auth',
     '/passId',
     '/',
-    "/social",
+    '/social',
     '/accountSearch',
     '/support',
     '/register',
@@ -60,6 +61,7 @@ function App() {
   return (
     <>
       <ScrollToTop />
+      <NumberRedirect />
       {!hideNavbarFooterRoutes.includes(location.pathname) && (
         <Navbar home={setShowHome} setShowBar={setShowBar} />
       )}
@@ -89,6 +91,7 @@ function App() {
         {showHome && <Route path='/stats' element={<Stats />} />}
         {showHome && <Route path='/calculator' element={<Calculator />} />}
         <Route path='/support' element={<Support />} />
+        <Route path='/redirect' element={<Register />} />
       </Routes>
       {!hideNavbarFooterRoutes.includes(location.pathname) && <Footer />}
     </>

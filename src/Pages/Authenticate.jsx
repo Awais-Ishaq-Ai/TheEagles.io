@@ -7,7 +7,6 @@ import Footer from '../Components/Footer/Footer';
 import { useEffect, useState } from 'react';
 import { useConnect, useAccount, useSwitchChain } from 'wagmi';
 import chainConfig from '../Config/chainConfig';
-import axios from 'axios';
 
 const Authenticate = () => {
   const navigate = useNavigate();
@@ -28,7 +27,6 @@ const Authenticate = () => {
   useEffect(() => {
     if (address && isConnected) {
       navigate('/passId');
-      saveWalletAddress(address);
     }
   }, [address, isConnected]);
 
@@ -36,18 +34,6 @@ const Authenticate = () => {
     setShowSidebar(true);
   };
 
-  const saveWalletAddress = async (walletAddress) => {
-    try {
-      const response = await axios.post(
-        'http://localhost:5000/api/v1/save-wallet',
-        {
-          address: walletAddress,
-        }
-      );
-    } catch (error) {
-      alert(error.response?.data?.error || 'Failed to save wallet');
-    }
-  };
   const handleConnect = (walletName) => {
     const connector = connectors.find(
       (c) => c.name.toLowerCase() === walletName.toLowerCase()

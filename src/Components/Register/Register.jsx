@@ -8,6 +8,8 @@ import { useConnect, useAccount, useSwitchChain } from 'wagmi';
 import chainConfig from '../../Config/chainConfig';
 import { HiMiniXMark } from 'react-icons/hi2';
 import { BsFillQuestionCircleFill } from 'react-icons/bs';
+import { useLocation, useNavigate } from 'react-router-dom';
+import React from 'react';
 import {
   idToAddress,
   registrationExt,
@@ -20,6 +22,20 @@ const Register = () => {
   const { isConnected, address, chain } = useAccount();
   const { switchChain } = useSwitchChain();
   const [upline, setUpline] = useState('1');
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const route = queryParams.get('route');
+  const modifiedRoute = route ? route.substring(1) : '';
+
+  const routePattern = /\d/;
+  React.useEffect(() => {
+    if (routePattern.test(location.pathname)) {
+      navigate(`/redirect?route=${encodeURIComponent(location.pathname)}`);
+    }
+  }, [location, navigate, routePattern]);
 
   const handleInputChange = (e) => {
     setUpline(e.target.value);
@@ -60,6 +76,12 @@ const Register = () => {
     } else {
       console.log('❌ Address not available!');
     }
+  };
+
+  const handleClick = async () => {
+    setLoading(true);
+    await getAddress();
+    setLoading(false);
   };
 
   const handleConnect = (walletName) => {
@@ -132,7 +154,7 @@ const Register = () => {
             <label className='block text-gray-400 mb-2'>Your upline</label>
             <input
               type='text'
-              value={upline}
+              value={route ? modifiedRoute : upline}
               onChange={handleInputChange}
               className='w-full p-2 rounded bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500'
             />
@@ -171,13 +193,15 @@ const Register = () => {
             </div>
 
             <button
-              className={`mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg ${
-                !isConnected ? 'cursor-not-allowed' : 'cursor-pointer'
+              className={`mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg flex items-center justify-center ${
+                !isConnected || loading
+                  ? 'cursor-not-allowed opacity-50'
+                  : 'cursor-pointer'
               }`}
-              disabled={!isConnected}
-              onClick={getAddress}
+              disabled={!isConnected || loading}
+              onClick={handleClick}
             >
-              Registeration
+              {loading ? '...loading' : 'Registration'}
             </button>
             <button className='flex items-center justify-center p-2 mt-2 text-gray-500   rounded-lg gap-1'>
               Registration fee

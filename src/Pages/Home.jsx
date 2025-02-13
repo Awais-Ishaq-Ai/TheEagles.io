@@ -153,15 +153,17 @@ const Home = ({ showBar, setShowBar }) => {
                         alt='logo'
                         className='h-7 w-7 ms-2 object-cover absolute bottom-2 -right-6 rounded-full'
                       />
-                      <div className='w-28 rounded-full p-[2px] absolute -bottom-7 bg-gradient-to-r from-[#a67912] via-white to-white'>
-                        <div className='bg-[#433108] rounded-full text-xs px-2 flex items-center justify-between py-1'>
-                          <p className='text-slate-400'>Social</p>
-                          <span className='flex gap-1 items-center'>
-                            <FaHeart className='text-pink-400' />
-                            526
-                          </span>
+                      <Link to='/social' className='absolute -bottom-7'>
+                        <div className='w-28 rounded-full p-[2px] bg-gradient-to-r from-[#a67912] via-white to-white'>
+                          <div className='bg-[#433108] rounded-full text-xs px-2 flex items-center justify-between py-1'>
+                            <p className='text-slate-400'>Social</p>
+                            <span className='flex gap-1 items-center'>
+                              <FaHeart className='text-pink-400' />
+                              526
+                            </span>
+                          </div>
                         </div>
-                      </div>
+                      </Link>
                     </div>
                   </div>
                   <div className='text-textColor3 ml-8 '>
