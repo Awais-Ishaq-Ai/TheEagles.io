@@ -6,6 +6,7 @@ import UserTable from '../Components/Lvl1/UserTable';
 import { BsFillQuestionCircleFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { RiLock2Fill } from 'react-icons/ri';
+import { activateLevel } from '../Config/Contract-Methods';
 
 const Levelx2 = () => {
   const levels = [
@@ -23,7 +24,7 @@ const Levelx2 = () => {
     { level: 12, cost: 5000, peopleCount: 86, timer: '00' },
   ];
 
-  const users = [{ user: '1' }, { user: '1' }, { user: '1' }, { user: '1' }];
+  const users = [{ user: '1' }, { user: '1' }, { user: '1' }];
 
   const maxDivs = 4;
   const defaultColor = 'bg-white';
@@ -54,9 +55,21 @@ const Levelx2 = () => {
 
   const [activeLevels, setActiveLevels] = useState([1]);
 
-  const handleActivate = (level) => {
-    if (!activeLevels.includes(level)) {
-      setActiveLevels((prev) => [...prev, level]);
+  const handleLevelActivation = async (level) => {
+    try {
+      const approvetx = await activateLevel('2', level);
+      const receipt = await getTxn(approvetx);
+
+      if (!receipt) {
+        console.log('Level activation failed');
+        return;
+      }
+
+      if (!activeLevels.includes(level)) {
+        setActiveLevels((prev) => [...prev, level]);
+      }
+    } catch (err) {
+      console.log('Error activating level:', err);
     }
   };
 
@@ -124,7 +137,7 @@ const Levelx2 = () => {
                     </h1>
                     <button
                       className='px-4 shadow-xl shadow-[#00000079] py-1 mt-3 rounded-md text-lg font-medium text-textColor3 bg-[#a67912]'
-                      onClick={() => handleActivate(item.level)}
+                      onClick={() => handleLevelActivation(item.level)}
                     >
                       Active
                     </button>

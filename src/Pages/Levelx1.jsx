@@ -24,7 +24,7 @@ const Levelx1 = () => {
     { level: 12, cost: 5000, peopleCount: 86, timer: '00' },
   ];
 
-  const users = [{ user: '1' }, { user: '1' }, { user: '1' }, { user: '1' }];
+  const users = [{ user: '1' }, { user: '1' }, { user: '1' }];
 
   const maxDivs = 4;
   const defaultColor = 'bg-white';
@@ -65,7 +65,6 @@ const Levelx1 = () => {
         return;
       }
 
-      // Agar Levelactivation successful ho to UI update karega
       if (!activeLevels.includes(level)) {
         setActiveLevels((prev) => [...prev, level]);
       }
