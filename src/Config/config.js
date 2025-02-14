@@ -154,6 +154,20 @@ export const ABI = [
     type: 'function',
   },
   {
+    inputs: [{ internalType: 'address', name: 'user', type: 'address' }],
+    name: 'getCurrentX1Level',
+    outputs: [{ internalType: 'uint8', name: '', type: 'uint8' }],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [{ internalType: 'address', name: 'user', type: 'address' }],
+    name: 'getCurrentX2Level',
+    outputs: [{ internalType: 'uint8', name: '', type: 'uint8' }],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
     inputs: [
       { internalType: 'address', name: 'user', type: 'address' },
       { internalType: 'uint8', name: 'matrix', type: 'uint8' },
@@ -161,6 +175,13 @@ export const ABI = [
     ],
     name: 'getSlotsFilled',
     outputs: [{ internalType: 'uint8', name: '', type: 'uint8' }],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [{ internalType: 'address', name: 'user', type: 'address' }],
+    name: 'getTotalUSDTReceived',
+    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
     stateMutability: 'view',
     type: 'function',
   },
@@ -225,8 +246,24 @@ export const ABI = [
     type: 'function',
   },
   {
+    inputs: [{ internalType: 'address', name: '_newAddress', type: 'address' }],
+    name: 'setSystemRecipentAddress',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
     inputs: [{ internalType: 'address', name: 'newOwner', type: 'address' }],
     name: 'transferOwnership',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      { internalType: 'contract IERC20', name: '_token', type: 'address' },
+    ],
+    name: 'updateToken',
     outputs: [],
     stateMutability: 'nonpayable',
     type: 'function',
@@ -238,6 +275,9 @@ export const ABI = [
       { internalType: 'address', name: 'referrer', type: 'address' },
       { internalType: 'uint256', name: 'id', type: 'uint256' },
       { internalType: 'uint8', name: 'currentLevel', type: 'uint8' },
+      { internalType: 'uint8', name: 'currentX1Level', type: 'uint8' },
+      { internalType: 'uint8', name: 'currentX2Level', type: 'uint8' },
+      { internalType: 'uint256', name: 'totalUSDTReceived', type: 'uint256' },
     ],
     stateMutability: 'view',
     type: 'function',
@@ -264,4 +304,4 @@ export const USDTTestNetABI = [
   },
 ];
 
-export const ContractAdress = '0x3A9b7592f057E02B037323E80c6fa5f99CB50e99';
+export const ContractAdress = '0xcdF08a9389Cb8093A3035957625E1845090Ac1e8';
