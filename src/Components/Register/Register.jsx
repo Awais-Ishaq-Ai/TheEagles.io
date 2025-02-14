@@ -74,7 +74,7 @@ const Register = () => {
         try {
           console.log('register start');
 
-          let x = await register('0x722f3A7D715ceB9F3BE92643e4C750310c6B1982');
+          let x = await register(uplineaddress);
           const registerreceipt = await getTxn(x);
           if (!registerreceipt) {
             console.log('registration failed');
