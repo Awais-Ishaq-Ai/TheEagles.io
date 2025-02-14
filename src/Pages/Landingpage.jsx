@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../Components/Footer/Footer';
 import { IoBookOutline, IoCopy } from 'react-icons/io5';
 import History from '../Components/Home/History';
@@ -16,6 +16,7 @@ import { IoIosChatbubbles } from 'react-icons/io';
 
 function Landingpage() {
   const [activeTab, setActiveTab] = useState('USDT');
+  const navigate = useNavigate();
 
   const slides = [
     {
@@ -185,7 +186,7 @@ function Landingpage() {
             want to unlock thier full potential with The Eagles.io!
           </p>
           <div className='w-4/5 mx-auto'>
-            <button className='bg-Background bg-opacity-75 text-[#a67912] font-medium mt-3 py-2 rounded-full w-full'>
+            <button className='bg-Background bg-opacity-75 text-[#a67912] font-medium mt-3 py-2 rounded-full w-full' onClick={()=> navigate('/login')}>
               Go to School
             </button>
           </div>
