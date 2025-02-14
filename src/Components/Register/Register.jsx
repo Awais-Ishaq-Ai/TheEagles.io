@@ -63,7 +63,7 @@ const Register = () => {
     if (uplineaddress) {
       try {
         console.log('hello');
-        const approvetx = await USDTapprove('5000000');
+        const approvetx = await USDTapprove('5000000000000000000');
         const receipt = await getTxn(approvetx);
         if (!receipt) {
           console.log('Approve failed');
