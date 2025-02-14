@@ -54,6 +54,7 @@ const Levelx1 = () => {
   }, [users.length]);
 
   const [activeLevels, setActiveLevels] = useState([1]);
+  const [activeIndex, setActiveIndex] = useState(2);
 
   const handleLevelActivation = async (level) => {
     try {
@@ -67,6 +68,7 @@ const Levelx1 = () => {
 
       if (!activeLevels.includes(level)) {
         setActiveLevels((prev) => [...prev, level]);
+        setActiveIndex(level + 1);
       }
     } catch (err) {
       console.log('Error activating level:', err);
@@ -97,8 +99,16 @@ const Levelx1 = () => {
             const isNextToActivate =
               activeLevels.includes(item.level - 1) &&
               !activeLevels.includes(item.level);
+
+            const isPreviousToActivate =
+              activeLevels.includes(item.level - 1) &&
+              !activeLevels.includes(item.level);
+
             const isLocked =
-              !activeLevels.includes(item.level) && !isNextToActivate;
+              (item.level === activeIndex - 1 &&
+                resetCount > 0 &&
+                isPreviousToActivate) ||
+              (!activeLevels.includes(item.level) && !isPreviousToActivate);
 
             return (
               <div
@@ -125,7 +135,7 @@ const Levelx1 = () => {
                   </p>
                 </div>
 
-                {resetCount === 0 && isNextToActivate && (
+                {isPreviousToActivate && (
                   <RiLock2Fill className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-400 text-xl' />
                 )}
 
