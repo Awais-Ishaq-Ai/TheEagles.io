@@ -86,6 +86,7 @@ const Register = () => {
         } catch (err) {
           console.log(err);
         }
+        navigate('/home')
       } catch (err) {
         console.log(err);
       }
