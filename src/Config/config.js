@@ -1,17 +1,17 @@
 import { createConfig, http } from 'wagmi';
-import { sepolia, mainnet } from 'wagmi/chains';
+import { sepolia, mainnet, bsc } from 'wagmi/chains';
 import { injected, metaMask, walletConnect } from 'wagmi/connectors';
 
 const projectId = '45a029651f37ec8e01c2e486810e6f3e';
 export const USDTContractAdress = '0xaA8E23Fb1079EA71e0a56F48a2aA51851D8433D0';
 
 export const config = createConfig({
-  chains: [sepolia],
+  chains: [bsc],
   connectors: [injected(), walletConnect({ projectId }), metaMask()],
 
   transports: {
-    [sepolia.id]: http(),
-    [mainnet.id]: http(),
+    // [sepolia.id]: http(),
+    [bsc.id]: http(),
   },
 });
 
@@ -290,7 +290,6 @@ export const ABI = [
     type: 'function',
   },
 ];
-
 export const USDTTestNetABI = [
   {
     inputs: [
@@ -304,4 +303,4 @@ export const USDTTestNetABI = [
   },
 ];
 
-export const ContractAdress = '0xcdF08a9389Cb8093A3035957625E1845090Ac1e8';
+export const ContractAdress = '0x5Cc3cd98f7b15CD770E0C97822FC865e15CF6Ea7';

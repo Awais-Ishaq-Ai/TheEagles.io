@@ -155,7 +155,7 @@ const Register = () => {
           <div className='flex-1 p-2 md:p-4 lg:p-2'>
             <div className='flex justify-end'>
               <p
-                className='text-textColor3 inline-block text-xs px-3 py-2 rounded-full bg-textColor3 bg-opacity-30 w-[105px] overflow-x-scroll'
+                className='text-textColor3 inline-block text-xs px-3 py-2 rounded-full bg-textColor3 bg-opacity-30 w-[105px] overflow-x-scroll cursor-pointer'
                 style={{
                   scrollbarWidth: 'none',
                 }}
