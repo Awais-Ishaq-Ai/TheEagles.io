@@ -3,7 +3,7 @@ import { sepolia, mainnet, bsc } from 'wagmi/chains';
 import { injected, metaMask, walletConnect } from 'wagmi/connectors';
 
 const projectId = '45a029651f37ec8e01c2e486810e6f3e';
-export const USDTContractAdress = '0xaA8E23Fb1079EA71e0a56F48a2aA51851D8433D0';
+export const USDTContractAdress = '0x55d398326f99059fF775485246999027B3197955';
 
 export const config = createConfig({
   chains: [bsc],
