@@ -12,7 +12,8 @@ import { FaHeart } from 'react-icons/fa';
 import { HiMiniXMark } from 'react-icons/hi2';
 import { useConnect, useDisconnect, useAccount, useSwitchChain } from 'wagmi';
 import chainConfig from '../Config/chainConfig';
-import { users } from '../Config/Contract-Methods';
+import { getCurrentX1Level, getCurrentX2Level, getTotalUSDTReceived, users } from '../Config/Contract-Methods';
+
 
 const Home = ({ showBar, setShowBar }) => {
   const [showDetails, setShowDetails] = useState(true);
@@ -25,8 +26,6 @@ const Home = ({ showBar, setShowBar }) => {
   const [showToast, setShowToast] = useState(false);
   const [userData, setUserData] = useState(null);
 
-  console.log('userData', userData);
-
   const handleCopy = (textToCopy) => {
     navigator.clipboard
       .writeText(textToCopy)
@@ -38,6 +37,28 @@ const Home = ({ showBar, setShowBar }) => {
         console.error('Failed to copy text: ', error);
       });
   };
+  const [getUsdt, setGetUsdt] = useState()
+  const [getlevelX1, setGetlevelX1] = useState()
+  const [getlevelX2, setGetlevelX2] = useState()
+  useEffect(() => {
+    const fetchUSDT = async () => {
+      try {
+        if (isConnected && address) {
+          let getWalletAddress = await getTotalUSDTReceived(address);
+          setGetUsdt(getWalletAddress.toString());
+          let getCurrentlevelX1 = await getCurrentX1Level(address)
+          setGetlevelX1(getCurrentlevelX1.toString())
+          let getCurrentlevelX2 = await getCurrentX2Level(address)
+          setGetlevelX2(getCurrentlevelX2.toString())
+        }
+      } catch (error) {
+        console.error("Error fetching USDT:", error);
+      }
+    };
+    fetchUSDT();
+  }, [isConnected, address]);
+
+
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -110,9 +131,8 @@ const Home = ({ showBar, setShowBar }) => {
 
       <div className='relative overflow-hidden'>
         <div
-          className={`absolute top-0 h-screen w-full bg-black py-4 px-3 transition-all duration-500 z-50 ${
-            showBar ? 'right-0' : '-right-full'
-          }`}
+          className={`absolute top-0 h-screen w-full bg-black py-4 px-3 transition-all duration-500 z-50 ${showBar ? 'right-0' : '-right-full'
+            }`}
         >
           <div className='flex justify-end'>
             <div className='inline-block bg-Background p-2 rounded-full shadow-2xl'>
@@ -127,8 +147,7 @@ const Home = ({ showBar, setShowBar }) => {
             <div
               key={wallet.id}
               onClick={() => handleConnect(wallet.name)}
-              className='cursor-pointer mt-3 bg-zinc-900 text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'
-            >
+              className='cursor-pointer mt-3 bg-zinc-900 text-textColor2 rounded-lg flex items-center gap-6 py-5 px-3'>
               <div className='h-16 w-16 bg-textColor3 rounded-full flex justify-center items-center'>
                 <img
                   src={wallet.image}

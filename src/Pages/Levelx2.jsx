@@ -24,7 +24,7 @@ const Levelx2 = () => {
     { level: 12, cost: 5000, peopleCount: 86, timer: '00' },
   ];
 
-  const users = [{ user: '1' }, { user: '1' }, { user: '1' }];
+  const users = [{ user: '1' }, { user: '1' }, { user: '1' }, { user: '1' }];
 
   const maxDivs = 4;
   const defaultColor = 'bg-white';
@@ -98,17 +98,20 @@ const Levelx2 = () => {
             const isNextToActivate =
               activeLevels.includes(item.level - 1) &&
               !activeLevels.includes(item.level);
-            const isLocked =
-              !activeLevels.includes(item.level) && !isNextToActivate;
+
+            const isLocked = !activeLevels.includes(item.level) && !activeLevels.includes(item.level + 1) || resetCount > 0;
+
+            const isPreviousToNextToActivate = levels[index + 1] &&
+              activeLevels.includes(levels[index + 1].level - 1) &&
+              !activeLevels.includes(levels[index + 1].level);
 
             return (
               <div
                 key={item.level}
-                className={`px-2 py-3 relative rounded-md shadow-xl shadow-[#00000079] my-2 h-[150px] ${
-                  activeLevels.includes(item.level)
-                    ? 'bg-textColor bg-opacity-50'
-                    : 'bg-Background bg-opacity-50'
-                }`}
+                className={`px-2 py-3 relative rounded-md shadow-xl shadow-[#00000079] my-2 h-[150px] ${activeLevels.includes(item.level)
+                  ? 'bg-textColor bg-opacity-50'
+                  : 'bg-Background bg-opacity-50'
+                  }`}
               >
                 <div className='flex justify-between'>
                   <h3 className='text-base text-textColor2'>
@@ -131,19 +134,19 @@ const Levelx2 = () => {
                 )}
 
                 {resetCount > 0 && isNextToActivate && (
-                  <div className='flex flex-col items-center'>
-                    <h1 className='text-textColor3 text-lg w-3/4 leading-5 text-center mt-2'>
-                      Upgrade your result x{item.level}
-                    </h1>
+                  <div className='flex flex-col items-center relative z-40 '>
+                    <h1 className='text-textColor3 text-md w-full text-center mt-2'>Upgrade your result x{item.level}</h1>
                     <button
-                      className='px-4 shadow-xl shadow-[#00000079] py-1 mt-3 rounded-md text-lg font-medium text-textColor3 bg-[#a67912]'
+                      className='px-4 shadow-xl shadow-[#00000079] py-1 mt-[13px] absolute top-[17px] rounded-md text-lg font-medium text-textColor3 bg-[#a67912] flex items-center gap-2'
                       onClick={() => handleLevelActivation(item.level)}
                     >
                       Active
                     </button>
                   </div>
                 )}
-
+                {(isLocked || isPreviousToNextToActivate) && (
+                  <RiLock2Fill className={`absolute top-1/2 left-1/2 transform  -translate-x-1/2 ${!isLocked ? "opacity-0" : "opacity-90"} -translate-y-1/2 text-gray-400 text-xl ${!resetCount > 0 ? 'opacity-0' : "opacity-100"}`} />
+                )}
                 {activeLevels.includes(item.level) && (
                   <div>
                     <div className='flex flex-col items-center my-2 gap-y-2 leading-4'>
@@ -178,9 +181,6 @@ const Levelx2 = () => {
                   </div>
                 )}
 
-                {isLocked && (
-                  <RiLock2Fill className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-400 text-xl' />
-                )}
               </div>
             );
           })}

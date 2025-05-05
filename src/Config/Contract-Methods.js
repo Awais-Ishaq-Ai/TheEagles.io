@@ -231,3 +231,41 @@ export const users = async (address) => {
   });
   return result;
 };
+
+
+// new Functions by Aqib
+// 1
+export const getTotalUSDTReceived = async (adress) => {
+  const result = await readContract(config, {
+    abi: ABI,
+    address: ContractAdress,
+    functionName: 'getTotalUSDTReceived',
+    args: [adress]
+  });
+  console.log('getTotalUSDTReceived :', result);
+  return result;
+};
+// 2
+export const getCurrentX1Level = async (adress) => {
+  const result = await readContract(config, {
+    abi: ABI,
+    address: ContractAdress,
+    functionName: 'getCurrentX1Level',
+    args: [adress]
+  });
+  console.log('getCurrentX1Level :', result);
+  return result;
+};
+
+// 3
+
+export const getCurrentX2Level = async (adress) => {
+  const result = await readContract(config, {
+    abi: ABI,
+    address: ContractAdress,
+    functionName: 'getCurrentX2Level',
+    args: [adress]
+  });
+  console.log('getCurrentX2Level :', result);
+  return result;
+};

@@ -2,47 +2,48 @@ import React, { useState } from 'react';
 
 const Calculator = () => {
   const [selected, setSelected] = useState(null);
-  const [value, setValue] = useState(0.5);
+  const [value, setValue] = useState(0);
   const [active, setActive] = useState('X1');
   const [activepara, setActivepara] = useState(
-    'Basic matrix program,which is best for those who are self-reliant and prefer independent development'
+    'Basic matrix program, which is best for those who are self-reliant and prefer independent development'
   );
+
   const number = [
-    { num: 1 },
-    { num: 2 },
-    { num: 3 },
-    { num: 4 },
-    { num: 5 },
-    { num: 6 },
-    { num: 7 },
-    { num: 8 },
-    { num: 9 },
-    { num: 10 },
-    { num: 11 },
-    { num: 12 },
+    { num: 1, value: 2.5 }, 
+    { num: 2, value: 5 },  
+    { num: 3, value: 10 }, 
+    { num: 4, value: 20 }, 
+    { num: 5, value: 40 }, 
+    { num: 6, value: 80 }, 
+    { num: 7, value: 160 },
+    { num: 8, value: 320 },
+    { num: 9, value: 640 },
+    { num: 10, value: 1280 },
+    { num: 11, value: 2560 },
+    { num: 12, value: 5120 },
   ];
+
   const handleLevel = (i) => {
     setSelected(i);
-    if (active == 'X1') {
-      setValue(0.5 * i + 1);
-    } else {
-      setValue(0.9 * i + 1);
-    }
+    setValue(number[i].value);
   };
+
   const handleValueX1 = () => {
     setActive('X1');
-    setValue(0.5);
+    setValue(i[0]); 
     setActivepara(
-      'Basic matrix program,which is best for those who are self-reliant and prefer independent development'
+      'Basic matrix program, which is best for those who are self-reliant and prefer independent development'
     );
   };
+
   const handleValueX2 = () => {
     setActive('X2');
-    setValue(0.9);
+    setValue(0); 
     setActivepara(
-      'More advanced program, designed for team work. Results are achieved here through direct partners, as well as through spillovers from other participate.'
+      'More advanced program, designed for team work. Results are achieved here through direct partners, as well as through spillovers from other participants.'
     );
   };
+
   return (
     <div className='bg-black text-textColor3 p-2 pt-5'>
       <div className='text-center'>
@@ -58,7 +59,7 @@ const Calculator = () => {
 
         <div
           className={`bg-gradient-to-r w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-4 text-textColor3 font-medium rounded-lg ${
-            active == 'X1'
+            active === 'X1'
               ? 'from-[#a67912] to-[#1a1303]'
               : 'from-[#000000] to-[#747474]'
           }`}
@@ -68,7 +69,7 @@ const Calculator = () => {
         </div>
         <div
           className={`bg-gradient-to-r w-3/4 mx-auto flex items-center justify-center px-8 py-3 mt-4 text-textColor3 font-medium rounded-lg  ${
-            active == 'X2'
+            active === 'X2'
               ? 'from-[#a67912] to-[#1a1303]'
               : 'from-[#000000] to-[#747474]'
           }`}
@@ -101,7 +102,6 @@ const Calculator = () => {
         <p className='text-[13px] text-textColor2 mt-3 mb-2 px-3'>
           Cost of all selected slots
         </p>
-        {/* <h2 className='text-textColor3 font-semibold px-3'>{value} USDT</h2> */}
         <hr />
         <p className='text-[13px] text-textColor2 mt-3 px-3'>
           Result of all selected

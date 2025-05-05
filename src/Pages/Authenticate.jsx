@@ -86,7 +86,7 @@ const Authenticate = () => {
 
           <div className='bg-gradient-to-r from-[#a67912] to-[#2a261e] mx-3 px-3 py-6 mt-5 rounded-lg'>
             <h1 className='text-textColor3 text-xl font-medium'>
-              Welcome to The Eagles.io
+     leve         Welcome to The Eagles.io
             </h1>
             <p className='text-textColor2 text-xs mt-3'>
               Connect your wallet to start working.First Time here? Watch
