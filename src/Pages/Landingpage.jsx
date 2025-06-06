@@ -122,7 +122,7 @@ function Landingpage() {
             <div className='w-[45%]'>
               <Link to='/login' state={{ type: 'login' }}>
                 <button
-                  className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px] cursor-not-allowed opacity-50`}
+                  className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px] opacity-50`}
                   
                 >
                   Sign in
@@ -132,7 +132,7 @@ function Landingpage() {
             <div className='w-[50%]'>
               <Link to='/login' state={{ type: 'register' }}>
                 <button
-                  className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px] cursor-not-allowed  opacity-50`}
+                  className={`w-[100%] py-2 rounded-full text-white bg-gradient-to-r from-[#1a1303] to-[#a67912] h-[40px]   opacity-50`}
                 >
                   <div className='flex items-center justify-center gap-2'>
                     Register
