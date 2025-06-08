@@ -8,7 +8,7 @@ const UpgradeLvl3 = () => {
   return (
     <>
       <div className='pt-4 pb-8'>
-        <div className='h-1/2 w-1/4 mx-auto bg-[#150f4de6] rounded-full shadow-[0_0_200px_50px_rgba(21,15,77,1),0_0_300px_100px_rgba(21,15,77,1)]'></div>
+        <div className='h-1/2 w-1/4 mx-auto  bg-[#150f4de6] rounded-full shadow-[0_0_200px_50px_rgba(21,15,77,1),0_0_300px_100px_rgba(21,15,77,1)]'></div>
         <div className='px-3 flex justify-between  mt-7'>
           <h1 className='w-1/4 text-2xl text-textColor3 font-semibold'>
             Upgrade x1

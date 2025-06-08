@@ -208,8 +208,11 @@ const Home = ({ showBar, setShowBar }) => {
                     <h1 className='text-2xl font-semibold font-sans'>
                       Username
                     </h1>
-                    <p className='text-lg text-yellow-300 italic font-medium'>
+                    {/* <p className='text-lg text-yellow-300 italic font-medium'>
                       ID {userData?.[1]?.toString() ?? 'Loading...'}
+                    </p> */}
+                    <p className='text-lg text-yellow-300 italic font-medium'>
+                      ID:1973782
                     </p>
                     <button
                       className='mt-8 text-base flex gap-2 items-center justify-center bg-Background shadow-xl shadow-[#00000079] transition-all ease-in-out text-textColor2 w-44 py-1 rounded-full'
