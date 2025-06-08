@@ -1,7 +1,7 @@
-import { GiGreekTemple } from 'react-icons/gi';
+
 import { GoPeople } from 'react-icons/go';
 import { HiOutlineArrowPath } from 'react-icons/hi2';
-import { BsFillQuestionCircleFill } from 'react-icons/bs';
+
 import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 
 const UpgradeLvl3 = () => {
